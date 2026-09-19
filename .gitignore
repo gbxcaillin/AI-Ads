@@ -1,0 +1,17 @@
+# Generated picture clips and preview cuts live in OpenArt and the editor's project, not in git.
+# Approved reference cuts are the exception and go under spots/<spot>/reference/.
+spots/*/clips/
+spots/*/out/
+spots/*/frames*/
+spots/*/logoframes/
+spots/*/_stitch_tmp/
+*.loud.mp4
+check*.png
+strip*.png
+
+# Tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

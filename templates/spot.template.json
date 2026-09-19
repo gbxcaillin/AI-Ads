@@ -1,0 +1,152 @@
+{
+  "spot": "<spot-name>",
+  "client": "GBX Professional Services",
+  "format": "16:9 web brand film, 30 to 40 s, web loudness target (-14 LUFS, -1 dBTP)",
+  "status": "script",
+  "openart": {
+    "project_id": "QEGdDRsBuwaucNjmcQp3",
+    "model": "byte-plus-seedance-2-5",
+    "draft_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "final_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "1080p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "carrier_params": {
+      "duration": 30,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": true,
+      "videoCount": 1
+    }
+  },
+  "shared_style": "<under 90 words: palette, grain, light, camera movement, who the people are, where they are, the negatives: no stock smiles, no logos, no text of any kind on screen>",
+  "voice": {
+    "direction": "<age, warmth, pace, accent lean, what it sounds like. Describe the voice; never name a real person>",
+    "narration_take": "audio/narration-all-lines.m4a",
+    "narration_openart_id": "",
+    "line_splitting": "python3 .claude/skills/ai-commercial/scripts/narration-lines.py audio/narration-all-lines.m4a clips/narration-lines.txt \"first words of line 2\" \"first words of line 3\" \"...\""
+  },
+  "music": {
+    "bed": "audio/music-bed.m4a",
+    "bed_openart_id": "",
+    "prompt": "A plain, very slow drifting gradient of <palette>, soft film grain, no people, no objects, no text, no letters, no logos. Sound: an original, simple, quiet synthesiser drone. A single warm sustained pad tone that breathes slowly, with an occasional soft single piano note, very sparse, calm and unchanging, no melody, no rhythm, no drums, no voices, no words, no singing, no sound effects, the same soft texture from the first second to the last, gently fading out at the very end.",
+    "handling": "One take, stretched with atempo to the cut length. Never looped."
+  },
+  "script": [
+    {
+      "clip": 1,
+      "line": "<hook: an image or a tension, never the mark; 10 to 16 words>"
+    },
+    {
+      "clip": 2,
+      "line": "<problem or what the firm does>"
+    },
+    {
+      "clip": 3,
+      "line": "<the turn>"
+    },
+    {
+      "clip": 4,
+      "line": "<proof or a second benefit>"
+    },
+    {
+      "clip": 5,
+      "line": "<the offer, shown on the real product>"
+    },
+    {
+      "clip": 6,
+      "line": "<mark, one line, one action, letters spelled out: G B X P S dot com>"
+    }
+  ],
+  "clips": [
+    {
+      "n": 1,
+      "name": "",
+      "file": "clip1-<name>-7s.mp4",
+      "mode": "generated",
+      "on_screen": "",
+      "prompt": "SHARED_STYLE. <one continuous shot, one scene, no cuts; two beats inside it where the scene allows; nobody looks at the camera; no readable text anywhere>",
+      "openart_id": "",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "name": "",
+      "file": "clip2-<name>-7s.mp4",
+      "mode": "generated",
+      "on_screen": "",
+      "prompt": "SHARED_STYLE. ",
+      "openart_id": "",
+      "notes": ""
+    },
+    {
+      "n": 3,
+      "name": "",
+      "file": "clip3-<name>-7s.mp4",
+      "mode": "generated",
+      "on_screen": "",
+      "prompt": "SHARED_STYLE. ",
+      "openart_id": "",
+      "notes": ""
+    },
+    {
+      "n": 4,
+      "name": "",
+      "file": "clip4-<name>-7s.mp4",
+      "mode": "generated",
+      "on_screen": "",
+      "prompt": "SHARED_STYLE. ",
+      "openart_id": "",
+      "notes": ""
+    },
+    {
+      "n": 5,
+      "name": "product",
+      "file": "clip5-<name>-screencap-7s.mp4",
+      "mode": "captured",
+      "on_screen": "<the real product, recorded, never generated>",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-tools-clip.mjs",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "name": "endcard",
+      "file": "clip6-endcard-picture.mp4",
+      "mode": "captured",
+      "on_screen": "Animated mark alone, then the philosophy line, then www.gbxps.com, slow push-in throughout.",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-endcard-clip.mjs",
+      "timings_env": "T6='{\"up\":2.0,\"phil\":2.5,\"url\":5.9}'",
+      "notes": "Set T6 from the sentence onsets in line 6."
+    }
+  ],
+  "edit": {
+    "stitch": ".claude/skills/ai-commercial/scripts/stitch-commercial.py",
+    "knobs": {
+      "LEAD": 0.35,
+      "CLIP_TAIL": 0.55,
+      "CLIP_EXTRA": {},
+      "XFADE": 0.7,
+      "WHITE_FADES": [
+        5
+      ],
+      "BED_UNDER_DB": 18,
+      "LOUDNESS": "web",
+      "SIZE": [
+        1280,
+        720
+      ]
+    },
+    "notes": []
+  },
+  "rounds": [],
+  "next": []
+}

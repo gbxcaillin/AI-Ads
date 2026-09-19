@@ -1,0 +1,182 @@
+{
+  "spot": "gbx-commercial",
+  "client": "GBX Professional Services",
+  "format": "16:9 web brand film, 36.6 s, delivered to the web loudness target (-14 LUFS, -1 dBTP)",
+  "status": "reference cut approved at 720p; 1080p finals not yet rendered",
+  "reference_cut": "reference/gbx-commercial-cut-720p-1.mp4",
+  "openart": {
+    "project_id": "QEGdDRsBuwaucNjmcQp3",
+    "model": "byte-plus-seedance-2-5",
+    "draft_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "final_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "1080p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "carrier_params": {
+      "duration": 30,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": true,
+      "videoCount": 1
+    }
+  },
+  "costs": {
+    "quoted_on": "2026-09-19",
+    "unit": "OpenArt credits, list price; this account pays 10 percent less on MCP generations, rounded per unit",
+    "draft_7s_480p_picture_only": 420,
+    "final_7s_1080p_picture_only": 2245,
+    "carrier_30s_480p_with_audio": 1810
+  },
+  "shared_style": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music.",
+  "voice": {
+    "direction": "One male voiceover across all six clips: mature, in his sixties, warm and unhurried, friendly with a wry edge, the wisdom of someone who has seen a few cycles and is still curious about new technology. Measured baritone, precise diction, neutral accent with a light Australian and New Zealand lean. Sounds like a trusted mentor explaining something over a coffee, not a presenter. No sales energy, no echo, natural pauses.",
+    "rule": "Describe the voice; never name a real actor or public figure. OpenArt models do not reproduce a specific person's voice or likeness and may refuse the request.",
+    "narration_take": "audio/narration-all-lines.m4a",
+    "narration_openart_id": "DqusuO1oyxEX79bYafWD",
+    "narration_prompt": "A plain, very slow drifting gradient of dark charcoal and deep teal light, soft film grain, no people, no objects, no text, no letters, no logos. Audio: no music, no sound effects, no ambience, a silent studio. The only sound is one narrator. Off-screen narrator, one male voice: VOICE_DIRECTION. He reads the six lines below in order, slowly and evenly, with a clear pause of about a second and a half between each line, every word completed, never rushed or cut off, finishing before the end. NARRATOR: \"<line 1> ... <line 2> ... <line 3> ... <line 4> ... <line 5> ... <line 6>\"",
+    "line_splitting": "python3 .claude/skills/ai-commercial/scripts/narration-lines.py audio/narration-all-lines.m4a clips/narration-lines.txt \"gbx professional services helps\" \"and ai that\" \"we also teach\" \"free tools before\" \"gbx professional services combining\""
+  },
+  "music": {
+    "bed": "audio/music-bed.m4a",
+    "bed_openart_id": "XZyqtTuWYDvekZU2B8DT",
+    "prompt": "A plain, very slow drifting gradient of dark charcoal and deep teal light, soft film grain, no people, no objects, no text, no letters, no logos. Sound: an original, simple, quiet synthesiser drone. A single warm sustained pad tone that breathes slowly, with an occasional soft single piano note, very sparse, calm and unchanging, no melody, no rhythm, no drums, no voices, no words, no singing, no sound effects, the same soft texture from the first second to the last, gently fading out at the very end.",
+    "rejected_prompt_note": "Anything that reads like a genre or a score (ambient pad, piano motif, strings) was blocked by output audio moderation as possible copyright (OpenArt id Ujx5PhPtWKmc2uc2HBPh). The drone wording above passed.",
+    "handling": "One take, stretched with atempo to the cut length. Never looped."
+  },
+  "script": [
+    {
+      "clip": 1,
+      "line": "Most businesses don't need more advice. They need a clearer picture."
+    },
+    {
+      "clip": 2,
+      "line": "GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline."
+    },
+    {
+      "clip": 3,
+      "line": "And AI that actually earns its keep. Practical, governed, and only where it helps."
+    },
+    {
+      "clip": 4,
+      "line": "We also teach people about money. Plainly, at work, in language a whole team can follow."
+    },
+    {
+      "clip": 5,
+      "line": "Free tools before you ever hire us. A ten-day Diagnostic when you're ready."
+    },
+    {
+      "clip": 6,
+      "line": "GBX Professional Services. Combining insight with impact, for sustainable business growth. G B X P S dot com."
+    }
+  ],
+  "clips": [
+    {
+      "n": 1,
+      "name": "clearer-picture",
+      "file": "clip1-clearer-picture-7s.mp4",
+      "mode": "generated",
+      "on_screen": "Dawn over the Melbourne skyline from a high office window, slow push-in to an empty desk with a closed notebook and a coffee. No people, no text.",
+      "prompt": "SHARED_STYLE. Dawn over the Melbourne skyline seen from a high office window, the city still quiet, first light arriving on the glass. One slow push-in toward an empty desk by the window with a closed notebook and a cup of coffee. No people, no text.",
+      "openart_id": "EyERRaC3ZYjE5iltu9sO",
+      "notes": "Approved first try. Generated with audio in the early round; the stitch mutes it. Safe opener: nothing to get wrong."
+    },
+    {
+      "n": 2,
+      "name": "run-sharper",
+      "file": "clip2-run-sharper-7s-v2.mp4",
+      "mode": "generated",
+      "on_screen": "A woman in her forties and a man in his fifties at a whiteboard working through a process flow, third colleague listening, slow lateral drift.",
+      "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Soft morning light. A woman in her forties and a man in his fifties stand together at a whiteboard in an open office, working through a simple process flow of boxes and arrows drawn in black marker, no readable words. He draws one more arrow while she talks it through with him; they are clearly in conversation with each other, glancing between the board and one another, nodding. A third colleague sits at a nearby desk, half out of focus, listening in. The camera drifts slowly sideways around them. Nobody looks at the camera; nobody speaks aloud.",
+      "openart_id": "hIGbHUWeeHmARhYQcXRX",
+      "notes": "v1 (dashboard then whiteboard, two half-scenes) came out disjointed; v2 asks for one continuous scene with the pair in conversation."
+    },
+    {
+      "n": 3,
+      "name": "ai",
+      "file": "clip3-ai-7s-v6.mp4",
+      "mode": "generated",
+      "on_screen": "A man walks into a dark office at dawn; teal network lines trace across the glass wall and flow into a printer, which hands him a page.",
+      "prompt": "SHARED_STYLE. Silent film, no dialogue, no narration. One continuous shot, one scene, no cuts. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Dawn, a modern Melbourne office still dark, several desks, the city skyline through glass. A man in his fifties walks in from the left carrying a coffee. As he passes, the room quietly comes alive around him: the ceiling lights lift softly, and thin glowing teal pathways begin to trace across the long glass wall behind the desks, spreading node to node, branching and linking across every desk and doorway into one connected network of soft teal lines with small bright nodes pulsing where they meet. The pathways all flow toward one point: a modern office laser printer on a side table. The last bright pulse travels down into the printer, the printer wakes with a soft glow, and a single printed sheet slides out toward the camera. The man steps over, lifts the freshly printed page from the printer's output tray, uncaps a pen, and reads it with a small nod, unhurried, nobody looking at the camera. Camera drifts slowly with him. Purely abstract lines and dots, nothing legible. Near-future, grounded, elegant, no robots, no holograms.",
+      "openart_id": "89YcQTbiovelqypccEvq",
+      "notes": "Six versions. Cards in slots read as nonsense; laptop lids grew screens; the abstract mood board was vague. The network-into-printer outcome read instantly. Gets CLIP_EXTRA +0.5 s in the stitch."
+    },
+    {
+      "n": 4,
+      "name": "teaching",
+      "file": "clip4-teaching-7s-v3.mp4",
+      "mode": "generated",
+      "on_screen": "Boardroom, twelve staff in profile and from behind facing a silent presenter beside a slide reading exactly: Tax basics for employees.",
+      "prompt": "SHARED_STYLE (the one slide below may carry text). Silent film, no dialogue, no narration. Documentary feel, nobody looks at the camera. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen. The wall screen shows a plain soft teal slide with only one line of clean white sans-serif text, large and centred, reading exactly: Tax basics for employees. No other text, numbers or logos anywhere. The presenter is quietly talking to the room in the background, his lips moving naturally as he explains something, gesturing with one open hand, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm.",
+      "openart_id": "22hI3a5EcqJQcy3C4azg",
+      "notes": "v1 and v2 lip-synced the narration to the presenter whatever the prompt said. v3 is picture only (generateAudio false). The single slide title rendered correctly."
+    },
+    {
+      "n": 5,
+      "name": "tools",
+      "file": "clip5-tools-screencap-7s.mp4",
+      "mode": "captured",
+      "on_screen": "Real capture of the Tools and Insights page: scroll, cursor to Start the check, first two Business Health Check steps.",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-tools-clip.mjs",
+      "notes": "Needs the site served at http://localhost:4173 (npx vite preview) and the site fonts in scripts/fonts/site-embedded.css. Note on WHITE_FADES: SKILL.md describes the white dip as the join from this bright page into the black end card, but stitch-commercial.py applies fadewhite to the dissolve INTO the 1-based clip listed, so WHITE_FADES = {5} whitens the join from clip 4 into this clip. Check the reference cut around 28 s before changing it; to move the white dip to the end-card join set WHITE_FADES = {6}."
+    },
+    {
+      "n": 6,
+      "name": "endcard",
+      "file": "clip6-endcard-picture.mp4",
+      "mode": "captured",
+      "on_screen": "Animated GBX mark alone on black, eases up, Our philosophy line fades in, then www.gbxps.com, slow push-in throughout.",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-endcard-clip.mjs",
+      "timings_env": "T6='{\"up\":2.0,\"phil\":2.5,\"url\":5.9}'",
+      "notes": "Logo frames come from the site's logo-animation.mp4 at 24 fps. Never a generated mark. Caption timings follow the sentence onsets in line 6."
+    }
+  ],
+  "edit": {
+    "stitch": ".claude/skills/ai-commercial/scripts/stitch-commercial.py",
+    "knobs": {
+      "LEAD": 0.35,
+      "CLIP_TAIL": 0.55,
+      "CLIP_EXTRA": {
+        "2": 0.5
+      },
+      "XFADE": 0.7,
+      "WHITE_FADES": [
+        5
+      ],
+      "BED_UNDER_DB": 18,
+      "LOUDNESS": "web",
+      "SIZE": [
+        1280,
+        720
+      ]
+    },
+    "reference_cut_measured": {
+      "duration_s": 36.6,
+      "integrated_lufs": -14.1,
+      "true_peak_dbtp": -1.2,
+      "video": "1280x720 h264 yuv420p 25 fps",
+      "audio": "aac stereo"
+    },
+    "notes": [
+      "Clips trimmed to LEAD + line + CLIP_TAIL, dissolved 0.7 s, no dips to black between narrated beats.",
+      "J-cut: each line starts 0.35 s into its clip, while the previous picture is still dissolving.",
+      "One narration take split by transcript; one bed stretched, not looped; bed 18 dB under the narration.",
+      "Two-pass loudnorm to -14 LUFS after the mix, video copied."
+    ]
+  },
+  "lessons": "See .claude/skills/ai-commercial/references/lessons.md; add new ones there and reference the clip here.",
+  "next": [
+    "Render 1080p finals for the four generated clips once the client signs off the 720p reference (about 2245 credits each at list).",
+    "Re-record clips 5 and 6 at 1920x1080 from the live site and rebuild.",
+    "Editor's grade pass: upscale, 0.3 to 0.6 px blur, 8 to 15 percent grain, film LUT at 60 to 80 percent, match to one hero frame.",
+    "Cut a 15 s social version (re-edit the voice, do not just shorten) and a 9:16 variant."
+  ]
+}
