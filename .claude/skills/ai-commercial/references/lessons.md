@@ -38,6 +38,15 @@ Each of these cost at least one re-render. The number is the order we learned it
 
 - (18) Trimming clips inside one big xfade filtergraph (with tpad and re-applied fps) produced a broken chain: the end card jumped in at 6 seconds and the rest went black. The fix is to pre-render each clip to a clean, constant-frame-rate file of an exact length first, then dissolve those staged files.
 
+## Framing for the 9:16 crop
+
+- (19) A 9:16 column is the middle 32 percent of a 16:9 frame. A pair spread across the width (the whiteboard scene) loses one of them in the crop; the fix that worked was a 100 pixel offset, and the fix that would have avoided it is blocking both people at the centre in the prompt.
+- (20) A lateral camera drift slides the subject across the frame; in the crop that becomes a pan to write, or a lost subject. A push-in, a static frame or a move that follows the subject keeps the crop still.
+- (21) Desktop page captures and the end card do not crop. Record portrait versions natively and bring them in inside a join the 16:9 cut already has (the white flash into the product clip), so the edit gains no new transition.
+- (22) A change of crop offset between two clips is invisible when it eases across the dissolve and a jolt when it jumps mid-dissolve. The reframe script eases every gap between pan segments for this reason.
+- (23) `tpad` inside an `xfade` graph fails the constant-frame-rate check the same way trimming did (lesson 18). Stage each portrait clip to a clean file with its fade and pad applied, then dissolve the files.
+- (24) Check the centre-column strip at draft time. Both GBX pans were found after approval; a second strip per clip costs nothing and would have caught them in Phase 2.
+
 ## Things that were fine and stayed fine
 
 - 7-second clips at 480p are enough to judge composition, motion and the read. Do not pay for 1080p until a clip is approved.

@@ -10,6 +10,7 @@ This repository is the workshop for GBX Professional Services video and image ad
 | `spots/<spot>/spot.json` | Source of truth for a spot: script, voice direction, shared style, every clip's prompt and mode, OpenArt ids, edit knobs, edit notes, lessons. Update it every round. |
 | `spots/<spot>/audio/` | The committed one-take narration and music bed as `.m4a` |
 | `spots/<spot>/reference/` | Approved cuts kept for reference (the only rendered video committed) |
+| `spots/<spot>/captures/`, `reframe-9x16.json` | Screen captures (landscape and portrait) and the spec that turns the approved 16:9 cut into the 9:16 social version |
 | `spots/<spot>/clips/`, `out/`, `frames*/` | Generated clips and preview renders. Ignored by git; they live in OpenArt and the editor's project. |
 | `templates/spot.template.json` | Starting point for a new spot |
 | `scripts/setup.sh` | Installs ffmpeg (via imageio-ffmpeg); `--full` adds faster-whisper and playwright-core |

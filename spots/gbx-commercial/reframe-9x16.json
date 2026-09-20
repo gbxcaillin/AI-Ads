@@ -1,0 +1,15 @@
+{
+  "pans": [
+    {"from": 0.0, "to": 4.7, "x": [500, 420]},
+    {"from": 5.4, "to": 11.1, "x": [540, 540]},
+    {"from": 11.8, "to": 23.65, "x": [437, 437]}
+  ],
+  "tail": {
+    "at": 23.65,
+    "xfade": 0.7,
+    "clips": [
+      {"file": "captures/clip5-tools-9x16.mp4", "fade_from_white": 0.35, "length": 4.85},
+      {"file": "captures/clip6-endcard-9x16.mp4", "pad": 0.4}
+    ]
+  }
+}

@@ -212,7 +212,9 @@
           29.2
         ]
       },
-      "known_limits": "Clips 1 to 4 are the 16:9 generations cropped, so they carry the 720p upscale; a final would regenerate them at 9:16 (420 credits each at 480p draft). Captions for silent autoplay not yet added."
+      "known_limits": "Clips 1 to 4 are the 16:9 generations cropped, so they carry the 720p upscale; a final would regenerate them at 9:16 (420 credits each at 480p draft). Captions for silent autoplay not yet added.",
+      "rebuild": "python3 .claude/skills/ai-commercial/scripts/reframe-9x16.py reference/gbx-commercial-cut-720p-1.mp4 reframe-9x16.json out/gbx-commercial-9x16-v2.mp4 (run from spots/gbx-commercial; the spec holds the pans and the tail clips)",
+      "spec": "reframe-9x16.json"
     }
   }
 }

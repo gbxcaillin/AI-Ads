@@ -1,6 +1,6 @@
 ---
 name: ai-commercial
-description: End-to-end recipe for producing a short brand commercial (30 to 45 seconds) from AI-generated video clips, real screen captures of the product, one generated narration take and one generated music bed, stitched with ffmpeg into a reviewable cut. Use this whenever the user asks for a commercial, advert, promo video, brand film, explainer video, TV spot, social video ad, sizzle reel, or "a video for the website" from OpenArt, Seedance, Veo, Kling or any text-to-video model, even if they only ask for the prompts, only for one clip, only for the voice-over, or only to stitch clips they already have. Also use it when a generated clip has gibberish text, a lip-synced narrator, a wrong logo, jarring cuts, music that jumps or drops out, or pacing that feels rushed or slow. Those are the failure modes this skill was built to fix.
+description: End-to-end recipe for producing a short brand commercial (30 to 45 seconds) from AI-generated video clips, real screen captures of the product, one generated narration take and one generated music bed, stitched with ffmpeg into a reviewable cut. Use this whenever the user asks for a commercial, advert, promo video, brand film, explainer video, TV spot, social video ad, sizzle reel, or "a video for the website" from OpenArt, Seedance, Veo, Kling or any text-to-video model, even if they only ask for the prompts, only for one clip, only for the voice-over, or only to stitch clips they already have. Also use it when a generated clip has gibberish text, a lip-synced narrator, a wrong logo, jarring cuts, music that jumps or drops out, or pacing that feels rushed or slow. Those are the failure modes this skill was built to fix. Use it as well whenever a 9:16, vertical, portrait, Reels, Shorts, TikTok or Stories version of a spot is wanted, or when 16:9 clips are being planned that will later have to crop to 9:16: it says how to compose the widescreen generation so the social cut is a crop, not a re-shoot, and bundles the reframe script and portrait recorders.
 ---
 
 # AI commercial: from script to reviewable cut
@@ -38,7 +38,7 @@ These are the conventions broadcast and agency editors work to; the reasons and 
 - Headless Chromium plus `playwright-core` for screen captures (Chromium cannot decode H.264, so the site's MP4 logo falls back to a GIF; the end card recorder sidesteps this by using extracted frames).
 - `pip install faster-whisper` to transcribe the narration with word timestamps. It downloads the `small` model on first use.
 
-Bundled in `scripts/`: `stitch-commercial.py`, `narration-lines.py`, `record-tools-clip.mjs`, `record-endcard-clip.mjs`, and `fonts/site-embedded.css` (the site's web fonts as data URIs, so headless Chromium renders real type; rebuild this file for a different site).
+Bundled in `scripts/`: `stitch-commercial.py`, `narration-lines.py`, `record-tools-clip.mjs`, `record-endcard-clip.mjs`, their portrait siblings `record-tools-clip-9x16.mjs` and `record-endcard-clip-9x16.mjs`, `reframe-9x16.py` (turns a finished 16:9 cut into the 9:16 social version), and `fonts/site-embedded.css` (the site's web fonts as data URIs, so headless Chromium renders real type; rebuild this file for a different site).
 
 ## Phase 1: script and direction first
 
@@ -74,6 +74,26 @@ ffmpeg -y -i clip.mp4 -vf "select='eq(n\,6)+eq(n\,40)+eq(n\,80)+eq(n\,120)+eq(n\
 ```
 
 Look at the strip yourself, then send the clip to the user with `SendUserFile` and a one-line caption of what it shows. Expect two or three rounds per clip. Record the prompt that finally worked in the JSON, and add a lesson if the fix was general.
+
+### Compose every 16:9 clip for the 9:16 crop
+
+The 16:9 cut is the master and social wants 9:16. Regenerating every scene in portrait doubles the clip budget and the review rounds, and the portrait takes come back as different performances, so the two versions stop matching. Cropping the approved 16:9 keeps one set of takes, one review and one narration timing. The catch is geometry: a 9:16 column is only the middle 32 percent of a 16:9 frame (405 of 1280 pixels, 608 of 1920), so the crop works only when the scene was composed for it from the first draft. On the GBX spot two of four generated scenes needed a pan in the crop and the whiteboard pair only just fit; the rules below are what would have avoided that.
+
+Add one sentence to SHARED_STYLE so it lands in every prompt: "Framed for both widescreen and a tall portrait crop: the subject and every essential action sit in the centre third of the frame; the outer thirds are environment only."
+
+- **Subject in the centre third.** One person: centred. Two people: close together at the centre, or stacked in depth (one nearer the lens, one behind), never spread across the width. Describe it as blocking ("she stands just left of centre, he just right of it, shoulder to shoulder at the board"), because the model places people where the description puts them.
+- **Anything that must read sits centred and narrow.** The one slide line, the printed page, the printer, the coffee cup: inside the middle third and no wider than it. The outer thirds carry the room, the skyline, the glass and out-of-focus colleagues, so the 16:9 still feels wide while the crop loses nothing that matters.
+- **Camera moves that keep the subject in place.** A push-in, a static frame with the subject moving, or a move that follows the subject all keep them on the same part of the frame. A lateral drift or a track that lets the subject slide across the frame forces a pan in the crop, and a pan that follows two people can only hold one of them.
+- **Vertical carries over unchanged.** The crop keeps the full height, so headroom, eyelines and desk height are the same in both versions; only the width is at stake.
+- **Captures do not crop.** A desktop page becomes a sliver and the end card's line becomes unreadable. Record those twice, desktop and phone viewport, 1920x1080 and 1080x1920; the recorders exist in pairs for exactly this.
+
+Check the crop at draft time, not after approval. Build the frame strip twice, once as generated and once through the centre column, and look at both before sending the clip:
+
+```bash
+ffmpeg -y -i clip.mp4 -vf "crop=ih*9/16:ih,select='eq(n\,6)+eq(n\,40)+eq(n\,80)+eq(n\,120)+eq(n\,160)',scale=-1:512,tile=5x1" -frames:v 1 check-9x16.png
+```
+
+A clip approved only in 16:9 is a re-roll waiting to happen. When a scene still cannot hold the crop (a wide group, a long table), regenerate that one scene at 9:16 with the same prompt plus "tall portrait frame, the subject fills the height"; a 480p portrait draft costs the same as a landscape one.
 
 ## Phase 3: screen captures
 
@@ -137,6 +157,17 @@ ffmpeg -ss 28.0 -i cut.mp4 -frames:v 1 -vf "scale=8:8,format=gray" -f rawvideo -
 
 Also confirm the container is `yuv420p` (some players choke on 4:4:4), and read the loudness line the stitch prints (measured and normalised LUFS and true peak) so the caption can state the delivery target. Then `SendUserFile` the cut with a caption that says the running time and what changed since last round. Never describe a fix you have not rendered and checked.
 
+## Phase 8: the 9:16 social version
+
+Build it from the approved 16:9 cut, not from the clips, so the audio, the line timing and the loudness are the ones already signed off. `scripts/reframe-9x16.py <cut16x9.mp4> <spec.json> <out.mp4>` does the whole thing; the spec for the GBX spot is `spots/gbx-commercial/reframe-9x16.json` and is the template.
+
+1. **Record the portrait captures.** `record-tools-clip-9x16.mjs` records the product page on a phone viewport (405x720 at 2.667x, so the frames are 1080x1920) with a scroll, a tap and two wizard steps; `record-endcard-clip-9x16.mjs` renders the end card natively in portrait with the same `T6` timings as the landscape card, so the captions still land on the narration. Both write frames; assemble with the same `ffmpeg -framerate 24` line as Phase 3.
+2. **Find the joins in the 16:9 cut.** Sample mean luminance every 0.1 s around each dissolve (`ffmpeg -ss T -i cut.mp4 -frames:v 1 -vf "scale=4:4,format=gray" -f rawvideo - | od -An -tu1`), or tile frames at 4 per second across it. Each dissolve is `XFADE` long, and the white flash into the product clip is where the portrait captures take over: the new clip fades up from white inside a join the viewer already accepted, so nothing new is added to the edit.
+3. **Choose the crop per clip.** Crop the source at two or three candidate offsets and tile them into one stacked strip; pick the column that keeps the subject for the whole clip, and write it as a pan (`"x": [start, end]`) when the subject drifts. The spec eases the offset across each dissolve, which is what makes a framing change invisible: a hard change mid-dissolve reads as a jolt.
+4. **Run the script, then verify exactly as Phase 7:** the 13-tile strip, luminance at every join, `silencedetect`, `yuv420p`. Loudness is unchanged because the audio is copied; say so in the caption.
+
+Clips cropped from 16:9 keep the master's resolution, so 720p sources look soft at 1080x1920. Reframe the 1080p master for the final, and regenerate at 9:16 only the scenes that the crop cannot hold. Captions for silent autoplay are still an editor's pass.
+
 ## Reading feedback
 
 The user reviews by watching, so complaints arrive as symptoms. What each one meant in practice:
@@ -153,6 +184,7 @@ The user reviews by watching, so complaints arrive as symptoms. What each one me
 | "clip 6 is just a frame" | end card holds after it builds | continuous push-in |
 | "transition looks messy" (bright page to black card) | busy dissolve | `fadewhite` on that join |
 | "clip N needs another half second" | line lands close to the cut | `CLIP_EXTRA[N-1]` |
+| "the phone version loses him" or "just cuts the page" | 16:9 composed with the pair spread wide, or a capture cropped | pan in the reframe spec; re-record the capture in portrait; next time compose for the centre third |
 
 Every fix is a rebuild of the whole cut, verified, and re-sent. Update the JSON edit notes and lessons in the same commit.
 
@@ -163,7 +195,7 @@ Quote costs before a batch. At 480p, a 7-second picture-only draft is the cheape
 ## Repo hygiene
 
 - The JSON is the record. Prompts, modes, per-clip notes, edit notes, lessons, asset list.
-- Commit the narration and bed as `.m4a` (extract with `-vn -c:a copy`), the captures as MP4, and the recorder and stitch scripts. Do not commit the preview cut or the generated clips; they live in OpenArt and the editor's project.
+- Commit the narration and bed as `.m4a` (extract with `-vn -c:a copy`), the captures as MP4, and the recorder and stitch scripts. Commit the portrait captures and the reframe spec next to the landscape ones. Do not commit the preview cut or the generated clips; they live in OpenArt and the editor's project.
 - Log the finished cut in the content review log before publishing, and apply the house rules of the site to every caption and prompt (for this site: write the firm's name in full, no em dashes, no financial advice claims).
 
 See `references/prompts.md` for the exact prompts, `references/lessons.md` for the full list of what went wrong and why, and `references/conventions.md` for the professional conventions with sources.

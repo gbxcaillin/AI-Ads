@@ -45,6 +45,16 @@ SHARED_STYLE (but the one slide below may carry text). Silent film, no dialogue,
 
 Clip 4 shows the one exception to the no-text rule: a single short slide title rendered correctly when asked for exactly that text, large, centred, nothing else. Keep the presenter silent (picture only) or the model lip-syncs the narration to him.
 
+## Framing sentence for the 9:16 crop (add to SHARED_STYLE)
+
+Framed for both widescreen and a tall portrait crop: the subject and every essential action sit in the centre third of the frame; the outer thirds are environment only.
+
+How the whiteboard prompt (clip 2) reads once it is blocked for the crop:
+
+SHARED_STYLE. One continuous shot, one scene, no cuts. Soft morning light. A woman in her forties and a man in his fifties stand shoulder to shoulder at the centre of the frame, she just left of centre and he just right of it, facing a whiteboard that fills the middle of the shot, working through a simple process flow of boxes and arrows drawn in black marker, no readable words. He draws one more arrow while she talks it through with him; they are clearly in conversation with each other, glancing between the board and one another, nodding. The open office and the skyline through glass fill the left and right edges of the frame, soft and out of focus; a third colleague sits at a far desk on the right, listening in. The camera holds its position and pushes in very slowly. Nobody looks at the camera; nobody speaks aloud.
+
+The change is only blocking and camera: the pair sit in the centre third, the room lives in the outer thirds, and the push-in replaces the sideways drift that slid them across the frame.
+
 ## Screen captures (not prompts)
 
 Clip 5 (the product) and clip 6 (the end card) are recorded from the live build with the bundled recorders. Do not generate anything that has to show the real site or logo.

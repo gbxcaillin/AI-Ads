@@ -24,6 +24,15 @@ scripts/setup.sh --full   # plus faster-whisper and playwright-core
 3. `python3 .claude/skills/ai-commercial/scripts/stitch-commercial.py spots/gbx-commercial/clips spots/gbx-commercial/out/cut.mp4`
 4. Verify (frame strip, silencedetect, loudness) before sending, as SKILL.md Phase 7 describes.
 
+## 9:16 social version
+
+Compose the 16:9 clips for the centre third from the first draft (SKILL.md, "Compose every 16:9 clip for the 9:16 crop"), then build the portrait cut from the approved landscape cut:
+
+```bash
+cd spots/gbx-commercial
+python3 ../../.claude/skills/ai-commercial/scripts/reframe-9x16.py reference/gbx-commercial-cut-720p-1.mp4 reframe-9x16.json out/gbx-commercial-9x16.mp4
+```
+
 ## Starting a new spot
 
 Copy `templates/spot.template.json` to `spots/<name>/spot.json`, fill in the script and direction first, and agree the clip table before generating anything.
