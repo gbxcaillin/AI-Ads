@@ -26,9 +26,11 @@
       "voice": "Measured and dry, warm underneath, light Australian lean, mid-range, unhurried.",
       "image": "characters/priya-a.png",
       "image_openart_id": "E70hy0lwkzZWQr6wFdpl",
-      "voice_ref": "",
+      "voice_ref": "voices/priya-voice.mp3",
       "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888920300_70f645e0_1789888920348_de8bf4b3.png",
-      "alternate": "characters/priya-b.png (UIqKvk6guVldMrgD2XkC); the first Priya job (SsWkDMyPdIU9s57t95Sk) sat in the queue and was superseded"
+      "alternate": "characters/priya-b.png (UIqKvk6guVldMrgD2XkC); the first Priya job (SsWkDMyPdIU9s57t95Sk) sat in the queue and was superseded",
+      "voice_ref_openart_id": "dYTweRNwQR9YI9mXrUdI",
+      "voice_ref_url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-video/nN90WiPr5Ngn0IWrVHQd/priya-voice_1789889204136_f9b62572.mp3"
     },
     {
       "key": "mark",
@@ -37,9 +39,11 @@
       "voice": "Blunt and warm, a bit gravelly, broader Australian, quick to a wry laugh.",
       "image": "characters/mark-b.png",
       "image_openart_id": "kCO2kgLUgeQhUGL7TXBm",
-      "voice_ref": "",
+      "voice_ref": "voices/mark-voice.mp3",
       "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888802111_7dc16fd6_1789888802661_f237a78b.png",
-      "alternate": "characters/mark-a.png (0CrkjxCcSPkZa8DihgsK, three-quarter angle, seatbelt on)"
+      "alternate": "characters/mark-a.png (0CrkjxCcSPkZa8DihgsK, three-quarter angle, seatbelt on)",
+      "voice_ref_openart_id": "UfXqe2u7zYuK2B0RSYEL",
+      "voice_ref_url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-video/nN90WiPr5Ngn0IWrVHQd/mark-voice_1789889234551_1580968f.mp3"
     },
     {
       "key": "jess",
@@ -48,9 +52,11 @@
       "voice": "Quick and bright, clear and a little higher, light Australian lean, friendly.",
       "image": "characters/jess-a.png",
       "image_openart_id": "kJJFpEscZQgRRjuKyy0B",
-      "voice_ref": "",
+      "voice_ref": "voices/jess-voice.mp3",
       "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888816196_f3719cbb_1789888816430_9edb1c3c.png",
-      "alternate": "characters/jess-b.png (tfj8t3XRYvs2qjPwFOCN, hair down, off centre)"
+      "alternate": "characters/jess-b.png (tfj8t3XRYvs2qjPwFOCN, hair down, off centre)",
+      "voice_ref_openart_id": "qnLK2eIW088wJMaDo86h",
+      "voice_ref_url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-video/nN90WiPr5Ngn0IWrVHQd/jess-voice_1789889135535_e4f92211.mp3"
     }
   ],
   "scripts": {
@@ -75,27 +81,76 @@
   },
   "clips": [
     {
-      "story": "mark",
-      "n": 1,
-      "openart_id": "NZNHi34ovY7xojO0okcR",
-      "role": "voice seed",
-      "status": "generating"
-    },
-    {
       "story": "jess",
       "n": 1,
       "openart_id": "SSzElwRbLihm7N7SbwJK",
+      "file": "clips/jess-1.mp4",
       "role": "voice seed",
-      "status": "generating"
+      "status": "done, line verbatim, face holds"
     },
     {
       "story": "priya",
       "n": 1,
       "openart_id": "rnlky0J26JSxlwI0x5d4",
+      "file": "clips/priya-1.mp4",
       "role": "voice seed",
+      "status": "done, line verbatim, face holds"
+    },
+    {
+      "story": "mark",
+      "n": 1,
+      "openart_id": "NZNHi34ovY7xojO0okcR",
+      "file": "clips/mark-1.mp4",
+      "role": "voice seed",
+      "status": "done, line verbatim, face holds"
+    },
+    {
+      "story": "jess",
+      "n": 2,
+      "openart_id": "pwHOogQlG6hZ564yNqHW",
+      "duration": 9,
+      "status": "generating"
+    },
+    {
+      "story": "jess",
+      "n": 3,
+      "openart_id": "WEe9JULlM1B3QvZgmEfG",
+      "duration": 9,
+      "status": "generating"
+    },
+    {
+      "story": "jess",
+      "n": 4,
+      "openart_id": "g6dcBSqFTC9EnM7qBuEH",
+      "duration": 8,
+      "status": "generating"
+    },
+    {
+      "story": "priya",
+      "n": 2,
+      "openart_id": "D1QFyaZrI7baLB08N4xQ",
+      "duration": 10,
+      "status": "generating"
+    },
+    {
+      "story": "priya",
+      "n": 3,
+      "openart_id": "veEyYV0OYHD1x3ivbtJq",
+      "duration": 11,
+      "status": "generating"
+    },
+    {
+      "story": "priya",
+      "n": 4,
+      "openart_id": "62HlMMUm4q1wSTSP8r7H",
+      "duration": 9,
       "status": "generating"
     }
   ],
   "rounds": [],
-  "next": []
+  "next": [],
+  "method_notes": [
+    "Voice seeds: the character image is the only element; the voice is described in the prompt and the model generates it. The seed's audio is extracted to mono 44.1 kHz mp3 and uploaded through openart_upload_sign plus a curl PUT, then confirmed with openart_upload_metadata_get.",
+    "Later clips: image plus audio elements, prompt says the person in image 1 speaks with the voice in audio 1. Clip durations sized to the line: about 2.5 words a second plus a beat."
+  ]
 }
