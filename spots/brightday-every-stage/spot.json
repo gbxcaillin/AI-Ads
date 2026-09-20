@@ -76,13 +76,15 @@
       "Work Sans",
       "Clarkson"
     ],
-    "logo": "brand/brightday-logo-white-on-transparent.webp (white wordmark with pink flower mark, 2500 px wide, from the site header)",
+    "logo": "brand/brightday-logo-on-navy-2000x1000.jpg (client supplied, wordmark and pink mark on navy) and brand/brightday-logo-white-on-transparent.webp (from the site header, for compositing)",
     "tagline": "Better Super. Better Investing. Better Advice.",
     "promise_line": "Our promise is in our name!",
-    "compliance": "General advice warning and AFSL 484139 appear on the site footer; the end card carries a general advice line and the AFSL. No line in the script promises returns."
+    "compliance": "General advice warning and AFSL 484139 appear on the site footer; the end card carries a general advice line and the AFSL. No line in the script promises returns.",
+    "typography_reference": "brand/brightday-review-card-typography-reference.jpg (client supplied): Ubuntu-style bold lowercase wordmark, pink bold headline, grey Work Sans body, navy header band, pink stars",
+    "navy_from_supplied_logo": "about #1B2F52 (the logo ground), a touch lighter than the CSS light accent"
   },
   "assets_needed_from_client": [
-    "Logo as vector (SVG, AI or EPS) and the pink mark on its own; an animated logo if one exists (otherwise the end card animates the static mark).",
+    "Logo as vector (SVG, AI or EPS) so the mark stays crisp at 1080p and can animate; the supplied JPG works for the 720p review cut. An animated logo if one exists.",
     "Product screens for clip 4: the members' platform view where ready-made portfolios sit beside choose-your-own (screenshots at phone and desktop size, or a demo login). Fallback is the public /invest page.",
     "The exact general advice wording and licensee name they put on ads, and whether the phone number (03 7036 0572) or only the URL goes on the end card.",
     "Voice and music preferences, and any existing brand track or voice they have used before.",
@@ -128,7 +130,7 @@
       "line": "Brightday. Better super. Better investing. Better advice. Brightday dot com dot A U."
     }
   ],
-  "word_count": 81,
+  "word_count": 84,
   "clips": [
     {
       "n": 1,
