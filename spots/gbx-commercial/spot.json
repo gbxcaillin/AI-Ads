@@ -169,7 +169,8 @@
       "Clips trimmed to LEAD + line + CLIP_TAIL, dissolved 0.7 s, no dips to black between narrated beats.",
       "J-cut: each line starts 0.35 s into its clip, while the previous picture is still dissolving.",
       "One narration take split by transcript; one bed stretched, not looped; bed 18 dB under the narration.",
-      "Two-pass loudnorm to -14 LUFS after the mix, video copied."
+      "Two-pass loudnorm to -14 LUFS after the mix, video copied.",
+      "The Website repo's copy of stitch-commercial.py has CLIP_EXTRA = {2: 0.5, 4: 0.5} (clip 5 also gets +0.5 s); that is the version that produced the 36.6 s reference cut. The skill copy has only clip 3. Set both when rebuilding from clips."
     ]
   },
   "lessons": "See .claude/skills/ai-commercial/references/lessons.md; add new ones there and reference the clip here.",
@@ -177,6 +178,41 @@
     "Render 1080p finals for the four generated clips once the client signs off the 720p reference (about 2245 credits each at list).",
     "Re-record clips 5 and 6 at 1920x1080 from the live site and rebuild.",
     "Editor's grade pass: upscale, 0.3 to 0.6 px blur, 8 to 15 percent grain, film LUT at 60 to 80 percent, match to one hero frame.",
-    "Cut a 15 s social version (re-edit the voice, do not just shorten) and a 9:16 variant."
-  ]
+    "9:16 social: on sign-off, regenerate clips 1 to 4 at 9:16 and add burned-in captions for silent autoplay."
+  ],
+  "variants": {
+    "9x16-social": {
+      "status": "v2 preview sent 2026-09-20; built by reframing the approved 16:9 reference cut, not by regenerating",
+      "output": "out/gbx-commercial-9x16-v2.mp4 (ignored by git; 1080x1920, 25 fps, 36.6 s, audio copied from the reference cut)",
+      "method": [
+        "Base: the reference cut cropped to 405x720 and scaled to 1080x1920 with a per-clip crop offset (x in 1280-wide source pixels): clip 1 pans 500 to 420 over its 4.7 s to keep the notebook and mug; clip 2 holds at 540 so both people stay in frame; clips 3 and 4 stay centred at 437. The offset eases across each 0.7 s dissolve (4.7 to 5.4 s and 11.1 to 11.8 s) so the pan hides inside the join.",
+        "Clip 5 re-recorded on a phone viewport (405x720 at 2.667x) with record-tools-clip-9x16.mjs: scroll to the Business Health Check card, tap, two wizard steps. Enters at 23.65 s with a 0.35 s fade from white, inside the reference cut's white flash.",
+        "Clip 6 re-recorded natively at 1080x1920 with record-endcard-clip-9x16.mjs, same T6 timings as the 16:9 card. Dissolves in from 28.5 s (0.7 s fade) and holds to the end.",
+        "Clips 5 and 6 staged to clean 25 fps files before the xfade (tpad inside the graph breaks the constant frame rate xfade needs)."
+      ],
+      "captures": [
+        "captures/clip5-tools-9x16.mp4",
+        "captures/clip6-endcard-9x16.mp4"
+      ],
+      "reference_joins_s": {
+        "clip1_to_2_dissolve": [
+          4.7,
+          5.4
+        ],
+        "clip2_to_3_dissolve": [
+          11.1,
+          11.8
+        ],
+        "white_into_clip5": [
+          23.3,
+          24.0
+        ],
+        "clip5_to_endcard_dissolve": [
+          28.5,
+          29.2
+        ]
+      },
+      "known_limits": "Clips 1 to 4 are the 16:9 generations cropped, so they carry the 720p upscale; a final would regenerate them at 9:16 (420 credits each at 480p draft). Captions for silent autoplay not yet added."
+    }
+  }
 }
