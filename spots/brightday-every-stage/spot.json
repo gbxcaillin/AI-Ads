@@ -2,7 +2,7 @@
   "spot": "brightday-every-stage",
   "client": "Brightday (Brightday Advisers, AFSL 484139), www.brightday.com.au",
   "format": "16:9 web brand film, about 38 to 40 s at the GBX read pace, web loudness target (-14 LUFS, -1 dBTP); 9:16 social cut by reframe plus captions",
-  "status": "round 3 cut sent 2026-09-20; awaiting client feedback",
+  "status": "round 4 cut sent 2026-09-20; awaiting client feedback",
   "direction": "A, Every stage: nobody wakes up thinking about super; three life stages; one place; the choice of control; a real adviser; the mark.",
   "openart": {
     "project_id": "QEGdDRsBuwaucNjmcQp3",
@@ -209,7 +209,7 @@
       "mode": "captured",
       "on_screen": "On navy: the pink flower mark builds, the brightday wordmark settles beside it, then the tagline Better Super. Better Investing. Better Advice., then brightday.com.au, with the general advice line and AFSL 484139 small at the foot. Slow push-in throughout.",
       "recorder": "scripts/record-endcard-brightday.mjs",
-      "timings_env": "T6='{\"tag\":1.2,\"url\":3.85}' from the take 2 onsets: Bright Day at the line start, better super at 0.84 s into the line, brightday dot com at 3.48 s; clip 6 starts 0.35 s before the line",
+      "timings_env": "T6='{\"tag\":1.7,\"url\":4.35}': the line now starts 0.85 s into the card (LEAD 0.35 plus LEAD_EXTRA 0.5); better super at 0.84 s into the line, brightday dot com at 3.48 s",
       "notes": "Uses the OpenArt logo animation (brand/brightday-logo-animation-832x480.mp4) as the mark, extracted to frames at 24 fps like the GBX card; the recorder adds the tagline, the URL and the compliance line on the same navy. Never a freshly generated mark.",
       "fonts": "scripts/fonts/brightday-embedded.css (Ubuntu 500 and 700, Work Sans 400 and 600 from Google Fonts as data URIs)",
       "logo_frames": "brand/brightday-logo-animation-832x480.mp4 at 24 fps scaled to 1920 wide"
@@ -230,14 +230,15 @@
         720
       ],
       "LEAD_EXTRA": {
-        "0": 1.4
+        "0": 1.4,
+        "5": 0.5
       }
     },
     "notes": [
       "Brightday's world is bright, so the dissolve into the navy end card may want a dip through white; decide on the first cut.",
       "Line 6 is 13 words; give the card its full length as on GBX."
     ],
-    "stitch_env": "CLIPS=clip1-waking-7s-v1.mp4,clip2-three-ages-7s-v1.mp4,clip3-one-place-7s-v1.mp4,clip4-choice-screencap-7s.mp4,clip5-real-adviser-7s-v1.mp4,clip6-endcard-picture.mp4 WHITE_FADES= CLIP_EXTRA=9:0 LEAD_EXTRA=0:1.4 LOUDNESS=web python3 .claude/skills/ai-commercial/scripts/stitch-commercial.py clips out/brightday-every-stage-720p-v3.mp4"
+    "stitch_env": "CLIPS=clip1-waking-7s-v1.mp4,clip2-three-ages-7s-v1.mp4,clip3-one-place-7s-v1.mp4,clip4-choice-screencap-7s.mp4,clip5-real-adviser-7s-v1.mp4,clip6-endcard-picture.mp4 WHITE_FADES= CLIP_EXTRA=9:0 LEAD_EXTRA=0:1.4,5:0.5 LOUDNESS=web python3 .claude/skills/ai-commercial/scripts/stitch-commercial.py clips out/brightday-every-stage-720p-v4.mp4"
   },
   "variants": {
     "9x16-social": {
@@ -284,6 +285,19 @@
         "Narration re-taken as one 30 s carrier with the new line 5 (92 words), asked for an easier pace and shorter pauses so it fits; it did, with half a second spare.",
         "Clip 4 re-recorded: 0.45 s hold, 5.3 s eased scroll from the hero, 1.3 s settle on Unique possibilities and the Pearl logo.",
         "End card re-timed to the new onsets."
+      ]
+    },
+    {
+      "round": 4,
+      "date": "2026-09-20",
+      "cut": "out/brightday-every-stage-720p-v4.mp4 (ignored by git)",
+      "length_s": 36.4,
+      "loudness": "-14.0 LUFS, -1.5 dBTP",
+      "credits": "0 (edit only)",
+      "feedback": "Client: start the dialogue 0.5 s later in clip 6 for a small gap between clips 5 and 6.",
+      "changes": [
+        "LEAD_EXTRA 0.5 on clip 6; line 6 now at 29.24 s, 1.4 s after line 5 ends.",
+        "End card captions shifted 0.5 s to match."
       ]
     }
   ],
