@@ -178,7 +178,7 @@
     "Render 1080p finals for the four generated clips once the client signs off the 720p reference (about 2245 credits each at list).",
     "Re-record clips 5 and 6 at 1920x1080 from the live site and rebuild.",
     "Editor's grade pass: upscale, 0.3 to 0.6 px blur, 8 to 15 percent grain, film LUT at 60 to 80 percent, match to one hero frame.",
-    "9:16 social: on sign-off, regenerate clips 1 to 4 at 9:16 and add burned-in captions for silent autoplay."
+    "9:16 social: on sign-off, regenerate clips 1 to 4 at 9:16 and re-run reframe and captions on the 1080p master."
   ],
   "variants": {
     "9x16-social": {
@@ -212,9 +212,16 @@
           29.2
         ]
       },
-      "known_limits": "Clips 1 to 4 are the 16:9 generations cropped, so they carry the 720p upscale; a final would regenerate them at 9:16 (420 credits each at 480p draft). Captions for silent autoplay not yet added.",
+      "known_limits": "Clips 1 to 4 are the 16:9 generations cropped, so they carry the 720p upscale; a final would regenerate them at 9:16 (420 credits each at 480p draft).",
       "rebuild": "python3 .claude/skills/ai-commercial/scripts/reframe-9x16.py reference/gbx-commercial-cut-720p-1.mp4 reframe-9x16.json out/gbx-commercial-9x16-v2.mp4 (run from spots/gbx-commercial; the spec holds the pans and the tail clips)",
-      "spec": "reframe-9x16.json"
+      "spec": "reframe-9x16.json",
+      "captions": {
+        "spec": "captions-9x16.json",
+        "words": "captions-words.json (faster-whisper small, word timestamps, on the reference cut's audio)",
+        "output": "out/gbx-commercial-9x16-v2-captions.mp4 (ignored by git)",
+        "rebuild": "python3 .claude/skills/ai-commercial/scripts/captions-9x16.py out/gbx-commercial-9x16-v2.mp4 captions-9x16.json out/gbx-commercial-9x16-v2-captions.mp4",
+        "style": "Montserrat SemiBold 76 px, off-white #F5F1E8 on charcoal #1B1F22 at about 78 percent, text bottom at 70 percent of the height, stop at 30.9 s when the philosophy line fades in"
+      }
     }
   }
 }

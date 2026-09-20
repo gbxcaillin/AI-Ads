@@ -47,6 +47,10 @@ Each of these cost at least one re-render. The number is the order we learned it
 - (23) `tpad` inside an `xfade` graph fails the constant-frame-rate check the same way trimming did (lesson 18). Stage each portrait clip to a clean file with its fade and pad applied, then dissolve the files.
 - (24) Check the centre-column strip at draft time. Both GBX pans were found after approval; a second strip per clip costs nothing and would have caught them in Phase 2.
 
+- (25) Captions from the script, timing from the transcript. Whisper wrote "10 -day" and "gbxps .com"; the script says "ten-day" and the card carries the address. Match the script's words onto the transcript's timestamps rather than showing the transcript.
+- (26) Caption size and chunking trade off. 58 px was too small on a phone; 76 px holds about 42 characters on two lines, so split longer sentences at a comma. Splitting to 30 characters made phrases that flashed for under a second; hold each caption to the next one's start instead.
+- (27) The site's fonts in the CSS are variable fonts whose default instance is Thin. Freeze a static instance at the weight you want before handing it to libass, or the captions render hairline.
+
 ## Things that were fine and stayed fine
 
 - 7-second clips at 480p are enough to judge composition, motion and the read. Do not pay for 1080p until a clip is approved.
