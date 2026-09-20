@@ -1,0 +1,92 @@
+{
+  "spot": "gbx-ugc-storyboard",
+  "client": "GBX Professional Services",
+  "purpose": "Storyboard animatic for real actors: three client-story UGC pieces, 9:16, assembled into one reel. AI characters stand in for the actors; consistency of face and voice across each story matters, realism of the brand claim does not (it is a storyboard, not an ad).",
+  "format": "9:16, 1080x1920 target, three stories of four 8 s clips each, jump cuts, each clip's own dialogue, captions burned in, a title card before each story, about 100 s total",
+  "status": "characters generating 2026-09-20",
+  "openart": {
+    "project_id": "QEGdDRsBuwaucNjmcQp3",
+    "character_model": "nano-banana-pro text2image, 9:16, 1K",
+    "video_model": "byte-plus-seedance-2-5 element2video, 8 s, 9:16, 480p, generateAudio true",
+    "consistency": "Clip 1 of each story is generated with the character image as the only element and its voice described in the prompt; its audio becomes the voice reference. Clips 2 to 4 take the image plus that audio and say which subject speaks with it."
+  },
+  "costs": {
+    "quoted_on": "2026-09-20",
+    "character_image": 36,
+    "clip_8s_480p_with_audio": 432,
+    "single_take_30s": 1629,
+    "plan": "3 images (108) + 12 clips (5184) = 5292 before re-rolls"
+  },
+  "house_style": "GBX Professional Services in full; G B X P S dot com in speech; no em dashes; no financial advice claims; no revenue or dollar outcomes in the lines.",
+  "characters": [
+    {
+      "key": "priya",
+      "name": "Priya",
+      "brief": "41, runs a twelve-person accounting practice. Kitchen bench at home, morning light, laptop closed beside her.",
+      "voice": "Measured and dry, warm underneath, light Australian lean, mid-range, unhurried.",
+      "image": "",
+      "image_openart_id": "",
+      "voice_ref": ""
+    },
+    {
+      "key": "mark",
+      "name": "Mark",
+      "brief": "52, owns a plumbing and air conditioning business with thirty staff. Cab of his work ute at the end of the day, hi-vis, phone on the dash.",
+      "voice": "Blunt and warm, a bit gravelly, broader Australian, quick to a wry laugh.",
+      "image": "characters/mark-b.png",
+      "image_openart_id": "kCO2kgLUgeQhUGL7TXBm",
+      "voice_ref": "",
+      "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888802111_7dc16fd6_1789888802661_f237a78b.png",
+      "alternate": "characters/mark-a.png (0CrkjxCcSPkZa8DihgsK, three-quarter angle, seatbelt on)"
+    },
+    {
+      "key": "jess",
+      "name": "Jess",
+      "brief": "34, co-founder of a small mortgage broking firm. Office corner, soft window light, afternoon, plant behind her.",
+      "voice": "Quick and bright, clear and a little higher, light Australian lean, friendly.",
+      "image": "characters/jess-a.png",
+      "image_openart_id": "kJJFpEscZQgRRjuKyy0B",
+      "voice_ref": "",
+      "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888816196_f3719cbb_1789888816430_9edb1c3c.png",
+      "alternate": "characters/jess-b.png (tfj8t3XRYvs2qjPwFOCN, hair down, off centre)"
+    }
+  ],
+  "scripts": {
+    "priya": [
+      "Nobody tells you this when you start a practice. You become the bottleneck.",
+      "I did the free Business Health Check on the GBX Professional Services site. Two minutes. It said my problem was process, not sales.",
+      "So we did the ten-day Performance Diagnostic. Fixed fee. They talked to my team, not just me. I got a written report and a ninety-day plan that I own.",
+      "Three months on, work leaves this office without going through me. Start with the free check. Link's in my bio."
+    ],
+    "mark": [
+      "I thought I needed more leads. Turns out I needed a pipeline I could actually read.",
+      "The GBX Professional Services team started with our numbers, our process and our pipeline. In that order. No slide deck.",
+      "The only AI they put in was the boring stuff. Quote follow-ups. Job sheets. Nothing my guys had to learn.",
+      "Practical, and only where it helped. That's the whole review. G B X P S dot com."
+    ],
+    "jess": [
+      "Every consultant I have met wanted to sell me something at the end.",
+      "GBX Professional Services has no licence and no products. So the advice isn't tied to anything. That's why I picked them.",
+      "They also ran a money session for my team. Plain language, at work, no pitch. My staff still talk about it.",
+      "A clearer picture, not more advice. Free tools first, then the Diagnostic if you want it."
+    ]
+  },
+  "clips": [
+    {
+      "story": "mark",
+      "n": 1,
+      "openart_id": "NZNHi34ovY7xojO0okcR",
+      "role": "voice seed",
+      "status": "generating"
+    },
+    {
+      "story": "jess",
+      "n": 1,
+      "openart_id": "SSzElwRbLihm7N7SbwJK",
+      "role": "voice seed",
+      "status": "generating"
+    }
+  ],
+  "rounds": [],
+  "next": []
+}
