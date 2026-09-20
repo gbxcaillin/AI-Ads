@@ -31,7 +31,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-CLIPS = [
+CLIPS = os.environ['CLIPS'].split(',') if os.environ.get('CLIPS') else [   # env CLIPS=a.mp4,b.mp4,... overrides; default is the GBX spot
     'clip1-clearer-picture-7s.mp4',
     'clip2-run-sharper-7s-v2.mp4',
     'clip3-ai-7s-v6.mp4',
@@ -46,8 +46,8 @@ XFADE = 0.7        # seconds each dissolve takes
 LEAD = 0.35        # seconds after a clip starts before its line begins
 CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the dissolve starts
 MIN_CLIP = 3.0     # never trim a clip shorter than this
-CLIP_EXTRA = {2: 0.5}   # extra seconds of screen time for specific clips (0-based index); clip 3 gets +0.5s
-WHITE_FADES = {5}  # 1-based clip numbers whose dissolve INTO them fades through white instead of a plain crossfade
+CLIP_EXTRA = ({int(k): float(v) for k, v in (kv.split(':') for kv in os.environ['CLIP_EXTRA'].split(','))} if os.environ.get('CLIP_EXTRA') else {2: 0.5})   # extra seconds for specific clips, 0-based index; env CLIP_EXTRA=2:0.5,4:0.5 overrides
+WHITE_FADES = ({int(x) for x in os.environ['WHITE_FADES'].split(',') if x.strip()} if 'WHITE_FADES' in os.environ else {5})  # 1-based clip numbers whose dissolve INTO them fades through white; env WHITE_FADES=6 or WHITE_FADES= (none) overrides
 BED_UNDER_DB = float(os.environ.get('BED_UNDER_DB', '18'))   # bed sits this far under the narration; 18 to 20 is the broadcast convention, under 15 masks speech on phones
 LOUDNESS = os.environ.get('LOUDNESS', 'web')   # 'web' (-14 LUFS, -1 dBTP: YouTube and most platforms), 'broadcast' (-24 LKFS, -2 dBTP: CALM, OP-59) or 'none'
 LOUDNESS_TARGETS = {'web': (-14.0, -1.5), 'broadcast': (-24.0, -2.5)}   # half a dB of true-peak headroom below the platform ceiling, because the AAC encode overshoots slightly
