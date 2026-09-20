@@ -9,7 +9,7 @@ spec.json:
   "title_style": {"font": "Montserrat", "size": 64},         # optional
   "sections": [
     {"title": "Priya, accounting practice",                    # optional 2 s title card before the section
-     "clips": ["clips/priya-1.mp4", "clips/priya-2.mp4", ...]}
+     "clips": ["clips/priya-1.mp4", {"file": "clips/priya-2.mp4", "end": 6.3}, ...]}   # a clip may carry start/end overrides
   ],
   "tail_pad": 0.35,        # seconds kept after the last speech in each clip (the rest is cut)
   "head_pad": 0.15,        # seconds kept before the first speech
@@ -108,8 +108,11 @@ def main(spec_path, out):
             title_card(ff, sec['title'], w, h, sec.get('title_secs', 2.0), fps, spec.get('title_style', {}), card)
             parts.append(card); t += sec.get('title_secs', 2.0)
         for ci, c in enumerate(sec['clips']):
-            src = base / c if not Path(c).is_absolute() else Path(c)
+            spec_c = c if isinstance(c, dict) else {'file': c}      # a clip is a path, or {"file", "start", "end"} to override the speech bounds
+            src = base / spec_c['file'] if not Path(spec_c['file']).is_absolute() else Path(spec_c['file'])
             first, last, total = speech_bounds(ff, src)
+            if 'start' in spec_c: first = float(spec_c['start'])
+            if 'end' in spec_c: last = float(spec_c['end'])          # when room tone sits above the silence threshold, give the last word's end from the transcript
             a = max(0.0, first - hp); b = min(total, last + tp)
             staged = tmp / f's{si}c{ci}.mp4'
             vf = (f'scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps={fps},format=yuv420p,'

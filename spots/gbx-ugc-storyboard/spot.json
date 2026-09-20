@@ -3,7 +3,7 @@
   "client": "GBX Professional Services",
   "purpose": "Storyboard animatic for real actors: three client-story UGC pieces, 9:16, assembled into one reel. AI characters stand in for the actors; consistency of face and voice across each story matters, realism of the brand claim does not (it is a storyboard, not an ad).",
   "format": "9:16, 1080x1920 target, three stories of four 8 s clips each, jump cuts, each clip's own dialogue, captions burned in, a title card before each story, about 100 s total",
-  "status": "reel v1 sent 2026-09-20; awaiting client feedback",
+  "status": "reel v2 sent 2026-09-20; awaiting client feedback",
   "openart": {
     "project_id": "QEGdDRsBuwaucNjmcQp3",
     "character_model": "nano-banana-pro text2image, 9:16, 1K",
@@ -117,18 +117,23 @@
     {
       "story": "mark",
       "n": 1,
-      "openart_id": "ydshelBT2cfGS1vphGVZ",
+      "openart_id": "6HzRx0yecfUNsBpQxE01",
       "duration": 8,
       "file": "clips/mark-1.mp4",
-      "status": "done, line verbatim by transcript, face matches the sheet"
+      "status": "done, line verbatim by transcript, face matches the sheet",
+      "spoken": "pipe-line (captions keep pipeline)",
+      "previous": "ydshelBT2cfGS1vphGVZ, clips/mark-1-v1.mp4",
+      "trim": "end 5.9 s in reel.json: the take's cab ambience sits above the silence threshold, so the speech detector kept 2 s of nothing"
     },
     {
       "story": "mark",
       "n": 2,
-      "openart_id": "nnWbgyKaAWYtNZyFMnjB",
+      "openart_id": "OIE2gsz1ph8RiCU5WPQl",
       "duration": 9,
       "file": "clips/mark-2.mp4",
-      "status": "done, line verbatim by transcript, face matches the sheet"
+      "status": "done, line verbatim by transcript, face matches the sheet",
+      "spoken": "pipe-line (captions keep pipeline)",
+      "previous": "nnWbgyKaAWYtNZyFMnjB, clips/mark-2-v1.mp4"
     },
     {
       "story": "mark",
@@ -189,6 +194,16 @@
         "Voice references from the seed clips held across every later clip.",
         "Captions must not hold across section ends; captions-9x16.py now takes clamp_ends and stitch-ugc.py writes a sections sidecar."
       ]
+    },
+    {
+      "round": 2,
+      "date": "2026-09-20",
+      "credits": "2 re-rolls, 864",
+      "feedback": "Client: Mark has trouble saying pipeline; say pipe-line in the audio, keep pipeline in the subtitles.",
+      "changes": [
+        "Mark clips 1 and 2 re-rolled with pipe-line in the spoken line; the caption script reads from the script file so the subtitle stays pipeline.",
+        "stitch-ugc.py clips may carry start/end overrides for takes whose room tone defeats the silence detector."
+      ]
     }
   ],
   "next": [],
@@ -203,7 +218,7 @@
   "reel": {
     "spec": "reel.json",
     "captions": "captions-reel.json (words in captions-reel-words.json)",
-    "output": "out/gbx-ugc-storyboard-reel-v1.mp4 (ignored by git)",
+    "output": "out/gbx-ugc-storyboard-reel-v2.mp4 (ignored by git); review copy out/gbx-ugc-storyboard-reel-v2-review-720p.mp4",
     "length_s": 100.6,
     "loudness": "-14.2 LUFS, -1.3 dBTP",
     "build": "cd frames-work && ln -sfn ../clips clips && python3 ../../../.claude/skills/ai-commercial/scripts/stitch-ugc.py reel.json ../out/reel-nocaps.mp4; then captions-9x16.py with clamp_ends from the .sections.json sidecar"

@@ -1,10 +1,50 @@
 {
-  "size": [1080, 1920], "fps": 25,
-  "title_style": {"font": "Montserrat", "size": 84},
-  "head_pad": 0.15, "tail_pad": 0.35, "gap_black": 0.4, "loudness": "web",
-  "sections": [
-    {"title": "Story 1\\NPriya, accounting practice", "title_secs": 2.0, "clips": ["clips/priya-1.mp4", "clips/priya-2.mp4", "clips/priya-3.mp4", "clips/priya-4.mp4"]},
-    {"title": "Story 2\\NMark, plumbing and air conditioning", "title_secs": 2.0, "clips": ["clips/mark-1.mp4", "clips/mark-2.mp4", "clips/mark-3.mp4", "clips/mark-4.mp4"]},
-    {"title": "Story 3\\NJess, mortgage broking", "title_secs": 2.0, "clips": ["clips/jess-1.mp4", "clips/jess-2.mp4", "clips/jess-3.mp4", "clips/jess-4.mp4"]}
-  ]
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 25,
+ "title_style": {
+  "font": "Montserrat",
+  "size": 84
+ },
+ "head_pad": 0.15,
+ "tail_pad": 0.35,
+ "gap_black": 0.4,
+ "loudness": "web",
+ "sections": [
+  {
+   "title": "Story 1\\NPriya, accounting practice",
+   "title_secs": 2.0,
+   "clips": [
+    "clips/priya-1.mp4",
+    "clips/priya-2.mp4",
+    "clips/priya-3.mp4",
+    "clips/priya-4.mp4"
+   ]
+  },
+  {
+   "title": "Story 2\\NMark, plumbing and air conditioning",
+   "title_secs": 2.0,
+   "clips": [
+    {
+     "file": "clips/mark-1.mp4",
+     "end": 5.9
+    },
+    "clips/mark-2.mp4",
+    "clips/mark-3.mp4",
+    "clips/mark-4.mp4"
+   ]
+  },
+  {
+   "title": "Story 3\\NJess, mortgage broking",
+   "title_secs": 2.0,
+   "clips": [
+    "clips/jess-1.mp4",
+    "clips/jess-2.mp4",
+    "clips/jess-3.mp4",
+    "clips/jess-4.mp4"
+   ]
+  }
+ ]
 }

@@ -13,9 +13,6 @@
   "They also ran a money session for my team. Plain language, at work, no pitch. My staff still talk about it.",
   "A clearer picture, not more advice. Free tools first, then the Diagnostic if you want it."
  ],
- "clamp_ends": [
-  35.99,
-  67.86
- ],
- "words": "captions-reel-words.json"
+ "words": "captions-reel-words.json",
+ "sections": "out/gbx-ugc-storyboard-reel-v2-nocaps.sections.json"
 }
