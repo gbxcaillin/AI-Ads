@@ -37,13 +37,15 @@
       "name": "Mark",
       "brief": "52, owns a plumbing and air conditioning business with thirty staff. Cab of his work ute at the end of the day, hi-vis, phone on the dash.",
       "voice": "Blunt and warm, a bit gravelly, broader Australian, quick to a wry laugh.",
-      "image": "characters/mark-b.png",
-      "image_openart_id": "kCO2kgLUgeQhUGL7TXBm",
+      "image": "characters/mark-c.png",
+      "image_openart_id": "DUjC33pxJhg3IwlLhM4c",
       "voice_ref": "voices/mark-voice.mp3",
-      "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888802111_7dc16fd6_1789888802661_f237a78b.png",
+      "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789889468273_202e4fb4_1789889468348_672224e7.png",
       "alternate": "characters/mark-a.png (0CrkjxCcSPkZa8DihgsK, three-quarter angle, seatbelt on)",
       "voice_ref_openart_id": "UfXqe2u7zYuK2B0RSYEL",
-      "voice_ref_url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-video/nN90WiPr5Ngn0IWrVHQd/mark-voice_1789889234551_1580968f.mp3"
+      "voice_ref_url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-video/nN90WiPr5Ngn0IWrVHQd/mark-voice_1789889234551_1580968f.mp3",
+      "repose_note": "Client (2026-09-20): the first sheet had him twisted toward the passenger side. Re-posed from the same face with Nano Banana Pro image2image: square in the driver's seat, headrest behind, wheel at the bottom edge, phone in his left hand. mark-b (kCO2kgLUgeQhUGL7TXBm) kept as the face reference that produced the voice seed; mark-d (jJM3ijkVkR91qm5eOYxl) too low with the wheel dominant.",
+      "voice_ref_note": "The voice reference came from the first seed (old pose) and is audio only, so it carries over unchanged."
     },
     {
       "key": "jess",
@@ -97,33 +99,28 @@
       "status": "done, line verbatim, face holds"
     },
     {
-      "story": "mark",
-      "n": 1,
-      "openart_id": "NZNHi34ovY7xojO0okcR",
-      "file": "clips/mark-1.mp4",
-      "role": "voice seed",
-      "status": "done, line verbatim, face holds"
-    },
-    {
       "story": "jess",
       "n": 2,
       "openart_id": "pwHOogQlG6hZ564yNqHW",
       "duration": 9,
-      "status": "generating"
+      "status": "done, line verbatim, face holds",
+      "file": "clips/jess-2.mp4"
     },
     {
       "story": "jess",
       "n": 3,
       "openart_id": "WEe9JULlM1B3QvZgmEfG",
       "duration": 9,
-      "status": "generating"
+      "status": "done, line verbatim, face holds",
+      "file": "clips/jess-3.mp4"
     },
     {
       "story": "jess",
       "n": 4,
       "openart_id": "g6dcBSqFTC9EnM7qBuEH",
       "duration": 8,
-      "status": "generating"
+      "status": "done, line verbatim, face holds",
+      "file": "clips/jess-4.mp4"
     },
     {
       "story": "priya",
@@ -145,6 +142,24 @@
       "openart_id": "62HlMMUm4q1wSTSP8r7H",
       "duration": 9,
       "status": "generating"
+    },
+    {
+      "story": "mark",
+      "n": 1,
+      "openart_id": "superseded NZNHi34ovY7xojO0okcR (old pose, kept as voice seed); new job below",
+      "status": "regenerating"
+    },
+    {
+      "story": "mark",
+      "n": 2,
+      "openart_id": "superseded IcmvnBYWT9tOE8JFWUK1 (old pose)",
+      "status": "regenerating"
+    },
+    {
+      "story": "mark",
+      "n": 3,
+      "openart_id": "superseded MXiNgssm0C8q8ae2WAbh (old pose)",
+      "status": "regenerating"
     }
   ],
   "rounds": [],
