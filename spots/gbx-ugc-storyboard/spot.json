@@ -24,9 +24,11 @@
       "name": "Priya",
       "brief": "41, runs a twelve-person accounting practice. Kitchen bench at home, morning light, laptop closed beside her.",
       "voice": "Measured and dry, warm underneath, light Australian lean, mid-range, unhurried.",
-      "image": "",
-      "image_openart_id": "",
-      "voice_ref": ""
+      "image": "characters/priya-a.png",
+      "image_openart_id": "E70hy0lwkzZWQr6wFdpl",
+      "voice_ref": "",
+      "image_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/nN90WiPr5Ngn0IWrVHQd/image_1789888920300_70f645e0_1789888920348_de8bf4b3.png",
+      "alternate": "characters/priya-b.png (UIqKvk6guVldMrgD2XkC); the first Priya job (SsWkDMyPdIU9s57t95Sk) sat in the queue and was superseded"
     },
     {
       "key": "mark",
@@ -83,6 +85,13 @@
       "story": "jess",
       "n": 1,
       "openart_id": "SSzElwRbLihm7N7SbwJK",
+      "role": "voice seed",
+      "status": "generating"
+    },
+    {
+      "story": "priya",
+      "n": 1,
+      "openart_id": "rnlky0J26JSxlwI0x5d4",
       "role": "voice seed",
       "status": "generating"
     }
