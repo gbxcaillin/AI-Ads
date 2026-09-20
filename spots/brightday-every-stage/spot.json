@@ -136,14 +136,14 @@
     },
     {
       "clip": 5,
-      "line": "And a real adviser when you want one. The first conversation is free."
+      "line": "And a real adviser when you want one. Your first conversation won't cost you anything but time, and is obligation free."
     },
     {
       "clip": 6,
       "line": "Brightday. Better super. Better investing. Better advice. Brightday dot com dot A U."
     }
   ],
-  "word_count": 84,
+  "word_count": 92,
   "clips": [
     {
       "n": 1,
@@ -183,9 +183,9 @@
       "name": "your-choice",
       "file": "clip4-choice-screencap-7s.mp4",
       "mode": "captured",
-      "on_screen": "The real product: a phone-frame capture of the portfolio choice, ready-made portfolios on one side and choose-your-own on the other, a scroll and one tap.",
+      "on_screen": "One slow, smooth scroll down the public investing page from the hero, settling on the Unique possibilities section with the Pearl logo. No cursor.",
       "recorder": "scripts/record-invest-clip.mjs",
-      "notes": "Desktop capture 1920x1080: hero, scroll to Who are you?, the Pearl section. Requests are fetched through curl because headless Chromium does not trust the session proxy's certificate. Fallback until the client supplies platform screens.",
+      "notes": "Desktop capture 1920x1080, 7.04 s: 0.45 s hold, a 5.3 s eased scroll, 1.3 s settle on Pearl. Requests are fetched through curl because headless Chromium does not trust the session proxy's certificate. Client asked for this framing on 2026-09-20; the members' platform screens remain the stronger option if they arrive.",
       "source": "https://www.brightday.com.au/invest (public page; the members' platform screens are still wanted)"
     },
     {

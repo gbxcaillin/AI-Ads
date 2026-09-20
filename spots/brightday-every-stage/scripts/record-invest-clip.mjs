@@ -1,5 +1,5 @@
-// Records Brightday clip 4 from the public site: the Investing page, a scroll from the
-// "Who are you?" section through the investment options, with a fake cursor.
+// Records Brightday clip 4 from the public site: the Investing page, one slow smooth scroll
+// from the top that settles on the Pearl section and its logo. No cursor.
 // The headless browser does not trust the session's egress proxy certificate, so every
 // request is fetched through curl (which does) and handed to the page; TLS stays verified.
 //   OUT_DIR=frames4 W=1920 H=1080 node scripts/record-invest-clip.mjs
@@ -51,21 +51,19 @@ async function moveTo(x0, y0, x1, y1, ms) {
 }
 await p.goto(URL, { waitUntil: 'networkidle', timeout: 120000 })
 await p.evaluate(async () => { await document.fonts.ready })
-// hide cookie banners and announcement bars if any
-await p.addStyleTag({ content: '.sqs-cookie-banner-v2, .sqs-announcement-bar-dropzone, #siteWrapper .sqs-popup-overlay{display:none!important}' })
+await p.addStyleTag({ content: '.sqs-cookie-banner-v2, .sqs-announcement-bar-dropzone, #siteWrapper .sqs-popup-overlay{display:none!important} html{scroll-behavior:auto!important}' })
 await p.waitForTimeout(500)
-await addCursor()
-const who = await p.evaluate(() => { const h = [...document.querySelectorAll('h1,h2,h3')].find((e) => /who are you/i.test(e.textContent)); return h ? h.getBoundingClientRect().top + window.scrollY : 600 })
-let cx = W * 0.78, cy = H * 0.35
-await p.evaluate(([x, y]) => window.__cur && window.__cur(x, y), [cx, cy])
-await hold(500)
-await smoothScroll(Math.max(0, Math.round(who - H * 0.18)), 1500)
+// One slow, smooth scroll from the top of the page that settles with the Pearl section
+// (the "Unique possibilities" heading and the Pearl logo) in the upper half of the frame.
+const pearlTop = await p.evaluate(() => {
+  const h = [...document.querySelectorAll('h1,h2,h3,h4')].find((e) => /unique possibilities/i.test(e.textContent))
+  const img = [...document.querySelectorAll('img')].find((i) => /pearl/i.test(i.alt || '') || /pearl/i.test(i.src || ''))
+  const el = h || img
+  return el ? el.getBoundingClientRect().top + window.scrollY : 2400
+})
+const settle = Math.max(0, Math.round(pearlTop - H * 0.16))
 await hold(450)
-await moveTo(cx, cy, W * 0.52, H * 0.55, 500); cx = W * 0.52; cy = H * 0.55
-await hold(200)
-await smoothScroll(Math.max(0, Math.round(who + H * 0.75)), 1500)
-await hold(450)
-await smoothScroll(Math.max(0, Math.round(who + H * 1.55)), 1300)
-await hold(650)
+await smoothScroll(settle, parseFloat(process.env.SCROLL_S || '5.3') * 1000)
+await hold(parseFloat(process.env.HOLD_S || '1.3') * 1000)
 await b.close()
-console.log('frames', n, 'who at', who)
+console.log('frames', n, 'settled at', settle, 'pearl at', pearlTop)
