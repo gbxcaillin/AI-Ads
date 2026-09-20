@@ -9,6 +9,7 @@ The workflow is the `ai-commercial` skill in `.claude/skills/ai-commercial/`. `C
 | Spot | Status | Length | Notes |
 |---|---|---|---|
 | `spots/gbx-commercial/` | reference cut approved (720p) | 36.6 s | six clips, one narrator, one bed; see its `spot.json` |
+| `spots/brightday-every-stage/` | script and clip table drafted, awaiting sign-off and assets | about 38 s | Brightday brand film, direction A; nothing generated yet |
 
 ## Setup
 

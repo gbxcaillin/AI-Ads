@@ -1,0 +1,225 @@
+{
+  "spot": "brightday-every-stage",
+  "client": "Brightday (Brightday Advisers, AFSL 484139), www.brightday.com.au",
+  "format": "16:9 web brand film, about 38 to 40 s at the GBX read pace, web loudness target (-14 LUFS, -1 dBTP); 9:16 social cut by reframe plus captions",
+  "status": "script and clip table drafted 2026-09-20; awaiting client sign-off and brand assets before any generation",
+  "direction": "A, Every stage: nobody wakes up thinking about super; three life stages; one place; the choice of control; a real adviser; the mark.",
+  "openart": {
+    "project_id": "QEGdDRsBuwaucNjmcQp3",
+    "model": "byte-plus-seedance-2-5",
+    "draft_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "final_params": {
+      "duration": 7,
+      "aspectRatio": "16:9",
+      "resolution": "1080p",
+      "generateAudio": false,
+      "videoCount": 1
+    },
+    "carrier_params": {
+      "duration": 30,
+      "aspectRatio": "16:9",
+      "resolution": "480p",
+      "generateAudio": true,
+      "videoCount": 1
+    }
+  },
+  "costs": {
+    "quoted_on": "2026-09-20",
+    "unit": "OpenArt credits; list price, then what this account pays after its 10 percent MCP discount, rounded per unit",
+    "draft_7s_480p_picture_only": {
+      "list": 420,
+      "charged": 378
+    },
+    "final_7s_1080p_picture_only": {
+      "list": 2245,
+      "charged": 2021
+    },
+    "carrier_30s_480p_with_audio": {
+      "list": 1810,
+      "charged": 1629
+    },
+    "plan": {
+      "drafts_4_generated_clips_x_3_takes": {
+        "jobs": 12,
+        "charged": 4536
+      },
+      "narration_and_bed_carriers": {
+        "jobs": 2,
+        "charged": 3258
+      },
+      "to_reviewable_720p_cut": 7794,
+      "finals_4_clips_1080p": {
+        "jobs": 4,
+        "charged": 8084
+      },
+      "to_signed_off_1080p_master": 15878,
+      "contingency_note": "A stubborn scene (clip 3 on GBX took six takes) adds 378 a take; a 9:16 regeneration of a scene the crop cannot hold is 378 a draft."
+    }
+  },
+  "brand": {
+    "palette_from_site_css": {
+      "navy_light_accent": "hsl(210, 66%, 21%) about #12345A",
+      "pink_accent": "hsl(333, 92%, 51%) about #F5157A",
+      "purple_dark_accent": "hsl(267, 45%, 55%) about #8A5FBF",
+      "white": "#FFFFFF",
+      "text_greys": "#272727, #3E3E3E, #F6F6F6",
+      "also_seen": "#F0523D coral, #00B2FF sky blue"
+    },
+    "fonts_from_site_css": [
+      "Ubuntu (wordmark and headings)",
+      "Work Sans",
+      "Clarkson"
+    ],
+    "logo": "brand/brightday-logo-white-on-transparent.webp (white wordmark with pink flower mark, 2500 px wide, from the site header)",
+    "tagline": "Better Super. Better Investing. Better Advice.",
+    "promise_line": "Our promise is in our name!",
+    "compliance": "General advice warning and AFSL 484139 appear on the site footer; the end card carries a general advice line and the AFSL. No line in the script promises returns."
+  },
+  "assets_needed_from_client": [
+    "Logo as vector (SVG, AI or EPS) and the pink mark on its own; an animated logo if one exists (otherwise the end card animates the static mark).",
+    "Product screens for clip 4: the members' platform view where ready-made portfolios sit beside choose-your-own (screenshots at phone and desktop size, or a demo login). Fallback is the public /invest page.",
+    "The exact general advice wording and licensee name they put on ads, and whether the phone number (03 7036 0572) or only the URL goes on the end card.",
+    "Voice and music preferences, and any existing brand track or voice they have used before.",
+    "Confirmation of the look: one pink accent object in every frame, or navy and white only."
+  ],
+  "shared_style": "Bright, warm, optimistic Australian brand film. Early morning and golden daylight, clean whites and soft navy shadows, one small hot pink accent somewhere in each frame (a mug, a jacket, a flower), fine film grain, shallow depth of field, slow deliberate camera movement. Real-feeling Australians of different ages, natural and unposed, in Melbourne homes, cafes and streets. Framed for both widescreen and a tall portrait crop: the subject and every essential action sit in the centre third of the frame; the outer thirds are environment only. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen.",
+  "voice": {
+    "direction": "One female voiceover across all six clips: Australian, late thirties, warm, bright and unhurried, plainly spoken with a smile in it. Sounds like a friend who happens to know this stuff explaining it over breakfast, not a presenter. Clear mid-range, precise diction, no sales energy, no echo, natural pauses.",
+    "rule": "Describe the voice; never name a real actor or public figure.",
+    "narration_take": "audio/narration-all-lines.m4a",
+    "narration_openart_id": "",
+    "line_splitting": "python3 .claude/skills/ai-commercial/scripts/narration-lines.py audio/narration-all-lines.m4a clips/narration-lines.txt \"your first real job\" \"brightday brings super\" \"ready made portfolios\" \"and a real adviser\" \"brightday better super\""
+  },
+  "music": {
+    "bed": "audio/music-bed.m4a",
+    "bed_openart_id": "",
+    "prompt": "A plain, very slow drifting gradient of deep navy and warm dawn light, soft film grain, no people, no objects, no text, no letters, no logos. Sound: an original, simple, quiet synthesiser drone. A single warm sustained pad tone that breathes slowly, brighter and more hopeful than sombre, with an occasional soft single piano note, very sparse, calm and unchanging, no melody, no rhythm, no drums, no voices, no words, no singing, no sound effects, the same soft texture from the first second to the last, gently fading out at the very end.",
+    "handling": "One take, stretched with atempo to the cut length. Never looped."
+  },
+  "script": [
+    {
+      "clip": 1,
+      "line": "Nobody wakes up thinking about super. They think about the life it has to pay for."
+    },
+    {
+      "clip": 2,
+      "line": "Your first real job. Your best earning years. A lifetime of work to look after."
+    },
+    {
+      "clip": 3,
+      "line": "Brightday brings super knowledge and super investing together, in one place."
+    },
+    {
+      "clip": 4,
+      "line": "Ready-made portfolios when you want us to do the work. Your own picks when you don't."
+    },
+    {
+      "clip": 5,
+      "line": "And a real adviser when you want one. The first conversation is free."
+    },
+    {
+      "clip": 6,
+      "line": "Brightday. Better super. Better investing. Better advice. Brightday dot com dot A U."
+    }
+  ],
+  "word_count": 81,
+  "clips": [
+    {
+      "n": 1,
+      "name": "waking",
+      "file": "clip1-waking-7s.mp4",
+      "mode": "generated",
+      "on_screen": "Dawn light crossing a bedroom. A phone face down on the bedside table, a hand reaches past it to open the blind, and the light lands on the room and the city beyond the window. No face to camera.",
+      "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Dawn in a quiet Melbourne apartment bedroom. Close on a bedside table in the centre of the frame: a phone face down, a glass of water, a small pink ceramic cup. A hand reaches past the phone and pulls the cord of the blind; warm first light sweeps across the bed and the room, and through the window the rooftops and the city skyline appear in soft focus. The camera drifts very slowly back to reveal the person sitting up, seen from behind, stretching, unhurried. Nobody looks at the camera. Two beats in one shot: the detail of the table, then the room waking up.",
+      "openart_id": "",
+      "notes": "The safe opener: one person, no faces, no screens. The phone stays face down so nothing has to render on it."
+    },
+    {
+      "n": 2,
+      "name": "three-ages",
+      "file": "clip2-three-ages-7s.mp4",
+      "mode": "generated",
+      "on_screen": "A slow dolly along a sunlit cafe bench. A young man with a lanyard and a laptop (plain lid), then a woman in her forties with rolled house plans, then a man in his sixties with a coffee and the paper, each passing through the centre of the frame in turn.",
+      "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Morning in a bright Melbourne cafe, sun through the front window. The camera dollies slowly sideways along a long window bench so that three people, seated well apart along it, pass one after another through the centre of the frame: first a young man in his mid twenties with a work lanyard, a closed laptop beside him with a plain matte lid and no logo, taking a first sip of coffee; then a woman in her forties with a roll of house plans and a pink folder, writing a note; then a man in his sixties reading a folded newspaper held low, no legible print, glasses pushed up. Each is absorbed in their own morning; nobody looks at the camera; nobody speaks. No readable text anywhere.",
+      "openart_id": "",
+      "notes": "Three life stages in one move without spreading them across the width: the dolly brings each into the centre third in turn, so the 9:16 crop sees each one. Expect two or three takes; a row of three can come out as a group photo."
+    },
+    {
+      "n": 3,
+      "name": "one-place",
+      "file": "clip3-one-place-7s.mp4",
+      "mode": "generated",
+      "on_screen": "An adviser and a client at a bright table by a window, stacked in depth at the centre of the frame, the adviser sketching a simple timeline in a notebook while the client leans in. No screens.",
+      "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. A bright meeting room with a window onto a Melbourne street, late morning. An adviser in her forties and a client in his thirties sit at the near corner of a light timber table, at the centre of the frame, she slightly nearer the lens and he just behind her shoulder, both looking down at one open notebook between them. She draws a simple line with three small marks on it in pen, nothing legible, and he nods and points to the last mark with a pen. A single pink coffee cup by the notebook. Slow push-in. Nobody looks at the camera; they are in quiet conversation with each other and their voices are never heard; no laptop, no phone, no screen anywhere. No readable text.",
+      "openart_id": "",
+      "notes": "Picture only (generateAudio false) or the model lip-syncs the narration to the adviser. The timeline sketch is the whole idea: one place, one plan."
+    },
+    {
+      "n": 4,
+      "name": "your-choice",
+      "file": "clip4-choice-screencap-7s.mp4",
+      "mode": "captured",
+      "on_screen": "The real product: a phone-frame capture of the portfolio choice, ready-made portfolios on one side and choose-your-own on the other, a scroll and one tap.",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-tools-clip.mjs (adapt selectors) and its 9x16 sibling",
+      "notes": "Needs the members' platform screens or a demo login from Brightday. Fallback: the public /invest page, scrolling from the Who are you? section to the investment options. Never generated: it must show the real product."
+    },
+    {
+      "n": 5,
+      "name": "real-adviser",
+      "file": "clip5-real-adviser-7s.mp4",
+      "mode": "generated",
+      "on_screen": "A woman in her thirties on a phone call in a sunlit kitchen, relaxed, half a smile, leaning on the bench; through the window a garden. Her lips move, her voice is never heard.",
+      "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. A sunlit kitchen in a Melbourne home, mid morning. A woman in her thirties stands at the centre of the frame leaning on the bench with a phone to her ear, relaxed, listening, then half a smile and a small nod as she picks up a pen and writes one line in a notebook, nothing legible. A pink mug on the bench. Through the window behind her a garden, soft and out of focus. Slow push-in. Her lips move as she speaks now and then but her voice is never heard; nobody looks at the camera; no readable text anywhere.",
+      "openart_id": "",
+      "notes": "Picture only. The call is the product: a real adviser on the other end. Keep her centred for the crop."
+    },
+    {
+      "n": 6,
+      "name": "endcard",
+      "file": "clip6-endcard-picture.mp4",
+      "mode": "captured",
+      "on_screen": "On navy: the pink flower mark builds, the brightday wordmark settles beside it, then the tagline Better Super. Better Investing. Better Advice., then brightday.com.au, with the general advice line and AFSL 484139 small at the foot. Slow push-in throughout.",
+      "recorder": ".claude/skills/ai-commercial/scripts/record-endcard-clip.mjs (rebuild for the Brightday mark, Ubuntu and Work Sans, navy ground) and its 9x16 sibling",
+      "timings_env": "T6 from the sentence onsets in line 6 once the narration exists",
+      "notes": "Never a generated mark. Needs the vector logo; the site's white PNG is the fallback. The compliance line is part of the card, not an afterthought."
+    }
+  ],
+  "edit": {
+    "stitch": ".claude/skills/ai-commercial/scripts/stitch-commercial.py",
+    "knobs": {
+      "LEAD": 0.35,
+      "CLIP_TAIL": 0.55,
+      "CLIP_EXTRA": {},
+      "XFADE": 0.7,
+      "WHITE_FADES": [],
+      "BED_UNDER_DB": 18,
+      "LOUDNESS": "web",
+      "SIZE": [
+        1280,
+        720
+      ]
+    },
+    "notes": [
+      "Brightday's world is bright, so the dissolve into the navy end card may want a dip through white; decide on the first cut.",
+      "Line 6 is 13 words; give the card its full length as on GBX."
+    ]
+  },
+  "variants": {
+    "9x16-social": {
+      "plan": "Reframe the approved 16:9 with reframe-9x16.py (clips are composed for the centre third), re-record clips 4 and 6 in portrait, burn captions with captions-9x16.py, stop captions when the tagline fades in on the card."
+    }
+  },
+  "rounds": [],
+  "next": [
+    "Client sign-off on the script and clip table.",
+    "Collect the assets listed under assets_needed_from_client.",
+    "Generate clips 1, 2, 3 and 5 at 480p (4 x 378 credits a round), check strips in 16:9 and through the centre column, send for review.",
+    "Narration and bed carriers (2 x 1629), split lines, record clips 4 and 6, stitch, verify, send the 720p cut."
+  ]
+}
