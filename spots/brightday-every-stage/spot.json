@@ -2,7 +2,7 @@
   "spot": "brightday-every-stage",
   "client": "Brightday (Brightday Advisers, AFSL 484139), www.brightday.com.au",
   "format": "16:9 web brand film, about 38 to 40 s at the GBX read pace, web loudness target (-14 LUFS, -1 dBTP); 9:16 social cut by reframe plus captions",
-  "status": "round 1 cut sent 2026-09-20; awaiting client feedback",
+  "status": "round 2 cut sent 2026-09-20; awaiting client feedback",
   "direction": "A, Every stage: nobody wakes up thinking about super; three life stages; one place; the choice of control; a real adviser; the mark.",
   "openart": {
     "project_id": "QEGdDRsBuwaucNjmcQp3",
@@ -107,7 +107,7 @@
     "narration_take": "audio/narration-all-lines.m4a",
     "narration_openart_id": "hWKVGs3hE9ZkFLoWLWOc",
     "line_splitting": "python3 .claude/skills/ai-commercial/scripts/narration-lines.py audio/narration-all-lines.m4a clips/narration-lines.txt \"your first real job\" \"bright day brings\" \"ready made portfolios\" \"and a real advisor\" \"bright day better super\"  (the transcript hears Brightday as two words and adviser as advisor)",
-    "read_check": "All 84 words present; last word ends at 29.8 s of 30.08; lines split at 4.83, 10.83, 15.34, 20.24, 24.31."
+    "read_check": "All 84 words present; last word ends at 29.8 s of 30.08. Lines now cut tight to speech: 0.18 to 4.51, 5.27 to 10.58, 11.19 to 15.10, 15.70 to 20.11, 20.50 to 24.15, 24.59 to end."
   },
   "music": {
     "bed": "audio/music-bed.m4a",
@@ -225,13 +225,16 @@
       "SIZE": [
         1280,
         720
-      ]
+      ],
+      "LEAD_EXTRA": {
+        "0": 1.4
+      }
     },
     "notes": [
       "Brightday's world is bright, so the dissolve into the navy end card may want a dip through white; decide on the first cut.",
       "Line 6 is 13 words; give the card its full length as on GBX."
     ],
-    "stitch_env": "CLIPS=clip1-waking-7s-v1.mp4,clip2-three-ages-7s-v1.mp4,clip3-one-place-7s-v1.mp4,clip4-choice-screencap-7s.mp4,clip5-real-adviser-7s-v1.mp4,clip6-endcard-picture.mp4 WHITE_FADES= CLIP_EXTRA=9:0 LOUDNESS=web python3 .claude/skills/ai-commercial/scripts/stitch-commercial.py clips out/brightday-every-stage-720p-v1.mp4"
+    "stitch_env": "CLIPS=clip1-waking-7s-v1.mp4,clip2-three-ages-7s-v1.mp4,clip3-one-place-7s-v1.mp4,clip4-choice-screencap-7s.mp4,clip5-real-adviser-7s-v1.mp4,clip6-endcard-picture.mp4 WHITE_FADES= CLIP_EXTRA=9:0 LEAD_EXTRA=0:1.4 LOUDNESS=web python3 .claude/skills/ai-commercial/scripts/stitch-commercial.py clips out/brightday-every-stage-720p-v2.mp4"
   },
   "variants": {
     "9x16-social": {
@@ -250,6 +253,20 @@
         "All four generated scenes usable on the first take; pink accent present in each; centre column holds every subject.",
         "Clip 2 newspaper print is soft at 480p; check again at 1080p.",
         "End card: the mark's largest moment sits just above the tagline; watch for overlap if the tagline moves up."
+      ]
+    },
+    {
+      "round": 2,
+      "date": "2026-09-20",
+      "cut": "out/brightday-every-stage-720p-v2.mp4 (ignored by git)",
+      "length_s": 35.2,
+      "loudness": "-14.0 LUFS, -1.5 dBTP",
+      "credits": "0 (edit only)",
+      "feedback": "Client: take a beat at the beginning while the blinds open before talking; the gap between clips 1 and 2 was long.",
+      "changes": [
+        "LEAD_EXTRA 1.4 s on clip 1 so the first line starts at 1.75 s, after the light has swept in.",
+        "narration-lines.py now cuts 0.2 s into each pause and 0.08 s before the next line, not mid-pause; every line lost about half a second of dead air at each end and the gaps between lines went from about 1.9 s to 0.6 s.",
+        "stitch-commercial.py puts the bed first into amix: with a delayed line first, ffmpeg 7 emitted audio frames without timestamps and the muxer dropped the track after 1.79 s."
       ]
     }
   ],

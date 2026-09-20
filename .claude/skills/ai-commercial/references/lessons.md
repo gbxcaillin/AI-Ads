@@ -51,6 +51,10 @@ Each of these cost at least one re-render. The number is the order we learned it
 - (26) Caption size and chunking trade off. 58 px was too small on a phone; 76 px holds about 42 characters on two lines, so split longer sentences at a comma. Splitting to 30 characters made phrases that flashed for under a second; hold each caption to the next one's start instead.
 - (27) The site's fonts in the CSS are variable fonts whose default instance is Thin. Freeze a static instance at the weight you want before handing it to libass, or the captions render hairline.
 
+- (28) Cutting narration lines in the middle of a long pause leaves half the pause inside each line, and the stitch adds LEAD and CLIP_TAIL on top, so the gaps between lines ran near two seconds and the ad felt slow. narration-lines.py now ends a line 0.2 s into the pause and starts the next 0.08 s before the pause ends; the gap is then just LEAD plus CLIP_TAIL.
+- (29) A beat before the first word (LEAD_EXTRA on clip 1) lets the opening image land before the voice; 1.4 s let the blind open and the light arrive on the Brightday spot.
+- (30) In ffmpeg 7, amix takes its timestamps from its first input. With a delayed narration line first the mix emitted frames without timestamps and the muxer dropped the audio after the delay (1.79 s of sound in a 35 s file). The bed, which runs from zero, goes first; the check that caught it was the audio stream length, not the loudness line.
+
 ## Things that were fine and stayed fine
 
 - 7-second clips at 480p are enough to judge composition, motion and the read. Do not pay for 1080p until a clip is approved.

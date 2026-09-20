@@ -4,9 +4,10 @@ Usage:
     python3 scripts/narration-lines.py <narration.mp4> <lines-out.txt> "first words of line 2" "first words of line 3" ...
 
 The narration is transcribed with faster-whisper (word timestamps) to find where
-each line begins, then every boundary is moved to the middle of the nearest pause
-found by ffmpeg silencedetect, so no line is clipped: word timestamps tend to end
-early, pauses do not. Line 1 starts at 0; the last line runs to the end of the file.
+each line begins, then every boundary is set from the nearest pause found by ffmpeg silencedetect:
+a line ends 0.2 s into the pause and the next starts 0.08 s before it ends, so no
+line is clipped (word timestamps end early, pauses do not) and no line carries
+half a pause of dead air. The last line runs to the end of the file.
 """
 import re
 import shutil
@@ -39,18 +40,31 @@ def main(src, out, line_starts):
     words = [(w.start, w.end, re.sub(r'[^a-z0-9]', '', w.word.lower())) for s in segs for w in s.words]
     text = [w for _, _, w in words]
     print(' '.join(text))
-    cuts = []
+    # Each boundary is the pause between two lines. A line ends TAIL_PAD after the
+    # pause begins (the last syllable's decay) and the next starts HEAD_PAD before
+    # the pause ends. Cutting in the middle of the pause instead leaves half of a
+    # long pause as dead air inside each line, and the stitch then adds its own
+    # LEAD and CLIP_TAIL on top, so the gaps between lines ran near two seconds.
+    HEAD_PAD, TAIL_PAD = 0.08, 0.20
+    ends, starts = [], [0.0]
+    lead_sil = [s for s in silences if s[0] <= 0.05]
+    if lead_sil:
+        starts[0] = max(0.0, lead_sil[0][1] - HEAD_PAD)
     pos = 0
     for phrase in line_starts:
         toks = [re.sub(r'[^a-z0-9]', '', t.lower()) for t in phrase.split()]
         hit = next(i for i in range(pos, len(words) - len(toks) + 1) if text[i:i + len(toks)] == toks)
         prev_end, start = words[hit - 1][1], words[hit][0]
         near = [s for s in silences if s[1] > prev_end - 0.4 and s[0] < start + 0.4]
-        cut = (near[0][0] + near[0][1]) / 2 if near else (prev_end + start) / 2
-        cuts.append(cut)
+        if near:
+            ends.append(min(near[0][0] + TAIL_PAD, near[0][1]))
+            starts.append(max(near[0][1] - HEAD_PAD, near[0][0]))
+        else:
+            mid = (prev_end + start) / 2
+            ends.append(mid); starts.append(mid)
         pos = hit
-    bounds = [0.0] + cuts + [total]
-    lines = list(zip(bounds[:-1], bounds[1:]))
+    ends.append(total)
+    lines = list(zip(starts, ends))
     Path(out).write_text(''.join(f'{a:.2f}\t{b:.2f}\n' for a, b in lines))
     for i, (a, b) in enumerate(lines):
         print(f'line {i + 1}: {a:.2f} to {b:.2f}')

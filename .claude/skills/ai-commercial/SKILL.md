@@ -128,13 +128,14 @@ If moderation blocks every attempt, `ffmpeg -f lavfi -i aevalsrc=...` can synthe
 
 ## Phase 6: stitch
 
-`scripts/stitch-commercial.py <clips-dir> <out.mp4>` does all of this from a folder holding the clip files, `narration-all-lines.m4a`, `narration-lines.txt` and `music-bed.m4a`. Set `CLIPS` at the top to the file names, then the knobs:
+`scripts/stitch-commercial.py <clips-dir> <out.mp4>` does all of this from a folder holding the clip files, `narration-all-lines.m4a`, `narration-lines.txt` and `music-bed.m4a`. Set `CLIPS` (env `CLIPS=a.mp4,b.mp4,...` or the list at the top) to the file names, then the knobs (`CLIP_EXTRA`, `LEAD_EXTRA` and `WHITE_FADES` also take env overrides, so a second spot never edits the file):
 
 | Knob | Meaning | Value that worked |
 |---|---|---|
 | `LEAD` | seconds into a clip before its line starts | 0.35 |
 | `CLIP_TAIL` | picture after the line ends, before the dissolve | 0.55 |
 | `CLIP_EXTRA` | per-clip extra screen time, 0-based index | `{2: 0.5}` |
+| `LEAD_EXTRA` | per-clip extra time before its line starts, 0-based index (env `LEAD_EXTRA=0:1.4`) | `{}`; 1.4 on clip 1 when the opening image needs a beat before the first word |
 | `XFADE` | dissolve length | 0.7 |
 | `WHITE_FADES` | 1-based clips whose dissolve into them goes through white | `{5}` (bright page into a black end card) |
 | `BED_UNDER_DB` | bed level below the narration, measured against it | 18 (env; 18 to 20 is convention) |
@@ -155,7 +156,7 @@ ffmpeg -i cut.mp4 -af "silencedetect=n=-45dB:d=0.8" -f null - 2>&1 | grep silenc
 ffmpeg -ss 28.0 -i cut.mp4 -frames:v 1 -vf "scale=8:8,format=gray" -f rawvideo - | od -An -tu1
 ```
 
-Also confirm the container is `yuv420p` (some players choke on 4:4:4), and read the loudness line the stitch prints (measured and normalised LUFS and true peak) so the caption can state the delivery target. Then `SendUserFile` the cut with a caption that says the running time and what changed since last round. Never describe a fix you have not rendered and checked.
+Also confirm the container is `yuv420p` (some players choke on 4:4:4), check the audio stream runs the full length (`ffmpeg -i cut.mp4 -map 0:a -f null -` and read the last `time=`; a mix that lost its timestamps ends early and the loudness line will not tell you), and read the loudness line the stitch prints (measured and normalised LUFS and true peak) so the caption can state the delivery target. Then `SendUserFile` the cut with a caption that says the running time and what changed since last round. Never describe a fix you have not rendered and checked.
 
 ## Phase 8: the 9:16 social version
 

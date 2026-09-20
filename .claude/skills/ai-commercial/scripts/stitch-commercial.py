@@ -47,6 +47,7 @@ LEAD = 0.35        # seconds after a clip starts before its line begins
 CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the dissolve starts
 MIN_CLIP = 3.0     # never trim a clip shorter than this
 CLIP_EXTRA = ({int(k): float(v) for k, v in (kv.split(':') for kv in os.environ['CLIP_EXTRA'].split(','))} if os.environ.get('CLIP_EXTRA') else {2: 0.5})   # extra seconds for specific clips, 0-based index; env CLIP_EXTRA=2:0.5,4:0.5 overrides
+LEAD_EXTRA = ({int(k): float(v) for k, v in (kv.split(':') for kv in os.environ['LEAD_EXTRA'].split(','))} if os.environ.get('LEAD_EXTRA') else {})   # extra seconds before a clip's line starts, 0-based index; env LEAD_EXTRA=0:1.4 gives clip 1 a beat before the first word
 WHITE_FADES = ({int(x) for x in os.environ['WHITE_FADES'].split(',') if x.strip()} if 'WHITE_FADES' in os.environ else {5})  # 1-based clip numbers whose dissolve INTO them fades through white; env WHITE_FADES=6 or WHITE_FADES= (none) overrides
 BED_UNDER_DB = float(os.environ.get('BED_UNDER_DB', '18'))   # bed sits this far under the narration; 18 to 20 is the broadcast convention, under 15 masks speech on phones
 LOUDNESS = os.environ.get('LOUDNESS', 'web')   # 'web' (-14 LUFS, -1 dBTP: YouTube and most platforms), 'broadcast' (-24 LKFS, -2 dBTP: CALM, OP-59) or 'none'
@@ -129,7 +130,7 @@ def main(clips_dir, out):
     tmp.mkdir(exist_ok=True)
     used, shown, seg = [], [], []
     for i in range(len(vids)):
-        extra = CLIP_EXTRA.get(i, 0.0)
+        extra = CLIP_EXTRA.get(i, 0.0) + LEAD_EXTRA.get(i, 0.0)
         u = actual[i] if i == last else max(MIN_CLIP, min(LEAD + line_len[i] + CLIP_TAIL + extra, actual[i]))
         s = actual[i] if i == last else min(actual[i], u + XFADE)
         used.append(u)
@@ -150,7 +151,7 @@ def main(clips_dir, out):
         out_len = starts[i] + shown[i]
     total = out_len
     for i, (a, b) in enumerate(lines):
-        print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {shown[i]:.1f}s, line at {starts[i] + LEAD:.2f}s')
+        print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {shown[i]:.1f}s, line at {starts[i] + LEAD + LEAD_EXTRA.get(i, 0.0):.2f}s')
     bed_len = duration(ff, d / BED)
     vo_db = mean_db(ff, d / NARRATION)
     bed_gain = 10 ** ((vo_db - BED_UNDER_DB - mean_db(ff, d / BED)) / 20)
@@ -175,7 +176,7 @@ def main(clips_dir, out):
               + ''.join(f'[n{i}]' for i in range(len(vids))))
     mix_in = []
     for i, (a, b) in enumerate(lines):
-        at = int(round((starts[i] + LEAD) * 1000))
+        at = int(round((starts[i] + LEAD + LEAD_EXTRA.get(i, 0.0)) * 1000))
         fc.append(f'[n{i}]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st={b - a - 0.12:.3f}:d=0.12,'
                   f'volume={VO_GAIN},adelay={at}|{at}[l{i}]')
         mix_in.append(f'[l{i}]')
@@ -196,7 +197,11 @@ def main(clips_dir, out):
     fc.append(f'[{b_idx}:a]aresample=48000,aformat=channel_layouts=stereo,{tempo}'
               f'atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={bed_gain:.3f},'
               f'afade=t=in:d=1.0,afade=t=out:st={max(0.0, total - 2.5):.3f}:d=2.5[bed]')
-    fc.append(''.join(mix_in) + f'[bed]amix=inputs={len(mix_in) + 1}:normalize=0:dropout_transition=0[aout]')
+    # the bed goes FIRST into amix: it runs from 0 without a delay, so the mix takes
+    # its timestamps from it. With a delayed line first (LEAD_EXTRA on clip 1) the
+    # mix emitted frames without timestamps and the muxer dropped the audio after
+    # the first line's delay.
+    fc.append('[bed]' + ''.join(mix_in) + f'amix=inputs={len(mix_in) + 1}:normalize=0:dropout_transition=0[aout]')
 
     cmd = [ff, '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(fc),
            '-map', f'[{pv}]', '-map', '[aout]', '-t', f'{total:.3f}',
