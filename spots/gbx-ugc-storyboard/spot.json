@@ -3,7 +3,7 @@
   "client": "GBX Professional Services",
   "purpose": "Storyboard animatic for real actors: three client-story UGC pieces, 9:16, assembled into one reel. AI characters stand in for the actors; consistency of face and voice across each story matters, realism of the brand claim does not (it is a storyboard, not an ad).",
   "format": "9:16, 1080x1920 target, three stories of four 8 s clips each, jump cuts, each clip's own dialogue, captions burned in, a title card before each story, about 100 s total",
-  "status": "characters generating 2026-09-20",
+  "status": "reel v1 sent 2026-09-20; awaiting client feedback",
   "openart": {
     "project_id": "QEGdDRsBuwaucNjmcQp3",
     "character_model": "nano-banana-pro text2image, 9:16, 1K",
@@ -83,89 +83,129 @@
   },
   "clips": [
     {
-      "story": "jess",
-      "n": 1,
-      "openart_id": "SSzElwRbLihm7N7SbwJK",
-      "file": "clips/jess-1.mp4",
-      "role": "voice seed",
-      "status": "done, line verbatim, face holds"
-    },
-    {
       "story": "priya",
       "n": 1,
       "openart_id": "rnlky0J26JSxlwI0x5d4",
-      "file": "clips/priya-1.mp4",
-      "role": "voice seed",
-      "status": "done, line verbatim, face holds"
-    },
-    {
-      "story": "jess",
-      "n": 2,
-      "openart_id": "pwHOogQlG6hZ564yNqHW",
-      "duration": 9,
-      "status": "done, line verbatim, face holds",
-      "file": "clips/jess-2.mp4"
-    },
-    {
-      "story": "jess",
-      "n": 3,
-      "openart_id": "WEe9JULlM1B3QvZgmEfG",
-      "duration": 9,
-      "status": "done, line verbatim, face holds",
-      "file": "clips/jess-3.mp4"
-    },
-    {
-      "story": "jess",
-      "n": 4,
-      "openart_id": "g6dcBSqFTC9EnM7qBuEH",
       "duration": 8,
-      "status": "done, line verbatim, face holds",
-      "file": "clips/jess-4.mp4"
+      "file": "clips/priya-1.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "priya",
       "n": 2,
       "openart_id": "D1QFyaZrI7baLB08N4xQ",
       "duration": 10,
-      "status": "generating"
+      "file": "clips/priya-2.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "priya",
       "n": 3,
       "openart_id": "veEyYV0OYHD1x3ivbtJq",
       "duration": 11,
-      "status": "generating"
+      "file": "clips/priya-3.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "priya",
       "n": 4,
       "openart_id": "62HlMMUm4q1wSTSP8r7H",
       "duration": 9,
-      "status": "generating"
+      "file": "clips/priya-4.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "mark",
       "n": 1,
-      "openart_id": "superseded NZNHi34ovY7xojO0okcR (old pose, kept as voice seed); new job below",
-      "status": "regenerating"
+      "openart_id": "ydshelBT2cfGS1vphGVZ",
+      "duration": 8,
+      "file": "clips/mark-1.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "mark",
       "n": 2,
-      "openart_id": "superseded IcmvnBYWT9tOE8JFWUK1 (old pose)",
-      "status": "regenerating"
+      "openart_id": "nnWbgyKaAWYtNZyFMnjB",
+      "duration": 9,
+      "file": "clips/mark-2.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     },
     {
       "story": "mark",
       "n": 3,
-      "openart_id": "superseded MXiNgssm0C8q8ae2WAbh (old pose)",
-      "status": "regenerating"
+      "openart_id": "zH1xCTAf2A6dx6224wiL",
+      "duration": 9,
+      "file": "clips/mark-3.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
+    },
+    {
+      "story": "mark",
+      "n": 4,
+      "openart_id": "pNEEH3thyAukS0zBu2ns",
+      "duration": 8,
+      "file": "clips/mark-4.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
+    },
+    {
+      "story": "jess",
+      "n": 1,
+      "openart_id": "SSzElwRbLihm7N7SbwJK",
+      "duration": 8,
+      "file": "clips/jess-1.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
+    },
+    {
+      "story": "jess",
+      "n": 2,
+      "openart_id": "pwHOogQlG6hZ564yNqHW",
+      "duration": 9,
+      "file": "clips/jess-2.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
+    },
+    {
+      "story": "jess",
+      "n": 3,
+      "openart_id": "WEe9JULlM1B3QvZgmEfG",
+      "duration": 9,
+      "file": "clips/jess-3.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
+    },
+    {
+      "story": "jess",
+      "n": 4,
+      "openart_id": "g6dcBSqFTC9EnM7qBuEH",
+      "duration": 8,
+      "file": "clips/jess-4.mp4",
+      "status": "done, line verbatim by transcript, face matches the sheet"
     }
   ],
-  "rounds": [],
+  "rounds": [
+    {
+      "round": 1,
+      "date": "2026-09-20",
+      "credits": "3 character sheets x2 options (216) + 3 re-pose options (72) + 15 clips (about 6800, three of them superseded by the Mark re-pose): about 7100",
+      "feedback": "Client: Mark's position in the cab looked unnatural; fixed by re-posing the sheet before his clips were rendered.",
+      "notes": [
+        "Voice references from the seed clips held across every later clip.",
+        "Captions must not hold across section ends; captions-9x16.py now takes clamp_ends and stitch-ugc.py writes a sections sidecar."
+      ]
+    }
+  ],
   "next": [],
   "method_notes": [
     "Voice seeds: the character image is the only element; the voice is described in the prompt and the model generates it. The seed's audio is extracted to mono 44.1 kHz mp3 and uploaded through openart_upload_sign plus a curl PUT, then confirmed with openart_upload_metadata_get.",
     "Later clips: image plus audio elements, prompt says the person in image 1 speaks with the voice in audio 1. Clip durations sized to the line: about 2.5 words a second plus a beat."
-  ]
+  ],
+  "superseded": [
+    "Mark old pose: seed NZNHi34ovY7xojO0okcR (its audio is the voice reference), IcmvnBYWT9tOE8JFWUK1, MXiNgssm0C8q8ae2WAbh",
+    "Priya first image job SsWkDMyPdIU9s57t95Sk (stuck in queue)"
+  ],
+  "reel": {
+    "spec": "reel.json",
+    "captions": "captions-reel.json (words in captions-reel-words.json)",
+    "output": "out/gbx-ugc-storyboard-reel-v1.mp4 (ignored by git)",
+    "length_s": 100.6,
+    "loudness": "-14.2 LUFS, -1.3 dBTP",
+    "build": "cd frames-work && ln -sfn ../clips clips && python3 ../../../.claude/skills/ai-commercial/scripts/stitch-ugc.py reel.json ../out/reel-nocaps.mp4; then captions-9x16.py with clamp_ends from the .sections.json sidecar"
+  }
 }

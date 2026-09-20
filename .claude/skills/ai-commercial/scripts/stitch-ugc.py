@@ -100,7 +100,9 @@ def main(spec_path, out):
     tmp = Path(out).parent / '_ugc_tmp'; tmp.mkdir(parents=True, exist_ok=True)
     parts, t = [], 0.0
     log = []
+    sections = []
     for si, sec in enumerate(spec['sections']):
+        sec_start = t
         if sec.get('title'):
             card = tmp / f'title{si}.mp4'
             title_card(ff, sec['title'], w, h, sec.get('title_secs', 2.0), fps, spec.get('title_style', {}), card)
@@ -117,6 +119,7 @@ def main(spec_path, out):
                             '-preset', 'fast', '-c:a', 'aac', '-b:a', '160k', str(staged)], check=True)
             log.append(f'{src.name}: speech {first:.2f} to {last:.2f} of {total:.2f}, kept {a:.2f} to {b:.2f} ({b - a:.1f}s), starts at {t:.2f}s')
             parts.append(staged); t += b - a
+        sections.append({'title': sec.get('title', ''), 'start': round(sec_start, 3), 'end': round(t, 3)})
         if gap and si < len(spec['sections']) - 1:
             blk = tmp / f'gap{si}.mp4'
             subprocess.run([ff, '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', f'color=c=black:s={w}x{h}:r={fps}:d={gap}',
@@ -128,6 +131,7 @@ def main(spec_path, out):
     subprocess.run([ff, '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', str(lst), '-c:v', 'libx264', '-crf', '19',
                     '-preset', 'medium', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(out)], check=True)
     print('\n'.join(log)); print(f'total about {t:.1f}s')
+    Path(out).with_suffix('.sections.json').write_text(json.dumps({'sections': sections}, indent=1))   # for captions-9x16.py clamp_ends
     target = {'web': (-14.0, -1.5), 'broadcast': (-24.0, -2.5)}.get(spec.get('loudness', 'web'))
     if target:
         sys.path.insert(0, str(Path(__file__).parent))

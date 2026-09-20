@@ -7,7 +7,9 @@ captions.json:
 {
   "lines": ["Most businesses don't need more advice. They need a clearer picture.", "..."],
   "stop_at": 30.9,                 # optional: no captions after this time (the end card carries the words)
-  "words": "cut-words.json"        # optional: word timings [{"w","s","e"}]; otherwise the cut is transcribed here
+  "words": "cut-words.json",       # optional: word timings [{"w","s","e"}]; otherwise the cut is transcribed here
+  "clamp_ends": [35.99, 67.86],    # optional: times no caption may be held across (section ends)
+  "sections": "reel.sections.json" # optional: the sidecar stitch-ugc.py writes; its section ends are clamps too
 }
 
 Why it works this way: the script is the source of the words (so a transcription
@@ -106,7 +108,7 @@ def ass_time(t):
     return f'{int(h)}:{int(m):02d}:{s:05.2f}'
 
 
-def build_ass(captions, spans, stop_at):
+def build_ass(captions, spans, stop_at, clamp_ends=()):
     s = STYLE
     header = f"""[Script Info]
 ScriptType: v4.00+
@@ -133,6 +135,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             if start >= stop_at:
                 continue
             end = min(end, stop_at)
+        for c in sorted(clamp_ends):                     # never hold a caption across a section end (a cut to black or a title card)
+            if start < c < end:
+                end = c
+                break
         events.append(f'Dialogue: 0,{ass_time(start)},{ass_time(end)},Caption,,0,0,0,,{text}')
     return header + '\n'.join(events) + '\n'
 
@@ -146,7 +152,10 @@ def main(video, spec_path, out, ass_only=False):
     spans = align(captions, words)
     for c, (a, b) in zip(captions, spans):
         print(f'{a:6.2f} to {b:6.2f}  {c}')
-    ass = build_ass(captions, spans, spec.get('stop_at'))
+    clamp = list(spec.get('clamp_ends', []))
+    if spec.get('sections'):                              # sidecar written by stitch-ugc.py
+        clamp += [sec['end'] for sec in json.loads((base / spec['sections']).read_text())['sections']]
+    ass = build_ass(captions, spans, spec.get('stop_at'), clamp)
     ass_path = Path(out).with_suffix('.ass')
     ass_path.write_text(ass)
     if ass_only:
