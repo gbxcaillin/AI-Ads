@@ -7,6 +7,7 @@ This repository is the workshop for GBX Professional Services video and image ad
 | Path | Purpose |
 |---|---|
 | `.claude/skills/ai-commercial/` | The production recipe: SKILL.md, `references/` (conventions with sources, prompts that worked, lessons from the drafts), `scripts/` (stitch, narration splitter, screen recorders, embedded site fonts) |
+| `.claude/skills/prompt-optimizer/` | Per-model prompting conventions (video, image, text). Consult it before writing a prompt for a model outside the ai-commercial defaults, such as Flux 3 in the OpenArt app |
 | `spots/<spot>/spot.json` | Source of truth for a spot: script, voice direction, shared style, every clip's prompt and mode, OpenArt ids, edit knobs, edit notes, lessons. Update it every round. |
 | `spots/<spot>/audio/` | The committed one-take narration and music bed as `.m4a` |
 | `spots/<spot>/reference/` | Approved cuts kept for reference (the only rendered video committed) |
