@@ -306,5 +306,40 @@
     "Collect the assets listed under assets_needed_from_client.",
     "Generate clips 1, 2, 3 and 5 at 480p (4 x 378 credits a round), check strips in 16:9 and through the centre column, send for review.",
     "Narration and bed carriers (2 x 1629), split lines, record clips 4 and 6, stitch, verify, send the 720p cut."
-  ]
+  ],
+  "statics_canva": {
+    "brand_kit": "BD (kAHG5f5cDww)",
+    "logo_asset": "MAHV0B8afsM (brand/brightday-logo-white-on-transparent.webp, 1500x417)",
+    "cta": "Book a free first chat",
+    "compliance_line": "General advice only, not personal financial advice. Brightday Advisers AFSL 484139.",
+    "designs": [
+      {
+        "name": "Facebook post 940x788",
+        "design_id": "DAHV0LudmoU",
+        "edit_url": "https://www.canva.com/d/2O46vQHWEZcCNNS",
+        "headline": "That wasn't investing. That was guessing.",
+        "export": "canva/fb-post.png"
+      },
+      {
+        "name": "Instagram post 1080x1350",
+        "design_id": "DAHV0NLL88c",
+        "edit_url": "https://www.canva.com/d/lIrm_J_0q7libQ-",
+        "headline": "Nobody wakes up thinking about super",
+        "export": "canva/ig-post.png"
+      },
+      {
+        "name": "Story 1080x1920",
+        "design_id": "DAHV0PgKPfM",
+        "edit_url": "https://www.canva.com/d/V56abUaBA1_n5cs",
+        "headline": "Three old jobs?",
+        "export": "canva/story.png"
+      }
+    ],
+    "notes": [
+      "generate-design placed the uploaded wordmark asset as a hero image, oversized and cropped, in all three candidates. Fixed with edit-design: delete the shape, insert_fill the asset at about 40 percent page width, then insert_shape a pink pill (#F5157A) and add_text for the CTA and the compliance line.",
+      "add_text lands as 16 px black Arial-style; a second format_text call sets size, weight, colour and alignment. Text added after a shape sits above it.",
+      "Ungrouping changes the children's locator ids; re-read the returned document before editing them.",
+      "Story keeps the Canva stock office photo as background; swap for a client photo or a frame from clip 1 before running."
+    ]
+  }
 }
