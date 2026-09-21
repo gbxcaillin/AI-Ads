@@ -2,7 +2,7 @@
   "spot": "gbx-social-9x16",
   "client": "GBX Professional Services",
   "format": "Native 9:16 social pieces, 15 to 20 s each, muted-first with burned-in captions, web loudness target (-14 LUFS, -1 dBTP)",
-  "status": "Flux-style prompts ready; waiting on Flux 3 generations from the OpenArt app",
+  "status": "round 1 cut and sent: four pieces at 1080x1920 with captions, 14.7 to 16.2 s",
   "why": "Test of OpenArt's Flux 3 video while it is unlimited. Flux 3 is not exposed through the OpenArt MCP connector (not in openart_model_list on 2026-09-21), so the clips are generated in the OpenArt app by hand, then picked up here with openart_creation_list and downloaded from each item's url.",
   "generation_in_app": {
     "model": "Flux 3 video, text to video",
@@ -36,17 +36,23 @@
           "file": "clips/A1-desk-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Close portrait shot of a desk: a hand closes a thick folder of reports and pushes it aside, a phone face down, a coffee; above, the window and the Melbourne skyline soft. Two beats: the pile, then the clear desk.",
-          "prompt": "A hand in a navy sleeve closes a thick folder of paper reports on a light timber desk and slides it out of frame, leaving a blank notebook, a black pen and a white coffee cup centred on the desk. Vertical 9:16 close shot; the camera drifts slowly up toward the window, where the Melbourne skyline sits soft and out of focus. Shot on Sony A7IV, 35mm lens, warm off-white window light against dark charcoal and deep teal shadow, fine film grain."
+          "prompt": "A hand in a navy sleeve closes a thick folder of paper reports on a light timber desk and slides it out of frame, leaving a blank notebook, a black pen and a white coffee cup centred on the desk. Vertical 9:16 close shot; the camera drifts slowly up toward the window, where the Melbourne skyline sits soft and out of focus. Shot on Sony A7IV, 35mm lens, warm off-white window light against dark charcoal and deep teal shadow, fine film grain.",
+          "openart_id": "0KuJMbl7drxtG87siEq3",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         },
         {
           "n": 2,
           "file": "clips/A2-whiteboard-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Portrait: a founder in her forties at a whiteboard draws one simple rising line with three marks, turns to a colleague beside her. Whiteboard fills the centre column, the two of them in profile.",
-          "prompt": "A woman in her forties in a charcoal blazer draws one plain rising line with three small marks on a clean white whiteboard, then turns to a colleague in his thirties beside her, who nods; both stay in profile, talking to each other. Vertical 9:16 medium shot, slow push-in. Shot on Sony A7IV, 50mm lens, soft directional window light from frame left, deep teal shadow behind, warm highlights on their faces, fine film grain, the whiteboard blank apart from her line."
+          "prompt": "A woman in her forties in a charcoal blazer draws one plain rising line with three small marks on a clean white whiteboard, then turns to a colleague in his thirties beside her, who nods; both stay in profile, talking to each other. Vertical 9:16 medium shot, slow push-in. Shot on Sony A7IV, 50mm lens, soft directional window light from frame left, deep teal shadow behind, warm highlights on their faces, fine film grain, the whiteboard blank apart from her line.",
+          "openart_id": "KwdQ78Syfn7qiD1bFCGZ",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         }
       ],
-      "tail": "captures/clip6-endcard-9x16.mp4 from spots/gbx-commercial (animated mark, philosophy line, www.gbxps.com)"
+      "tail": "captures/clip6-endcard-9x16.mp4 from spots/gbx-commercial (animated mark, philosophy line, www.gbxps.com)",
+      "spec": "pieces/A-clearer-picture.json",
+      "cut": "out/A-clearer-picture-captions.mp4 (not committed)"
     },
     {
       "id": "B",
@@ -63,17 +69,23 @@
           "file": "clips/B1-printer-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Portrait: a man in his fifties at a standing desk, laptop with plain matte lid facing him, an office printer beside him hands him a page; he reads it and nods. Two beats: the wait, then the page.",
-          "prompt": "A man in his fifties with grey hair stands at a standing desk behind a laptop whose plain matte lid faces the camera, screen toward him. A small office printer beside him slides out a single blank white page; he takes it, reads it and gives a small satisfied nod. Vertical 9:16 medium shot, slow push-in. Shot on Sony A7IV, 50mm lens, warm off-white key light on his face, the open-plan office soft and dark in deep teal behind, fine film grain."
+          "prompt": "A man in his fifties with grey hair stands at a standing desk behind a laptop whose plain matte lid faces the camera, screen toward him. A small office printer beside him slides out a single blank white page; he takes it, reads it and gives a small satisfied nod. Vertical 9:16 medium shot, slow push-in. Shot on Sony A7IV, 50mm lens, warm off-white key light on his face, the open-plan office soft and dark in deep teal behind, fine film grain.",
+          "openart_id": "IoxRV1crQAxILzvCtP6L",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         },
         {
           "n": 2,
           "file": "clips/B2-network-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Portrait: an open-plan office at dusk from above; desk lamps come on one after another down the centre of the frame, like a network lighting up. No people close to camera.",
-          "prompt": "Rows of desks in a long open-plan office at dusk recede down the centre of the frame toward a glass wall and the Melbourne city lights. Desk lamps switch on one after another from the nearest desks to the farthest, warm points spreading through deep teal shadow, a few people small and distant at their desks. Vertical 9:16 high wide shot, very slow forward drift. Shot on Sony A7IV, 24mm lens, warm lamp light against dark charcoal, fine film grain, screens dark."
+          "prompt": "Rows of desks in a long open-plan office at dusk recede down the centre of the frame toward a glass wall and the Melbourne city lights. Desk lamps switch on one after another from the nearest desks to the farthest, warm points spreading through deep teal shadow, a few people small and distant at their desks. Vertical 9:16 high wide shot, very slow forward drift. Shot on Sony A7IV, 24mm lens, warm lamp light against dark charcoal, fine film grain, screens dark.",
+          "openart_id": "UpY11AK4veTugfuDgZMn",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         }
       ],
-      "tail": "captures/clip6-endcard-9x16.mp4"
+      "tail": "captures/clip6-endcard-9x16.mp4",
+      "spec": "pieces/B-ai-earns-its-keep.json",
+      "cut": "out/B-ai-earns-its-keep-captions.mp4 (not committed)"
     },
     {
       "id": "C",
@@ -90,17 +102,23 @@
           "file": "clips/C1-lunchroom-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Portrait: a small team around a lunchroom table, one woman explains with three coffee cups pushed into a row; others lean in. Table centred, faces in three-quarter profile.",
-          "prompt": "Four colleagues of different ages sit around a lunchroom table in three-quarter profile. A woman in her thirties in a teal jumper slides three white coffee cups into a row and gestures from one cup to the next as she explains; the others lean in and a man in his fifties laughs quietly, all talking to each other. Vertical 9:16 medium shot, slow lateral drift. Shot on Sony A7IV, 35mm lens, warm window light, deep teal shadow, dark charcoal walls, plain cups, fine film grain."
+          "prompt": "Four colleagues of different ages sit around a lunchroom table in three-quarter profile. A woman in her thirties in a teal jumper slides three white coffee cups into a row and gestures from one cup to the next as she explains; the others lean in and a man in his fifties laughs quietly, all talking to each other. Vertical 9:16 medium shot, slow lateral drift. Shot on Sony A7IV, 35mm lens, warm window light, deep teal shadow, dark charcoal walls, plain cups, fine film grain.",
+          "openart_id": "FISqZ4SMhR4YsrqPwh7K",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         },
         {
           "n": 2,
           "file": "clips/C2-notebook-9x16.mp4",
           "mode": "flux3 text2video 9:16, 6 to 8 s",
           "on_screen": "Portrait close: a notebook page where a hand draws three plain stacked bars in pen, then underlines the tallest. Nothing legible.",
-          "prompt": "A hand holding a fountain pen draws three plain rectangular bars side by side on an open notebook, each taller than the last, then rules one firm line under the tallest bar and sets the pen down. Vertical 9:16 close shot looking down, camera locked. Shot on Sony A7IV, 85mm macro lens, shallow focus on the pen tip, warm off-white light from the left, the dark table and room falling into deep teal shadow, fine film grain, the page otherwise blank."
+          "prompt": "A hand holding a fountain pen draws three plain rectangular bars side by side on an open notebook, each taller than the last, then rules one firm line under the tallest bar and sets the pen down. Vertical 9:16 close shot looking down, camera locked. Shot on Sony A7IV, 85mm macro lens, shallow focus on the pen tip, warm off-white light from the left, the dark table and room falling into deep teal shadow, fine film grain, the page otherwise blank.",
+          "openart_id": "wi2V7iwDVnzqmKWfNDgI",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         }
       ],
-      "tail": "captures/clip6-endcard-9x16.mp4"
+      "tail": "captures/clip6-endcard-9x16.mp4",
+      "spec": "pieces/C-money-plainly.json",
+      "cut": "out/C-money-plainly-captions.mp4 (not committed)"
     },
     {
       "id": "D",
@@ -117,7 +135,9 @@
           "file": "clips/D1-phone-9x16.mp4",
           "mode": "flux3 text2video 9:16, 5 to 6 s",
           "on_screen": "Portrait: a woman on a tram or at a cafe window holds her phone in the centre of the frame, screen a plain soft gradient facing away, thumb scrolling; she smiles slightly. Cut to the real tools page capture.",
-          "prompt": "A woman in her forties sits by a cafe window holding her phone upright, the screen tilted away from the camera and showing a plain soft grey gradient, her thumb scrolling slowly, a small smile. A Melbourne street sits soft and out of focus through the glass behind her. Vertical 9:16 medium close shot, camera locked. Shot on Sony A7IV, 50mm lens, morning window light, warm off-white highlights against dark charcoal and deep teal, shallow depth of field, fine film grain."
+          "prompt": "A woman in her forties sits by a cafe window holding her phone upright, the screen tilted away from the camera and showing a plain soft grey gradient, her thumb scrolling slowly, a small smile. A Melbourne street sits soft and out of focus through the glass behind her. Vertical 9:16 medium close shot, camera locked. Shot on Sony A7IV, 50mm lens, morning window light, warm off-white highlights against dark charcoal and deep teal, shallow depth of field, fine film grain.",
+          "openart_id": "lPomYs4R0oivkTVfWqNB",
+          "result": "flux-3-video text2video, 704x1280, 5.04 s, 24 fps, usable on the first take"
         },
         {
           "n": 2,
@@ -127,10 +147,25 @@
           "prompt": null
         }
       ],
-      "tail": "captures/clip6-endcard-9x16.mp4"
+      "tail": "captures/clip6-endcard-9x16.mp4",
+      "spec": "pieces/D-free-tools-first.json",
+      "cut": "out/D-free-tools-first-captions.mp4 (not committed)"
     }
   ],
-  "assembly": "Per piece: stitch-commercial.py with CLIPS=<two clips>, the end card as the tail, LOUDNESS=web; then captions-9x16.py. Verify strip, silencedetect, loudness line, yuv420p, audio length; send a 720x1280 review copy.",
-  "lessons": [],
-  "prompt_style": "Written with the prompt-optimizer skill (.claude/skills/prompt-optimizer, Flux family): descriptive sentences that lead with the subject, under 80 words, present tense, one camera move per shot, a camera body and lens named, one strong lighting description, positives instead of negatives (blank page, screen dark, plain cups) because Flux ignores negative prompts, no quality tags and no weight syntax. Aspect ratio is set in the app, not in the prompt."
+  "assembly": "Per piece: stitch-social-9x16.py pieces/<piece>.json out/<piece>.mp4 (clip 1 trimmed so the dissolve lands on the second sentence, tail is the end card with line 6 at +0.85 s, bed trimmed not stretched, web loudness), then captions-9x16.py with out/<piece>-captions.json whose words file is the take's word timings shifted by the timing sidecar.",
+  "lessons": [
+    "Flux 3 video in the OpenArt app returned 704x1280 at 5.04 s for every prompt; the 6 to 8 s asked for in the plan was not available, so a two-clip piece has 10 s of picture before the card and the first clip is trimmed to about 3 s to land the second sentence on the dissolve.",
+    "Flux held the portrait framing sentence (subject in the centre column) and the positives-instead-of-negatives wording: blank pages, dark screens and plain cups all came back clean, no readable text in seven clips.",
+    "Scaling 704x1280 to 1080x1920 (lanczos) is acceptable for a social review cut; for finals either regenerate at the largest portrait size the app offers or accept the softness.",
+    "Whisper put the first word of line 6 (GBX, spelt out) 0.4 s early; take line boundaries from silencedetect, not from the word timestamps, when a line starts with letters.",
+    "The two-pass loudnorm left the AAC at 96 kHz; normalise_loudness now forces 48 kHz."
+  ],
+  "prompt_style": "Written with the prompt-optimizer skill (.claude/skills/prompt-optimizer, Flux family): descriptive sentences that lead with the subject, under 80 words, present tense, one camera move per shot, a camera body and lens named, one strong lighting description, positives instead of negatives (blank page, screen dark, plain cups) because Flux ignores negative prompts, no quality tags and no weight syntax. Aspect ratio is set in the app, not in the prompt.",
+  "rounds": [
+    {
+      "round": 1,
+      "date": "2026-09-22",
+      "what": "Seven Flux 3 clips picked up from the OpenArt app history, all usable; four pieces cut with the GBX narration lines 1, 3, 4, 5 and line 6 over the end card; captions burned in; sent."
+    }
+  ]
 }

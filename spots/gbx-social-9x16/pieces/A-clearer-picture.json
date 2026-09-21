@@ -1,0 +1,49 @@
+{
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 24,
+ "xfade": 0.7,
+ "clips": [
+  {
+   "file": "clips/A1-desk-9x16.mp4"
+  },
+  {
+   "file": "clips/A2-whiteboard-9x16.mp4"
+  }
+ ],
+ "tail": {
+  "file": "../gbx-commercial/captures/clip6-endcard-9x16.mp4",
+  "length": 8.0
+ },
+ "narration": "../gbx-commercial/audio/narration-all-lines.m4a",
+ "bed": "../gbx-commercial/audio/music-bed.m4a",
+ "bed_under_db": 18,
+ "line": {
+  "start": 0,
+  "end": 3.53,
+  "split": 2.34,
+  "word_index": [
+   0,
+   10
+  ],
+  "at": 0.6
+ },
+ "close": {
+  "start": 23.35,
+  "end": 30.13,
+  "at_offset": 0.85,
+  "word_index": [
+   68,
+   80
+  ],
+  "word_start_fix": "GBX begins at 23.43 per silencedetect; whisper said 23.02"
+ },
+ "loudness": "web",
+ "caption_lines": [
+  "Most businesses don't need more advice. They need a clearer picture.",
+  "GBX Professional Services."
+ ],
+ "base": ".."
+}

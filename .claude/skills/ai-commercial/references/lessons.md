@@ -68,3 +68,11 @@ Each of these cost at least one re-render. The number is the order we learned it
 - `silencedetect` on the full mix at -45 dB: found the loop seam dip at 27 seconds and confirmed the fix.
 - Mean luminance sampled across a join: confirmed the white-to-black fade actually peaked white.
 - Check the container is yuv420p; one build came out 4:4:4 and some players will not decode it.
+
+## 31. Native 9:16 social pieces from app-generated clips (Flux 3, 2026-09-22)
+
+- A model that is only in the OpenArt app (Flux 3 while it was unlimited) still reaches the repo: every app generation appears in `openart_creation_list` with its prompt and a download url, so paste the prompts in the app and match on prompt text when picking the clips up.
+- Flux 3 returned 704x1280 at 5.04 s whatever the plan asked for. Plan two clips per line and let `stitch-social-9x16.py` trim the first clip so the dissolve lands on the line's second sentence.
+- Flux ignores negatives; the prompt-optimizer skill's Flux entry (subject first, under 80 words, camera body and lens, one lighting line, positives only) gave seven usable clips on the first take.
+- Reuse the approved narration take for social: each piece takes one line from it and line 6 over the end card, so no new voice generation and the brand close matches the master.
+- Take line boundaries from silencedetect, not from Whisper word times, when a line starts with spelt-out letters (GBX came back 0.4 s early).

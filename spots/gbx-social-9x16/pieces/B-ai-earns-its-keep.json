@@ -1,0 +1,49 @@
+{
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 24,
+ "xfade": 0.7,
+ "clips": [
+  {
+   "file": "clips/B1-printer-9x16.mp4"
+  },
+  {
+   "file": "clips/B2-network-9x16.mp4"
+  }
+ ],
+ "tail": {
+  "file": "../gbx-commercial/captures/clip6-endcard-9x16.mp4",
+  "length": 8.0
+ },
+ "narration": "../gbx-commercial/audio/narration-all-lines.m4a",
+ "bed": "../gbx-commercial/audio/music-bed.m4a",
+ "bed_under_db": 18,
+ "line": {
+  "start": 9.64,
+  "end": 14.23,
+  "split": 11.78,
+  "word_index": [
+   24,
+   37
+  ],
+  "at": 0.6
+ },
+ "close": {
+  "start": 23.35,
+  "end": 30.13,
+  "at_offset": 0.85,
+  "word_index": [
+   68,
+   80
+  ],
+  "word_start_fix": "GBX begins at 23.43 per silencedetect; whisper said 23.02"
+ },
+ "loudness": "web",
+ "caption_lines": [
+  "And AI that actually earns its keep. Practical, governed, and only where it helps.",
+  "GBX Professional Services."
+ ],
+ "base": ".."
+}

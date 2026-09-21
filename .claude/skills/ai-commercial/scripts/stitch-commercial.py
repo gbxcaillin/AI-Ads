@@ -229,7 +229,7 @@ def normalise_loudness(ff, path, target_i, target_tp):
           f"linear=true:print_format=summary")
     tmp = path.with_suffix('.loud.mp4')
     subprocess.run([ff, '-y', '-loglevel', 'error', '-i', str(path), '-af', af, '-c:v', 'copy',
-                    '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(tmp)], check=True)
+                    '-c:a', 'aac', '-ar', '48000', '-b:a', '160k', '-movflags', '+faststart', str(tmp)], check=True)
     tmp.replace(path)
     print(f'loudness: measured {float(m["input_i"]):.1f} LUFS, {float(m["input_tp"]):.1f} dBTP; normalised to {target_i} LUFS, {target_tp} dBTP')
 
