@@ -1,0 +1,135 @@
+{
+  "spot": "gbx-social-9x16",
+  "client": "GBX Professional Services",
+  "format": "Native 9:16 social pieces, 15 to 20 s each, muted-first with burned-in captions, web loudness target (-14 LUFS, -1 dBTP)",
+  "status": "prompts ready; waiting on Flux 3 generations from the OpenArt app",
+  "why": "Test of OpenArt's Flux 3 video while it is unlimited. Flux 3 is not exposed through the OpenArt MCP connector (not in openart_model_list on 2026-09-21), so the clips are generated in the OpenArt app by hand, then picked up here with openart_creation_list and downloaded from each item's url.",
+  "generation_in_app": {
+    "model": "Flux 3 video, text to video",
+    "settings": "aspect 9:16, 1080x1920 if offered (else the highest portrait size), 6 to 8 s per clip (5 to 6 s for D1), audio off, one output per prompt",
+    "naming": "Nothing to name; the pickup matches on the prompt text, so paste each prompt exactly as written below",
+    "pickup": "openart_creation_list (mediaType video) lists the app generations with model, prompt and a download url; save to clips/<file> as listed per clip"
+  },
+  "reuse": {
+    "shared_style": "spots/gbx-commercial shared_style, verbatim, plus the portrait framing sentence",
+    "narration": "spots/gbx-commercial/audio/narration-all-lines.m4a split with narration-lines.py; each piece uses one existing line (1, 3, 4, 5), so no new voice generation",
+    "music": "spots/gbx-commercial/audio/music-bed.m4a, one take stretched with atempo, never looped",
+    "end_card": "spots/gbx-commercial/captures/clip6-endcard-9x16.mp4",
+    "tools_capture": "spots/gbx-commercial/captures/clip5-tools-9x16.mp4",
+    "captions": "captions-9x16.py with the caption_lines below as the words and a words file from the split narration"
+  },
+  "shared_style": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music.",
+  "portrait_framing": "Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio.",
+  "pieces": [
+    {
+      "id": "A",
+      "name": "clearer-picture",
+      "runtime_s": "about 16",
+      "narration_line": 1,
+      "caption_lines": [
+        "Most businesses don't need more advice.",
+        "They need a clearer picture."
+      ],
+      "clips": [
+        {
+          "n": 1,
+          "file": "clips/A1-desk-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Close portrait shot of a desk: a hand closes a thick folder of reports and pushes it aside, a phone face down, a coffee; above, the window and the Melbourne skyline soft. Two beats: the pile, then the clear desk.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Close portrait shot looking slightly down at a light timber desk by a window, the Melbourne skyline soft through the glass in the upper third. In the centre of the frame a hand in a navy sleeve closes a thick folder of paper reports and slides it out of frame to the right, leaving one blank notebook, a pen and a coffee cup. The camera drifts slowly upward from the desk toward the window as the desk clears."
+        },
+        {
+          "n": 2,
+          "file": "clips/A2-whiteboard-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Portrait: a founder in her forties at a whiteboard draws one simple rising line with three marks, turns to a colleague beside her. Whiteboard fills the centre column, the two of them in profile.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Medium portrait shot of a woman in her forties in a charcoal blazer standing at a white whiteboard that fills the centre of the frame, a male colleague in his thirties beside her seen in profile. She draws one plain rising line with three small marks on it in black marker, nothing legible, then turns to him and he nods. Slow push-in. Soft directional light from a window at frame left."
+        }
+      ],
+      "tail": "captures/clip6-endcard-9x16.mp4 from spots/gbx-commercial (animated mark, philosophy line, www.gbxps.com)"
+    },
+    {
+      "id": "B",
+      "name": "ai-earns-its-keep",
+      "runtime_s": "about 16",
+      "narration_line": 3,
+      "caption_lines": [
+        "And AI that actually earns its keep.",
+        "Practical, governed, and only where it helps."
+      ],
+      "clips": [
+        {
+          "n": 1,
+          "file": "clips/B1-printer-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Portrait: a man in his fifties at a standing desk, laptop with plain matte lid facing him, an office printer beside him hands him a page; he reads it and nods. Two beats: the wait, then the page.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Medium portrait shot of a man in his fifties with grey hair at a standing desk in the centre of the frame, a laptop with a plain matte lid and no display on the lid, its screen facing him and away from the camera. Beside him a small office printer slides out a single printed page; he takes it, reads it and gives a small satisfied nod. Slow push-in, warm off-white light on his face, the office soft and dark behind."
+        },
+        {
+          "n": 2,
+          "file": "clips/B2-network-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Portrait: an open-plan office at dusk from above; desk lamps come on one after another down the centre of the frame, like a network lighting up. No people close to camera.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. High portrait shot looking down a long open-plan office at dusk, rows of desks receding down the centre of the frame toward the glass wall and the city lights. Desk lamps switch on one after another from the near desks to the far ones, warm points of light in the deep teal shadow, a few people small and distant at their desks. Very slow forward drift."
+        }
+      ],
+      "tail": "captures/clip6-endcard-9x16.mp4"
+    },
+    {
+      "id": "C",
+      "name": "money-plainly",
+      "runtime_s": "about 16",
+      "narration_line": 4,
+      "caption_lines": [
+        "We also teach people about money.",
+        "Plainly, at work, in language a whole team can follow."
+      ],
+      "clips": [
+        {
+          "n": 1,
+          "file": "clips/C1-lunchroom-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Portrait: a small team around a lunchroom table, one woman explains with three coffee cups pushed into a row; others lean in. Table centred, faces in three-quarter profile.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Medium portrait shot of a lunchroom table in the centre of the frame, four colleagues of different ages around it seen in three-quarter profile. A woman in her thirties in a teal jumper slides three coffee cups into a row on the table and gestures from one to the next as she explains; the others lean in and one man in his fifties laughs quietly. Slow lateral drift, warm window light."
+        },
+        {
+          "n": 2,
+          "file": "clips/C2-notebook-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 6 to 8 s",
+          "on_screen": "Portrait close: a notebook page where a hand draws three plain stacked bars in pen, then underlines the tallest. Nothing legible.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Close portrait shot looking down at an open notebook in the centre of the frame on a dark table. A hand with a fountain pen draws three plain rectangular bars side by side, each taller than the last, no letters or numbers, then draws one firm line under the tallest bar and sets the pen down. Shallow focus, warm off-white light, the room deep teal and dark around the page."
+        }
+      ],
+      "tail": "captures/clip6-endcard-9x16.mp4"
+    },
+    {
+      "id": "D",
+      "name": "free-tools-first",
+      "runtime_s": "about 18",
+      "narration_line": 5,
+      "caption_lines": [
+        "Free tools before you ever hire us.",
+        "A ten-day Diagnostic when you're ready."
+      ],
+      "clips": [
+        {
+          "n": 1,
+          "file": "clips/D1-phone-9x16.mp4",
+          "mode": "flux3 text2video 9:16, 5 to 6 s",
+          "on_screen": "Portrait: a woman on a tram or at a cafe window holds her phone in the centre of the frame, screen a plain soft gradient facing away, thumb scrolling; she smiles slightly. Cut to the real tools page capture.",
+          "prompt": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music. Vertical 9:16 portrait frame, 1080x1920. The subject and every essential action sit in the centre column of the frame with head room above and desk or floor below; nothing important at the left or right edge. One continuous shot, one scene, no cuts. Nobody looks at the camera. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Picture only, no audio. Medium close portrait shot of a woman in her forties seated by a cafe window in the centre of the frame, holding her phone upright in one hand, the screen tilted away from the camera and showing only a plain soft gradient, her thumb scrolling slowly. A small smile. Melbourne street soft through the glass behind her, morning light, shallow depth of field."
+        },
+        {
+          "n": 2,
+          "file": "captures/clip5-tools-9x16.mp4 (existing, from spots/gbx-commercial)",
+          "mode": "screen capture, already recorded",
+          "on_screen": "The real GBX tools page in a phone frame with the scroll and the Diagnostic wizard steps.",
+          "prompt": null
+        }
+      ],
+      "tail": "captures/clip6-endcard-9x16.mp4"
+    }
+  ],
+  "assembly": "Per piece: stitch-commercial.py with CLIPS=<two clips>, the end card as the tail, LOUDNESS=web; then captions-9x16.py. Verify strip, silencedetect, loudness line, yuv420p, audio length; send a 720x1280 review copy.",
+  "lessons": []
+}
