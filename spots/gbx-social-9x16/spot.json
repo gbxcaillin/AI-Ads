@@ -2,7 +2,7 @@
   "spot": "gbx-social-9x16",
   "client": "GBX Professional Services",
   "format": "Native 9:16 social pieces, 15 to 20 s each, muted-first with burned-in captions, web loudness target (-14 LUFS, -1 dBTP)",
-  "status": "round 1 cut and sent: four pieces at 1080x1920 with captions, 14.7 to 16.2 s",
+  "status": "round 2 cut and sent: four 9:16 pieces, stronger hooks, website-only close, voice cloned from the commercial",
   "why": "Test of OpenArt's Flux 3 video while it is unlimited. Flux 3 is not exposed through the OpenArt MCP connector (not in openart_model_list on 2026-09-21), so the clips are generated in the OpenArt app by hand, then picked up here with openart_creation_list and downloaded from each item's url.",
   "generation_in_app": {
     "model": "Flux 3 video, text to video",
@@ -52,7 +52,8 @@
       ],
       "tail": "captures/clip6-endcard-9x16.mp4 from spots/gbx-commercial (animated mark, philosophy line, www.gbxps.com)",
       "spec": "pieces/A-clearer-picture.json",
-      "cut": "out/A-clearer-picture-captions.mp4 (not committed)"
+      "cut": "out/A-clearer-picture-captions.mp4 (not committed)",
+      "hook_round2": "Most businesses aren't short on advice. They're short on a picture everyone can read. We draw that picture, then help you act on it."
     },
     {
       "id": "B",
@@ -85,7 +86,8 @@
       ],
       "tail": "captures/clip6-endcard-9x16.mp4",
       "spec": "pieces/B-ai-earns-its-keep.json",
-      "cut": "out/B-ai-earns-its-keep-captions.mp4 (not committed)"
+      "cut": "out/B-ai-earns-its-keep-captions.mp4 (not committed)",
+      "hook_round2": "Everyone's selling you AI. Almost nobody's asking what it's for. We put it only where it earns its keep. Practical, governed, measured."
     },
     {
       "id": "C",
@@ -118,7 +120,8 @@
       ],
       "tail": "captures/clip6-endcard-9x16.mp4",
       "spec": "pieces/C-money-plainly.json",
-      "cut": "out/C-money-plainly-captions.mp4 (not committed)"
+      "cut": "out/C-money-plainly-captions.mp4 (not committed)",
+      "hook_round2": "Your team can run a great business and still not understand its money. Nobody taught them. We do. Plainly, at work, in language everyone can follow."
     },
     {
       "id": "D",
@@ -149,7 +152,8 @@
       ],
       "tail": "captures/clip6-endcard-9x16.mp4",
       "spec": "pieces/D-free-tools-first.json",
-      "cut": "out/D-free-tools-first-captions.mp4 (not committed)"
+      "cut": "out/D-free-tools-first-captions.mp4 (not committed)",
+      "hook_round2": "Don't hire us yet. Run the free check first. Ten minutes, no sales pitch. Then a ten-day Diagnostic when you're ready."
     }
   ],
   "assembly": "Per piece: stitch-social-9x16.py pieces/<piece>.json out/<piece>.mp4 (clip 1 trimmed so the dissolve lands on the second sentence, tail is the end card with line 6 at +0.85 s, bed trimmed not stretched, web loudness), then captions-9x16.py with out/<piece>-captions.json whose words file is the take's word timings shifted by the timing sidecar.",
@@ -167,5 +171,39 @@
       "date": "2026-09-22",
       "what": "Seven Flux 3 clips picked up from the OpenArt app history, all usable; four pieces cut with the GBX narration lines 1, 3, 4, 5 and line 6 over the end card; captions burned in; sent."
     }
-  ]
+  ],
+  "narration_round2": {
+    "why": "Round 1 reused single sentences from the commercial take; standalone they felt weak. Round 2 uses two-beat hooks written for social and a website-only sign-off (no spoken company name, per the client).",
+    "voice": "Cloned from a 12 s sample of the approved commercial narration (audio/voice-ref.mp3, OpenArt upload id JVph1Tbx4IKx9rpmlWuq) via Seedance 2.5 element2video, so both takes and the commercial share one voice.",
+    "carriers": [
+      {
+        "file": "audio/carrier1-ABclose.m4a",
+        "openart_id": "tx6Ak5SL3AUN33CX4eCS",
+        "lines": [
+          "A",
+          "B",
+          "close"
+        ],
+        "note": "B mispronounced 'keep'; superseded by carrier1b for line B"
+      },
+      {
+        "file": "audio/carrier2-CD.m4a",
+        "openart_id": "d0L9x6J8CNwdMvBQCask",
+        "lines": [
+          "C",
+          "D"
+        ]
+      },
+      {
+        "file": "audio/carrier1b-B.m4a",
+        "openart_id": "wc7uwC1TrOF23l76DJuN",
+        "lines": [
+          "B"
+        ],
+        "note": "re-render of line B only"
+      }
+    ],
+    "close_spoken": "G B X P S dot com (website only, on carrier 1); the end card already shows www.gbxps.com",
+    "cost": "3 element2video takes: 1629 + 1629 credits (30 s) + the 16 s B re-render"
+  }
 }

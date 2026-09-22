@@ -76,3 +76,11 @@ Each of these cost at least one re-render. The number is the order we learned it
 - Flux ignores negatives; the prompt-optimizer skill's Flux entry (subject first, under 80 words, camera body and lens, one lighting line, positives only) gave seven usable clips on the first take.
 - Reuse the approved narration take for social: each piece takes one line from it and line 6 over the end card, so no new voice generation and the brand close matches the master.
 - Take line boundaries from silencedetect, not from Whisper word times, when a line starts with spelt-out letters (GBX came back 0.4 s early).
+
+## 32. Stronger social hooks and voice cloning across takes (2026-09-22)
+
+- Single sentences lifted from a longer spot read as weak standalone social hooks. Rewrite each as a two-beat line: a situation or a contradiction, then the turn to what the firm does. It runs 9 to 12 s, so let both picture clips play full and accept the hook tail carrying over the start of the end card.
+- To keep one voice across several narration takes (and matched to the master spot), clone it: extract a 10 to 12 s clean sample of the approved narration, upload it (openart_upload_sign then PUT then openart_upload_metadata_get), and pass it as an audio visualReference to Seedance 2.5 element2video with "speaks with the exact voice in audio 1 (clone that voice; do not read audio 1's words)". Both new takes then match each other and the commercial.
+- Seedance can still mispronounce a common word (it said "keep" as "chitch"). Confirm the take with a transcript, and when a word is wrong regenerate just that line on a short carrier with the same voice reference and an explicit pronunciation note; splice it in.
+- A website-only sign-off (spoken "G B X P S dot com", no company name) works when the end card already shows the URL; drop the close from the captions and let the card carry it.
+- stitch-social-9x16.py gained trim_first (play clips full for a long line), a separate close_narration source (the close can come from a different take than the line), and a close placed after the line's tail.

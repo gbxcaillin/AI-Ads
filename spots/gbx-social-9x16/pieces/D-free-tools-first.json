@@ -5,6 +5,8 @@
  ],
  "fps": 24,
  "xfade": 0.7,
+ "trim_first": false,
+ "base": "..",
  "clips": [
   {
    "file": "clips/D1-phone-9x16.mp4"
@@ -18,33 +20,24 @@
   "file": "../gbx-commercial/captures/clip6-endcard-9x16.mp4",
   "length": 8.0
  },
- "narration": "../gbx-commercial/audio/narration-all-lines.m4a",
+ "narration": "audio/carrier2-CD.m4a",
+ "close_narration": "audio/carrier1-ABclose.m4a",
  "bed": "../gbx-commercial/audio/music-bed.m4a",
  "bed_under_db": 18,
  "line": {
-  "start": 19.62,
-  "end": 23.27,
-  "split": 21.66,
-  "word_index": [
-   54,
-   67
-  ],
+  "start": 19.6,
+  "end": 29.4,
+  "split": 24.0,
   "at": 0.6
  },
  "close": {
-  "start": 23.35,
-  "end": 30.13,
+  "start": 24.6,
+  "end": 27.4,
   "at_offset": 0.85,
-  "word_index": [
-   68,
-   80
-  ],
-  "word_start_fix": "GBX begins at 23.43 per silencedetect; whisper said 23.02"
+  "gap": 0.6
  },
  "loudness": "web",
  "caption_lines": [
-  "Free tools before you ever hire us. A ten-day Diagnostic when you're ready.",
-  "GBX Professional Services."
- ],
- "base": ".."
+  "Don't hire us yet. Run the free check first. Ten minutes, no sales pitch. Then a ten-day Diagnostic when you're ready."
+ ]
 }
