@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "storyboard, awaiting approval before any generation",
+  "status": "character and voice generated, awaiting approval before the four clips",
   "concept": "A bald, bearded presenter in black-rimmed glasses and a white tee starts in a GBX Professional Services branded space, then rebrands himself and his room on camera, snapping through a cafe, a workshop and a studio while his white tee stays the same underneath. The point: the person stays you, the brand just gets dressed to fit what you really do, and GBX makes that change quick. If you do not know what you do best, GBX helps you figure it out. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -13,13 +13,53 @@
     "build_options": [
       "Preferred: ElevenLabs for the voice (creative connector) for a natural, friendly Australian voice, either picked from creative_list_voices or made with creative_design_voice, then one clean take per line. Higher quality and more controllable than a model-generated voice.",
       "Alternative: let OpenArt Seedance speak natively from a cloned voice reference, as the other GBX social pieces did. Simpler single pipeline, slightly less natural."
+    ],
+    "chosen": {
+      "provider": "ElevenLabs",
+      "name": "Alex",
+      "voice_id": "xZhTmJnxrn4YyTmPDrfZ",
+      "model": "eleven_multilingual_v2",
+      "why": "Warm, middle-aged, relatable Australian commercial voice; fits the late-thirties presenter.",
+      "flow_id": "Uh13NHcMAf0saJVwQHSC",
+      "sample": "audio/voiceover-sample.m4a"
+    },
+    "takes": [
+      {
+        "line": 1,
+        "file": "audio/line1.mp3",
+        "secs": 3.3,
+        "gen_id": "FTaPzESPB5Emh05XGEcd"
+      },
+      {
+        "line": 2,
+        "file": "audio/line2.mp3",
+        "secs": 0.84,
+        "gen_id": "OBBxh0NznWYB8NyjtD24"
+      },
+      {
+        "line": 3,
+        "file": "audio/line3.mp3",
+        "secs": 4.23,
+        "gen_id": "LZxI3b9QULoFl5mAdZQd"
+      },
+      {
+        "line": 4,
+        "file": "audio/line4.mp3",
+        "secs": 5.34,
+        "gen_id": "SXyyZ20wYcY33il0LoWk"
+      }
+    ],
+    "alternates": [
+      "Oliver - Friendly Professional (snyKKuaGYk1VUEh42zbW)",
+      "Sam from Down Under (3DkcznWTIDSnX3f0J6DG)",
+      "James - Australian Assistant (h0KXSKLMvNtfCIMB8I9L)"
     ]
   },
   "character": {
     "name": "the presenter (unnamed on screen)",
     "look": "Bald, short neatly trimmed dark beard, thick black-rimmed glasses, plain white crew-neck t-shirt, late thirties, approachable.",
     "constant": "The white tee never changes; it is his real self. Only the layer over it and the backdrop change.",
-    "reference_image": "character/presenter-hero-9x16.png (to be generated first, locks face, beard, glasses, white tee; used as the identity reference in every clip)"
+    "reference_image": "character/presenter-hero-9x16.png (nano-banana-pro, 1536x2752, OpenArt id Oo0zPAyJLR1Icc6rKpqE)"
   },
   "script": [
     {
