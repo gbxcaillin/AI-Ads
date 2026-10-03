@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 9 cut sent: line 3 redone (correct Alex voice), workshop clip regenerated to match, beat before \"Not sure\"",
+  "status": "FINAL delivered: 1080x1920, 21.9s, captioned + clean master in reference/",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -201,5 +201,12 @@
     "'Sorted in seconds' snapped on a hard cut; made shot3->4 a soft dissolve and added a gentle tail fade to the line so sentence and scene land.",
     "Line 3 delivery sounded funny, then the v3 redo came out Scottish; regenerated in correct Alex voice (multilingual_v2) and rebuilt the workshop clip to match.",
     "Added a ~0.9s beat before 'Not sure'."
-  ]
+  ],
+  "final": {
+    "captioned": "reference/gbx-rebrand-ugc-final-9x16.mp4 (burned captions, for muted social autoplay)",
+    "clean_master": "reference/gbx-rebrand-ugc-final-9x16-nocaptions.mp4 (no captions, for platforms that add their own)",
+    "specs": "1080x1920, 24fps, yuv420p, AAC 48kHz, web loudness -14 LUFS / -1.3 dBTP, about 21.9s",
+    "finishing": "Locked edit kept as-is (regenerating shots would change performance/sync); finished with a mild unsharp and a high-quality encode. Source shots are Seedance 480p drafts upscaled to 1080, so detail is draft-tier by design.",
+    "music": "none (matches the approved cut); a light bed can be added on request"
+  }
 }
