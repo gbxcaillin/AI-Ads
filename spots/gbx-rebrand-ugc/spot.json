@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 6 cut sent: gesture tails kept, mixed hard/soft cuts, ~22s",
+  "status": "round 7 cut sent: shot1 on its own baked audio (sync-locked), shot4 cut before address mouthing",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -166,7 +166,8 @@
     "Character consistency via one face reference image; voice consistency via one audio reference; describe the voice, never name a person"
   ],
   "lessons": [
-    "Seedance element2video clips lead with ~0.5 to 1.3s before the subject starts speaking, so laying the original clean VO at the shot start desyncs it. Cross-correlate each clean line against the clip's baked audio to find the onset and place the line there; the lips were synced to that take so they then match."
+    "Seedance element2video clips lead with ~0.5 to 1.3s before the subject starts speaking, so laying the original clean VO at the shot start desyncs it. Cross-correlate each clean line against the clip's baked audio to find the onset and place the line there; the lips were synced to that take so they then match.",
+    "If clean-VO placement still desyncs one element2video clip after onset alignment, use that clip's own baked audio for that shot (it is lip-locked by construction); mix it with clean VO on the other shots. And trim a talking clip before the words whose audio you moved elsewhere, or the subject is seen silently mouthing them."
   ],
   "framing": "Third person advocate: he recommends the firm and uses 'they' for it, he never poses as the owner or says 'my business'.",
   "build": {
@@ -177,7 +178,7 @@
     "cut": "out/rebrand-ugc-captions.mp4 (not committed; generated)",
     "cost": "4 clips element2video 480p ~1260 list; images + voice separate",
     "branding_note": "Shot 1 reads GBX by palette only; no rendered logo in the clips (avoids a garbled mark). The real GBX mark lands on the end card. A real wordmark overlay could be added to shot 1 if wanted.",
-    "audio": "Clean ElevenLabs voice throughout, each line placed at its clip's measured onset (xcorr): shot1 0.33, shot2 1.30, shot3 0.54, shot4 0.65. Clip 1 was regenerated (padded line1 ref) because its first take synced loosely and clipped 'massive'. Address ~1.5s after 'too' over the card."
+    "audio": "Shot 1 plays its OWN baked audio (inherently lip-locked; the regen says the full 'massive'). Shots 2 to 4 use the clean ElevenLabs lines at their measured onsets (shot2 1.30, shot3 0.54, shot4 0.65). Shot 4 is trimmed to 3.7s, after 'too' and before he mouths the address, so it fades to the card sooner; the spoken address plays over the card."
   },
   "next": [
     "Approve or adjust the cut",
@@ -192,6 +193,8 @@
     "Added a ~1.5s pause before the spoken 'gbxps.com' so the close is not rushed.",
     "Clean audio placed at shot starts drifted ahead of the lips; re-aligned each line to its clip's measured speech onset (xcorr).",
     "Clip 1 still read out of sync; regenerated it with a padded reference and re-measured its onset (0.33s).",
-    "Kept the end-of-shot gestures (raw clips read cleaner) and varied cuts: hard on the swipe and workshop exit, soft into cafe and end card."
+    "Kept the end-of-shot gestures (raw clips read cleaner) and varied cuts: hard on the swipe and workshop exit, soft into cafe and end card.",
+    "Clip 1 clean-audio placement kept drifting; switched shot 1 to its own baked audio for guaranteed sync.",
+    "Shot 4 showed him silently mouthing 'gbxps'; cut it right after 'too' so it fades to the card sooner."
   ]
 }
