@@ -84,3 +84,9 @@ Each of these cost at least one re-render. The number is the order we learned it
 - Seedance can still mispronounce a common word (it said "keep" as "chitch"). Confirm the take with a transcript, and when a word is wrong regenerate just that line on a short carrier with the same voice reference and an explicit pronunciation note; splice it in.
 - A website-only sign-off (spoken "G B X P S dot com", no company name) works when the end card already shows the URL; drop the close from the captions and let the card carry it.
 - stitch-social-9x16.py gained trim_first (play clips full for a long line), a separate close_narration source (the close can come from a different take than the line), and a close placed after the line's tail.
+
+## 33. Lip-sync when swapping a clip's baked audio for the clean VO (UGC, 2026-10-03)
+
+- Seedance element2video lip-syncs the subject to the supplied audio, but the clip often leads with 0.5 to 1.3 s of the person settling before speech. The clip's own baked audio is in sync, but it can be lower quality or truncate a word (one clip clipped "massive" to "ma").
+- To use the clean ElevenLabs take instead (better quality, full words), do not place it at the shot start: that runs the voice ahead of the lips. Cross-correlate the clean line against the clip's baked audio (abs-envelope, FFT xcorr, search 0 to 1.5 s) to find the onset, and place the clean line at shot_start + onset. The lips were synced to that take, so they match.
+- Extend each shot's trim so the full line fits after its onset; a short line over a long lead (a 1.3 s onset) still needs room.
