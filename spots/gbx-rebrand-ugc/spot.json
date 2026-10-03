@@ -1,0 +1,115 @@
+{
+  "spot": "gbx-rebrand-ugc",
+  "client": "GBX Professional Services",
+  "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
+  "status": "storyboard, awaiting approval before any generation",
+  "concept": "A bald, bearded presenter in black-rimmed glasses and a white tee starts in a GBX Professional Services branded space, then rebrands himself and his room on camera, snapping through a cafe, a workshop and a studio while his white tee stays the same underneath. The point: the person stays you, the brand just gets dressed to fit what you really do, and GBX makes that change quick. If you do not know what you do best, GBX helps you figure it out. Closes on gbxps.com.",
+  "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
+  "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
+  "voice": {
+    "direction": "One male voice, friendly and down to earth, warm with a light Australian lean, conversational UGC energy like talking to a mate, upbeat and quick but every word clear, no presenter polish, no hard sell.",
+    "rule": "Describe the voice; never name a real person.",
+    "lipsync": "Face comes from one character reference image; voice comes from the chosen take. Lip-sync either in OpenArt Seedance element2video (image + audio reference) or in an ElevenLabs flow with a video model, whichever reads more natural on a test clip.",
+    "build_options": [
+      "Preferred: ElevenLabs for the voice (creative connector) for a natural, friendly Australian voice, either picked from creative_list_voices or made with creative_design_voice, then one clean take per line. Higher quality and more controllable than a model-generated voice.",
+      "Alternative: let OpenArt Seedance speak natively from a cloned voice reference, as the other GBX social pieces did. Simpler single pipeline, slightly less natural."
+    ]
+  },
+  "character": {
+    "name": "the presenter (unnamed on screen)",
+    "look": "Bald, short neatly trimmed dark beard, thick black-rimmed glasses, plain white crew-neck t-shirt, late thirties, approachable.",
+    "constant": "The white tee never changes; it is his real self. Only the layer over it and the backdrop change.",
+    "reference_image": "character/presenter-hero-9x16.png (to be generated first, locks face, beard, glasses, white tee; used as the identity reference in every clip)"
+  },
+  "script": [
+    {
+      "shot": 1,
+      "line": "Rebranding your business and your space? Feels massive."
+    },
+    {
+      "shot": 2,
+      "line": "It's not."
+    },
+    {
+      "shot": 3,
+      "line": "New backdrop, new look, whatever you really do. Sorted in seconds."
+    },
+    {
+      "shot": 4,
+      "line": "Not sure what you do best? We'll help you figure that out too. G B X P S dot com."
+    }
+  ],
+  "shots": [
+    {
+      "n": 1,
+      "name": "gbx-brand",
+      "secs": "0.0-3.5",
+      "outfit": "white tee under an unbuttoned charcoal overshirt",
+      "backdrop": "a clean room with a dark charcoal wall and a small GBX Professional Services mark on the wall behind him, deep teal and warm off-white accents",
+      "on_screen": "GBX Professional Services mark on the wall (the only brand shown)",
+      "line_ref": 1,
+      "transition_out": "he swipes a hand across the lens, a quick whip to the next look",
+      "prompt": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card. 9:16 vertical, UGC handheld, the man centred with head room, his face and the layer over his white tee clearly visible, no logos or legible text anywhere Subject: the man in image 1, exactly his face, beard, glasses and white t-shirt, here under an unbuttoned charcoal overshirt. Environment: a clean room, dark charcoal wall, a small discreet GBX Professional Services mark on the wall behind his shoulder, deep teal and warm off-white tones. Action: he holds the phone selfie-style and talks straight to camera, gestures once around the room, easy confident smile, then sweeps a hand across the lens at the end. Camera: phone front camera, slight handheld sway, a small push in. Look: natural indoor light, true GBX charcoal and teal. Timing: 0 to 3.5 s, one beat. Audio: the man in image 1 speaks with the voice in audio 1, lip synced: 'Rebranding your business and your space? Feels massive.' Constraints: same person as image 1, white tee underneath, only the GBX mark is a brand, no other logos, no legible text, two hands only."
+    },
+    {
+      "n": 2,
+      "name": "cafe",
+      "secs": "3.5-7.0",
+      "outfit": "white tee + plain canvas barista apron (no logo)",
+      "backdrop": "a warm cafe, timber counter, hanging plants, soft morning light, a deep teal wall",
+      "on_screen": "none",
+      "line_ref": 2,
+      "transition_out": "snap change on the clap",
+      "prompt": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card. 9:16 vertical, UGC handheld, the man centred with head room, his face and the layer over his white tee clearly visible, no logos or legible text anywhere Subject: the same man from image 1, same face, beard, glasses and white t-shirt, now with a plain unbranded canvas barista apron over the tee. Environment: a warm cafe, timber counter, hanging plants, a deep teal wall, soft morning light. Action: he lands in frame mid-spin, settles, grins and gives a small nod to camera as if it was nothing. Camera: phone front camera, quick whip in that settles. Look: warm, bright, inviting. Timing: 3.5 to 7 s. Audio: the man in image 1 speaks with the voice in audio 1, lip synced, relaxed: 'It's not.' Constraints: same person as image 1, white tee under the apron, no logos, no brand name, no legible text anywhere, two hands only."
+    },
+    {
+      "n": 3,
+      "name": "maker-studio",
+      "secs": "7.0-11.0",
+      "outfit": "white tee + open chambray work shirt, then white tee + light linen shirt",
+      "backdrop": "a bright maker workshop with blurred tools, then a bright creative studio with a colourful plain wall",
+      "on_screen": "none",
+      "line_ref": 3,
+      "transition_out": "snap to the clean final look",
+      "prompt": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card. 9:16 vertical, UGC handheld, the man centred with head room, his face and the layer over his white tee clearly visible, no logos or legible text anywhere Subject: the same man from image 1, same face, beard, glasses and white t-shirt. Two quick looks in one shot: first with an open chambray work shirt over the tee in a bright maker workshop with softly blurred tools behind him, then a snap change to a light linen shirt over the tee against a bright, plain, colourful studio wall. Action: on each change he gives a confident little present-to-camera gesture, quick and fun. Camera: phone front camera, a fast match cut between the two looks, slight sway. Look: bright and lively, clean colour. Timing: 7 to 11 s, two beats. Audio: the man in image 1 speaks with the voice in audio 1, lip synced, brisk: 'New backdrop, new look, whatever you really do. Sorted in seconds.' Constraints: same person as image 1, white tee under every layer, no logos, no legible text on tools, walls or art, two hands only."
+    },
+    {
+      "n": 4,
+      "name": "clean-cta",
+      "secs": "11.0-15.0",
+      "outfit": "white tee + tailored charcoal blazer",
+      "backdrop": "a bright, calm, warm off-white space with a soft GBX charcoal and teal accent",
+      "on_screen": "lower third can hold www.gbxps.com before the end card",
+      "line_ref": 4,
+      "transition_out": "cut to the GBX end card",
+      "prompt": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card. 9:16 vertical, UGC handheld, the man centred with head room, his face and the layer over his white tee clearly visible, no logos or legible text anywhere Subject: the same man from image 1, same face, beard, glasses and white t-shirt, now under a tailored charcoal blazer, pulled together and confident. Environment: a bright, calm, warm off-white space with a subtle GBX charcoal and teal accent. Action: he settles, looks straight to camera, a warm reassuring smile, points lightly to himself then forward to the viewer on the web address. Camera: phone front camera, steady with a tiny sway, a gentle push in. Look: bright, warm, premium but still real. Timing: 11 to 15 s. Audio: the man in image 1 speaks with the voice in audio 1, lip synced, warm: 'Not sure what you do best? We'll help you figure that out too. G B X P S dot com.' Constraints: same person as image 1, white tee under the blazer, no logos except nothing on screen here, no legible text, two hands only."
+    }
+  ],
+  "end_card": {
+    "asset": "reuse spots/gbx-commercial/captures/clip6-endcard-9x16.mp4 (animated mark, 'Our philosophy' and 'Combining insight with impact for sustainable business growth.', then www.gbxps.com)",
+    "note": "House order is fixed. For a snappy UGC end we can hold it ~2.5 s; the spoken CTA already lands in shot 4."
+  },
+  "build_plan": [
+    "1. Generate one hero character image (nano-banana-pro, 9:16) locking bald, beard, black-rimmed glasses, white tee. Approve the face before any video.",
+    "2. Generate one short voice sample in the UGC voice, upload it as an audio reference so every clip shares one voice and lip-syncs to it.",
+    "3. Generate 4 draft clips (Seedance 2.5 element2video, 9:16, 480p, 4 to 5 s, generateAudio true) with the face image + voice reference, one line each.",
+    "4. Stitch with quick UGC transitions (whip and match cut, not slow dissolves), add the end card, optional light bed under the voice.",
+    "5. Burn phone-readable captions, verify (frame strip, silencedetect, loudness, yuv420p, audio length), send a 720x1280 review copy.",
+    "6. 1080p finals only once the cut is approved."
+  ],
+  "cost_estimate": {
+    "unit": "OpenArt credits, this account pays about 10 percent less on MCP generations",
+    "character_image_nano_banana_pro_9x16_1k": "40 list, about 36",
+    "voice_sample_take": "one short element/text2video audio take, about 300 to 1810 depending on length; a 10 s take is the cheap end",
+    "draft_clips_seedance25_element2video_480p_5s_audio": "300 list each, 4 clips about 1200 list, about 1080 after discount",
+    "first_draft_round_total": "roughly 1150 to 1350 credits; exact price quoted before the batch"
+  },
+  "rules_followed": [
+    "Full name GBX Professional Services; spoken address G B X P S dot com; on screen www.gbxps.com",
+    "No other real brands and no legible logos or text except the GBX mark in shot 1 and the end card",
+    "No em dashes anywhere",
+    "No financial advice claims",
+    "Character consistency via one face reference image; voice consistency via one audio reference; describe the voice, never name a person"
+  ],
+  "lessons": []
+}
