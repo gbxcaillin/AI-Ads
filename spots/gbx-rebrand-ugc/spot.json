@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 5 cut sent: clip 1 regenerated for tighter sync",
+  "status": "round 6 cut sent: gesture tails kept, mixed hard/soft cuts, ~22s",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -172,7 +172,7 @@
   "build": {
     "model": "Seedance 2.5 element2video, 9:16, 480p, generateAudio true; face from character/presenter-hero-9x16.png, each line its ElevenLabs audio as the voice reference for lip-sync",
     "durations": "shot1 5s, shot2 4s, shot3 5s, shot4 7s (line2 audio padded to 2.6s to clear the 2s minimum)",
-    "stitch": "trim clips to 4.3/2.6/4.8/3.0s, 0.25s crossfade dissolves between all shots and into the card (video xfade + audio acrossfade); shot 4 audio ends after 'too', the spoken address is split off as audio/line4b-address.mp3 and laid over the end card (delayed 0.5s) so 'G B X P S dot com' lands as www.gbxps.com shows; end card is clip6-endcard-9x16 4.5-8.0 plus a 0.6s freeze (~4.1s); web loudness",
+    "stitch": "Trims keep each shot's end gesture (shot1 4.9s incl hand-swipe, shot2 3.8s incl grin/shrug, shot3 5.0s incl present gesture, shot4 4.6s incl point). Mixed transitions: hard cut on shot1's swipe (1->2) and out of the workshop (3->4); soft 0.3s dissolve into the cafe (2->3) and 0.35s into the end card (4->card). End card = clip6-endcard-9x16 4.5-8.0 + 1.3s freeze; address ~1.5s after 'too' over the card. Web loudness.",
     "captions": "word timings from the clean line mp3s offset to the new cut; line 4 caption drops the address (the card shows and speaks it); stop_at 13.6",
     "cut": "out/rebrand-ugc-captions.mp4 (not committed; generated)",
     "cost": "4 clips element2video 480p ~1260 list; images + voice separate",
@@ -191,6 +191,7 @@
     "Clip baked audio cut 'massive' short; switched to clean voice-line audio throughout.",
     "Added a ~1.5s pause before the spoken 'gbxps.com' so the close is not rushed.",
     "Clean audio placed at shot starts drifted ahead of the lips; re-aligned each line to its clip's measured speech onset (xcorr).",
-    "Clip 1 still read out of sync; regenerated it with a padded reference and re-measured its onset (0.33s)."
+    "Clip 1 still read out of sync; regenerated it with a padded reference and re-measured its onset (0.33s).",
+    "Kept the end-of-shot gestures (raw clips read cleaner) and varied cuts: hard on the swipe and workshop exit, soft into cafe and end card."
   ]
 }
