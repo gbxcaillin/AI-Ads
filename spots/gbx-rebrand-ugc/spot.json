@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 1 cut sent: four lip-synced clips + snappy end card, captions, ~20s (480p upscaled draft)",
+  "status": "round 2 cut sent: shot 1 full line, dissolves between shots, address spoken over the end card",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -169,8 +169,8 @@
   "build": {
     "model": "Seedance 2.5 element2video, 9:16, 480p, generateAudio true; face from character/presenter-hero-9x16.png, each line its ElevenLabs audio as the voice reference for lip-sync",
     "durations": "shot1 5s, shot2 4s, shot3 5s, shot4 7s (line2 audio padded to 2.6s to clear the 2s minimum)",
-    "stitch": "trim each clip to its speech (3.5/2.6/4.8/6.8s), hard UGC cuts, end card = last 2.7s of gbx-commercial clip6-endcard-9x16 (mark, philosophy, www.gbxps.com), web loudness",
-    "captions": "captions-9x16.py with word timings from the clean line mp3s offset to the cut; stop_at 17.6 so the card carries the URL",
+    "stitch": "trim clips to 4.3/2.6/4.8/3.0s, 0.25s crossfade dissolves between all shots and into the card (video xfade + audio acrossfade); shot 4 audio ends after 'too', the spoken address is split off as audio/line4b-address.mp3 and laid over the end card (delayed 0.5s) so 'G B X P S dot com' lands as www.gbxps.com shows; end card is clip6-endcard-9x16 4.5-8.0 plus a 0.6s freeze (~4.1s); web loudness",
+    "captions": "word timings from the clean line mp3s offset to the new cut; line 4 caption drops the address (the card shows and speaks it); stop_at 13.6",
     "cut": "out/rebrand-ugc-captions.mp4 (not committed; generated)",
     "cost": "4 clips element2video 480p ~1260 list; images + voice separate",
     "branding_note": "Shot 1 reads GBX by palette only; no rendered logo in the clips (avoids a garbled mark). The real GBX mark lands on the end card. A real wordmark overlay could be added to shot 1 if wanted."
@@ -179,5 +179,10 @@
     "Approve or adjust the cut",
     "For finals: regenerate clips at higher resolution (sharper), optionally add a light music bed, optionally overlay the real GBX wordmark on shot 1",
     "Name the firm aloud in line 3 once the ElevenLabs account is on a paid plan"
+  ],
+  "revisions": [
+    "Shot 1 was cut before 'Feels massive'; extended the trim.",
+    "Moved spoken 'gbxps.com' off shot 4 onto the end card, timed to the URL reveal.",
+    "Replaced hard cuts with 0.25s dissolves for a smoother UGC feel."
   ]
 }
