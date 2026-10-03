@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 2 cut sent: shot 1 full line, dissolves between shots, address spoken over the end card",
+  "status": "round 3 cut sent: clean-voice audio, full \"Feels massive\", ~1.5s pause before the spoken address over the end card",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -173,7 +173,8 @@
     "captions": "word timings from the clean line mp3s offset to the new cut; line 4 caption drops the address (the card shows and speaks it); stop_at 13.6",
     "cut": "out/rebrand-ugc-captions.mp4 (not committed; generated)",
     "cost": "4 clips element2video 480p ~1260 list; images + voice separate",
-    "branding_note": "Shot 1 reads GBX by palette only; no rendered logo in the clips (avoids a garbled mark). The real GBX mark lands on the end card. A real wordmark overlay could be added to shot 1 if wanted."
+    "branding_note": "Shot 1 reads GBX by palette only; no rendered logo in the clips (avoids a garbled mark). The real GBX mark lands on the end card. A real wordmark overlay could be added to shot 1 if wanted.",
+    "audio": "All voice comes from the clean ElevenLabs line takes, not the clips' baked audio (the clip audio truncated 'massive'). Lines placed at each shot's start: line1@0, line2@4.05, line3@6.40, line4a (main sentence)@10.95; the address (line4b) plays at 15.0, about 1.5s after 'too', over the end card as www.gbxps.com shows. Clips are muted; lips were synced to these same takes so they still match."
   },
   "next": [
     "Approve or adjust the cut",
@@ -183,6 +184,8 @@
   "revisions": [
     "Shot 1 was cut before 'Feels massive'; extended the trim.",
     "Moved spoken 'gbxps.com' off shot 4 onto the end card, timed to the URL reveal.",
-    "Replaced hard cuts with 0.25s dissolves for a smoother UGC feel."
+    "Replaced hard cuts with 0.25s dissolves for a smoother UGC feel.",
+    "Clip baked audio cut 'massive' short; switched to clean voice-line audio throughout.",
+    "Added a ~1.5s pause before the spoken 'gbxps.com' so the close is not rushed."
   ]
 }
