@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "character v2 (tougher) and deeper voice generated, awaiting approval before the four clips",
+  "status": "character v3 (leaner creative, shaggy hair) and Alex voice, awaiting approval before the four clips",
   "concept": "A bald, bearded presenter in black-rimmed glasses and a white tee starts in a GBX Professional Services branded space, then rebrands himself and his room on camera, snapping through a cafe, a workshop and a studio while his white tee stays the same underneath. The point: the person stays you, the brand just gets dressed to fit what you really do, and GBX makes that change quick. If you do not know what you do best, GBX helps you figure it out. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -16,10 +16,10 @@
     ],
     "chosen": {
       "provider": "ElevenLabs",
-      "name": "Aussie Adam",
-      "voice_id": "cbQuFa0NIsZUQnzTQxnj",
+      "name": "Alex",
+      "voice_id": "xZhTmJnxrn4YyTmPDrfZ",
       "model": "eleven_multilingual_v2",
-      "why": "Deep, warm, British-Australian advertising voice; matches the bigger, tougher presenter.",
+      "why": "Warm, relatable Australian commercial voice, chosen by the client over the deeper Aussie Adam.",
       "flow_id": "Uh13NHcMAf0saJVwQHSC",
       "sample": "audio/voiceover-sample.m4a"
     },
@@ -28,25 +28,25 @@
         "line": 1,
         "file": "audio/line1.mp3",
         "secs": 3.3,
-        "gen_id": "fh9BgK04aCPYGoTjYBRK"
+        "gen_id": "FTaPzESPB5Emh05XGEcd"
       },
       {
         "line": 2,
         "file": "audio/line2.mp3",
-        "secs": 0.93,
-        "gen_id": "YfazQhrwMzHPTAKRd2yt"
+        "secs": 0.84,
+        "gen_id": "OBBxh0NznWYB8NyjtD24"
       },
       {
         "line": 3,
         "file": "audio/line3.mp3",
-        "secs": 3.81,
-        "gen_id": "kOAEL3qrVavGEbmNwaet"
+        "secs": 4.23,
+        "gen_id": "LZxI3b9QULoFl5mAdZQd"
       },
       {
         "line": 4,
         "file": "audio/line4.mp3",
-        "secs": 5.11,
-        "gen_id": "Ih9xbrM82U3qmELktRaN"
+        "secs": 5.34,
+        "gen_id": "SXyyZ20wYcY33il0LoWk"
       }
     ],
     "alternates": [
@@ -54,14 +54,13 @@
       "Sam from Down Under (3DkcznWTIDSnX3f0J6DG)",
       "James - Australian Assistant (h0KXSKLMvNtfCIMB8I9L)"
     ],
-    "superseded": "Alex (xZhTmJnxrn4YyTmPDrfZ) from the first pass; replaced by the deeper Aussie Adam"
+    "superseded": "Deeper Aussie Adam trialled, then reverted to Alex at the client request."
   },
   "character": {
     "name": "the presenter (unnamed on screen)",
-    "look": "Big, broad-shouldered Australian man, early forties, heavyset but not overweight, tough but warm and a little cuddly. Bald, full short dark beard, thick black-rimmed glasses, fitted white crew-neck t-shirt under an open charcoal overshirt.",
-    "constant": "The white tee never changes; it is his real self. Only the layer over it and the backdrop change.",
-    "reference_image": "character/presenter-hero-9x16.png (nano-banana-pro, OpenArt id JNKkXtfLShadYLXC3FIh; v2 tougher/bigger build)",
-    "note": "v2 frame accidentally rendered a phone camera-app overlay (icons); regenerate one clean frame without UI chrome before the clips."
+    "look": "Creative Australian man, late thirties, lean athletic build (not stocky, not skinny). Shaggy tousled medium-length dark hair, a full medium characterful beard (not long enough to tie up), thick black-rimmed glasses, white crew-neck t-shirt under an open charcoal overshirt.",
+    "constant": "The white tee stays the same under every layer; the hair, beard and glasses are his constant creative look. Only the layer over the tee and the backdrop change.",
+    "reference_image": "character/presenter-hero-9x16.png (nano-banana-pro, OpenArt id TbQkm16Fdha6PgC8y6kK; v3 leaner creative, shaggy hair, clean frame no UI)"
   },
   "script": [
     {
