@@ -2,7 +2,7 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "round 4 cut sent: lip-sync corrected by per-clip onset alignment",
+  "status": "round 5 cut sent: clip 1 regenerated for tighter sync",
   "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
@@ -95,8 +95,9 @@
       "line_ref": 1,
       "transition_out": "he swipes a hand across the lens, a quick whip to the next look",
       "prompt": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card. 9:16 vertical, UGC handheld, the man centred with head room, his face and the layer over his white tee clearly visible, no logos or legible text anywhere Subject: the man in image 1, exactly his face, beard, glasses and white t-shirt, here under an unbuttoned charcoal overshirt. Environment: a clean room, dark charcoal wall, a small discreet GBX Professional Services mark on the wall behind his shoulder, deep teal and warm off-white tones. Action: he holds the phone selfie-style and talks straight to camera, gestures once around the room, easy confident smile, then sweeps a hand across the lens at the end. Camera: phone front camera, slight handheld sway, a small push in. Look: natural indoor light, true GBX charcoal and teal. Timing: 0 to 3.5 s, one beat. Audio: the man in image 1 speaks with the voice in audio 1, lip synced: 'Rebranding your business and your space? Feels massive.' Constraints: same person as image 1, white tee underneath, only the GBX mark is a brand, no other logos, no legible text, two hands only.",
-      "openart_id": "ZDpOUsfOCzNCD2J8DiQV",
-      "clip": "clips/shot1-brand.mp4"
+      "openart_id": "SEjcuA95rmjJ7kE7oQQL",
+      "clip": "clips/shot1-brand.mp4",
+      "note": "regenerated with padded line1 ref; onset 0.33s, clean full \"massive\""
     },
     {
       "n": 2,
@@ -176,7 +177,7 @@
     "cut": "out/rebrand-ugc-captions.mp4 (not committed; generated)",
     "cost": "4 clips element2video 480p ~1260 list; images + voice separate",
     "branding_note": "Shot 1 reads GBX by palette only; no rendered logo in the clips (avoids a garbled mark). The real GBX mark lands on the end card. A real wordmark overlay could be added to shot 1 if wanted.",
-    "audio": "Clean ElevenLabs voice throughout, but each line is placed at the clip's measured speech onset (cross-correlation of the clean line against the clip's baked audio), not at the shot start: onsets ~shot1 0.62s, shot2 1.30s, shot3 0.54s, shot4 0.65s. This keeps the clean audio (full 'massive') in sync with the lips. Trims were extended so no word is cut. Address plays ~1.5s after 'too' over the end card."
+    "audio": "Clean ElevenLabs voice throughout, each line placed at its clip's measured onset (xcorr): shot1 0.33, shot2 1.30, shot3 0.54, shot4 0.65. Clip 1 was regenerated (padded line1 ref) because its first take synced loosely and clipped 'massive'. Address ~1.5s after 'too' over the card."
   },
   "next": [
     "Approve or adjust the cut",
@@ -189,6 +190,7 @@
     "Replaced hard cuts with 0.25s dissolves for a smoother UGC feel.",
     "Clip baked audio cut 'massive' short; switched to clean voice-line audio throughout.",
     "Added a ~1.5s pause before the spoken 'gbxps.com' so the close is not rushed.",
-    "Clean audio placed at shot starts drifted ahead of the lips; re-aligned each line to its clip's measured speech onset (xcorr)."
+    "Clean audio placed at shot starts drifted ahead of the lips; re-aligned each line to its clip's measured speech onset (xcorr).",
+    "Clip 1 still read out of sync; regenerated it with a padded reference and re-measured its onset (0.33s)."
   ]
 }
