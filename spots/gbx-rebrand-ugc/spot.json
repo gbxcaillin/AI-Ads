@@ -2,8 +2,8 @@
   "spot": "gbx-rebrand-ugc",
   "client": "GBX Professional Services",
   "format": "9:16 UGC social video ad, about 15 s plus a short end card, muted-first with burned-in captions, web loudness (-14 LUFS, -1 dBTP)",
-  "status": "character v3 (leaner creative, shaggy hair) and Alex voice, awaiting approval before the four clips",
-  "concept": "A bald, bearded presenter in black-rimmed glasses and a white tee starts in a GBX Professional Services branded space, then rebrands himself and his room on camera, snapping through a cafe, a workshop and a studio while his white tee stays the same underneath. The point: the person stays you, the brand just gets dressed to fit what you really do, and GBX makes that change quick. If you do not know what you do best, GBX helps you figure it out. Closes on gbxps.com.",
+  "status": "advocate reframe; VO assembled (Alex), line 3 could name the firm once ElevenLabs paid plan is active; awaiting approval before the clips",
+  "concept": "A creative presenter talks to camera ABOUT GBX Professional Services (he is an advocate, not the business owner). As he talks he changes backdrop and outfit to show how GBX rebrands a business and its space to fit what it really does, his white tee the same underneath each look. If you do not know what you do best, GBX helps you find it. Closes on gbxps.com.",
   "runtime_plan": "Four shots of about 3.5 to 4 s each equal roughly 15 s, then a 2 to 3 s GBX end card. Total about 17 s.",
   "shared_style": "Authentic handheld UGC video, 9:16 vertical, shot to look like a phone front camera: natural light, a slight handheld sway, direct address to camera, real and unpolished, shallow phone-camera depth of field. One man throughout, the same person in every shot: bald with a short neat dark beard, thick black-rimmed glasses, a plain white crew-neck t-shirt as his constant base layer under whatever else he wears. Friendly, warm, confident, an Australian everyman in his late thirties. Only the layer over the tee and the room behind him change from shot to shot. No other real brands, no legible logos, words or numbers on anything except the GBX Professional Services mark in shot 1 and on the end card.",
   "voice": {
@@ -28,7 +28,8 @@
         "line": 1,
         "file": "audio/line1.mp3",
         "secs": 3.3,
-        "gen_id": "FTaPzESPB5Emh05XGEcd"
+        "gen_id": "FTaPzESPB5Emh05XGEcd",
+        "wording": "reused Alex take; neutral, works for advocate"
       },
       {
         "line": 2,
@@ -40,13 +41,15 @@
         "line": 3,
         "file": "audio/line3.mp3",
         "secs": 4.23,
-        "gen_id": "LZxI3b9QULoFl5mAdZQd"
+        "gen_id": "LZxI3b9QULoFl5mAdZQd",
+        "wording": "neutral description, no first person"
       },
       {
         "line": 4,
         "file": "audio/line4.mp3",
-        "secs": 5.34,
-        "gen_id": "SXyyZ20wYcY33il0LoWk"
+        "secs": 6.04,
+        "gen_id": "AmxPBgxCe4qdzUQ6QI2G",
+        "wording": "reworded to 'They'll help' (advocate)"
       }
     ],
     "alternates": [
@@ -54,7 +57,8 @@
       "Sam from Down Under (3DkcznWTIDSnX3f0J6DG)",
       "James - Australian Assistant (h0KXSKLMvNtfCIMB8I9L)"
     ],
-    "superseded": "Deeper Aussie Adam trialled, then reverted to Alex at the client request."
+    "superseded": "Deeper Aussie Adam trialled, then reverted to Alex at the client request.",
+    "blocked": "ElevenLabs disabled free-tier access mid-batch ('Unusual activity ... Free Tier access has been disabled ... upgrade to a paid subscription'), likely triggered by the session proxy. New lines 1 to 3 failed; line 4 completed. Current cut reuses the earlier Alex takes for 1 to 3 (still correct for an advocate) plus the new line 4. To name the firm aloud in line 3 ('GBX Professional Services give you a new backdrop ...') the ElevenLabs account needs a paid plan, then regenerate line 3."
   },
   "character": {
     "name": "the presenter (unnamed on screen)",
@@ -77,7 +81,7 @@
     },
     {
       "shot": 4,
-      "line": "Not sure what you do best? We'll help you figure that out too. G B X P S dot com."
+      "line": "Not sure what you do best? They'll help you figure that out too. G B X P S dot com."
     }
   ],
   "shots": [
@@ -152,5 +156,6 @@
     "No financial advice claims",
     "Character consistency via one face reference image; voice consistency via one audio reference; describe the voice, never name a person"
   ],
-  "lessons": []
+  "lessons": [],
+  "framing": "Third person advocate: he recommends the firm and uses 'they' for it, he never poses as the owner or says 'my business'."
 }
