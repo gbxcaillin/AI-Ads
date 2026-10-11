@@ -2,7 +2,7 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "review v3.3 (33.5s): solution shot reworked: relief, then a slow push until the dashboard owns the frame; no second breath",
+  "status": "PARKED at review v3.3 (33.5s) on 2026-10-11 at the client's request. Script and timing: LibertyStone-SMSF-script-and-timing.pdf. Open: AFSL number, compliance wording, 1080p upgrade, optional 30s.",
   "review_cut": {
     "file": "out/libertystone-review-v3.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 33.5s)",
     "build": "build_review_cut.py; dashboard/track_and_composite.py for the solution shot",
@@ -325,5 +325,6 @@
   },
   "costs_round2": "narration 26s clone 1565, music bed 30s 1810, blank-screen plate re-animation 6s 360 = 3735 credits",
   "costs_round3": "narration 28s 1685 + sigh clip 6s with audio 360 = 2045 credits",
-  "costs_round4": "close-line re-take, 2 x 5s with audio = 600 credits"
+  "costs_round4": "close-line re-take, 2 x 5s with audio = 600 credits",
+  "script_pdf": "LibertyStone-SMSF-script-and-timing.pdf (make_script_pdf.mjs; timings are the cut's actual values)"
 }
