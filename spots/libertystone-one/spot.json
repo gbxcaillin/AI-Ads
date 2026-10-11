@@ -2,7 +2,7 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "review v3.2 (33.5s): SMSF pair gap tightened to 0.1 s; -14.2 LUFS",
+  "status": "review v3.3 (33.5s): solution shot reworked: relief, then a slow push until the dashboard owns the frame; no second breath",
   "review_cut": {
     "file": "out/libertystone-review-v3.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 33.5s)",
     "build": "build_review_cut.py; dashboard/track_and_composite.py for the solution shot",
@@ -13,7 +13,12 @@
     "watch": [
       "AFSL number and SMSF-specific risk/PDS/TMD wording from compliance",
       "1080p upgrade once approved"
-    ]
+    ],
+    "solution_shot": {
+      "file": "clips/act4-solution-push.mp4 (dashboard/solution_push.py)",
+      "why": "in the blank-plate clip her mouth opens on a breath from 0.75 to 3.75 s, which read as a second sigh after the real one (client)",
+      "how": "uses the clip from 4.0 s (eyes closing, then a settled smile), holds its last frame, and runs one ease-in-out push from wide to the screen filling 78% of the width (total 1.62x: the clip's own push 1.05x plus a digital crop up to 1.54x, computed per frame so the move never kinks). She leaves frame at ~5.1 s of the 7 s shot. Each frame is resampled once from the source; the dashboard is warped straight into output pixels from its full-res render, so it stays sharp at full zoom; fit checked at 4x on all corners at start, middle and end."
+    }
   },
   "decisions_resolved": {
     "usp_delivery": "VO plus on-screen tagline (user: VO would be good with the right script)",
@@ -282,7 +287,8 @@
     "A prompted 'long, audible sigh' from Seedance comes back real but quiet: ~10 dB over a hissy floor. Denoise (afftdn), gate the room tone between the in-breath and the sigh, lift +6 dB, and duck the bed ~18 dB around it; cutting the clicks dead on the cut sells the release.",
     "Whisper is unreliable at spelling letters read aloud (SMSF came back as 'SMSSF' from one model, 'SMSF' from another). Count the syllable bursts in the waveform instead.",
     "Dashboard labels under ~40px at 2560 wide vanish at 480p-upscaled; size the words that carry the message for the shot, not for the mockup.",
-    "To fix how one word is said, re-take only that line on a short carrier with the same voice reference and spell the delivery out ('S M', short pause, 'S F'); take 2 and pick the one whose pitch and brightness match the ORIGINAL reading of the same sentence, not the neighbouring line (the narrator lifts on a payoff line). Verify the delivery from the waveform (check_smsf.py), not a transcript."
+    "To fix how one word is said, re-take only that line on a short carrier with the same voice reference and spell the delivery out ('S M', short pause, 'S F'); take 2 and pick the one whose pitch and brightness match the ORIGINAL reading of the same sentence, not the neighbouring line (the narrator lifts on a payoff line). Verify the delivery from the waveform (check_smsf.py), not a transcript.",
+    "When a generated performance has one bad beat (an open-mouth breath that reads as a second sigh), map the expression across the clip and build the shot from the clean part: start on it, hold the last frame, and carry one eased push across both, computing the digital zoom per frame against the clip's own push so the move does not kink when the live part ends."
   ],
   "audio": {
     "route": "ElevenLabs connector unavailable, so the house OpenArt route: one narration take on a silent gradient carrier via Seedance 2.5 element2video with an audio voice reference (clone), and one 30s instrumental carrier for the bed.",

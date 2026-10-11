@@ -33,7 +33,7 @@ SEGS = [
     ('act2b-overload.mp4',        1.2, 4.6, 1.0,  False, False),
     ('act3a-friction.mp4',        0.0, 3.4, 1.0,  False, False),
     ('act3c-sigh.mp4',            0.2, 4.2, 1.0,  False, True),   # in-breath, eyes close, the sigh, a beat after
-    ('act4-solution-tracked.mp4', 0.0, 7.0, 0.86, True,  False),  # rise from black; dashboard tracked in post
+    ('act4-solution-push.mp4',    0.0, 7.0, 1.0,  True,  False),  # relief, then a slow push until the dashboard owns the frame (solution_push.py)
 ]
 SIGH_SEG = 4
 BLACK = 0.30
