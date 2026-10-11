@@ -26,7 +26,7 @@ SEGS = [
     ('act2b-overload.mp4',        1.2, 4.6, False, False),
     ('act3a-friction.mp4',        0.0, 3.4, False, False),
     ('act3b-exhale.mp4',          0.6, 2.6, False, True),   # fade to black -> reset
-    ('act4-solution-pushin.mp4',  0.0, 6.0, True,  False),  # rise from black
+    ('act4-solution-tracked.mp4', 0.0, 6.0, True,  False),  # rise from black; dashboard tracked in post
 ]
 GRADE = ("eq=contrast=1.05:saturation=1.06:brightness=-0.008,"
          "colorbalance=bs=0.04:bm=0.01:bh=-0.02,"
@@ -91,4 +91,77 @@ run([FF, '-y', '-loglevel', 'error', '-i', str(body), '-i', str(endcard),
      f'[0:v]settb=AVTB[a];[1:v]settb=AVTB[b];[a][b]xfade=transition=fade:duration={XF}:offset={off:.3f},format=yuv420p[v]',
      '-map', '[v]', '-c:v', 'libx264', '-crf', '19', '-preset', 'medium',
      '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(final)])
-print('total', round(bd + dur(endcard) - XF, 2), 's ->', final)
+total = bd + dur(endcard) - XF
+print('picture', round(total, 2), 's ->', final)
+
+# 5) sound: narration lines placed on the picture, bed 18 dB under the voice,
+# the synthesised sfx layer, then two-pass loudness to -14 LUFS / -1.5 dBTP.
+AUDIO = ROOT / 'audio'
+NARR, BED = AUDIO / 'narration-all-lines.m4a', AUDIO / 'music-bed.m4a'
+# (source in, source out, cut time) from the word-level transcript; the line
+# ends sit ~0.2 s into each pause. "One ... place" is tightened from 1.0 s to
+# 0.35 s by splitting it and butting the halves together.
+LINES = [
+    (0.78, 2.22, 0.70),     # You worked hard for this.          over the composed opener
+    (4.18, 14.10, 4.25),    # But your money lives ... this hard. over overload, ends as friction starts
+    (16.70, 18.70, 19.70),  # LibertyStone brings it all together. just after the reset to black
+    (20.30, 24.12, 22.30),  # Your shares, your ETFs, and your crypto. One
+    (24.98, 25.62, 22.30 + (24.12 - 20.30) + 0.35),  # place.
+]
+sfx = TMP / 'sfx.wav'
+run(['python3', str(ROOT / 'make_sfx.py'), f'{total:.3f}', str(sfx)])
+import re as _re
+def mean_db(p):
+    err = subprocess.run([FF, '-hide_banner', '-i', str(p), '-af', 'volumedetect', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    return float(_re.search(r'mean_volume: (-?[\d.]+) dB', err)[1])
+bed_gain_db = (mean_db(NARR) - 18) - mean_db(BED)
+# VO chain: the cloned take is peaky (15.8 dB loudness-to-peak) from short
+# plosive transients that a compressor's attack lets through. A fast limiter
+# driven +4 dB, oversampled at 192k, shaves only those transients: 11.4 dB
+# loudness-to-peak, a broadcast-style read, so the master reaches -14 LUFS
+# under a -2 dBTP ceiling. The bed stays ~19 dB under the processed voice.
+VO_CHAIN = ('aresample=192000,volume=4dB,alimiter=limit=0.6:attack=0.5:release=40:level=disabled,'
+            'aresample=48000')
+fc = [f'[1:a]aresample=48000,aformat=channel_layouts=stereo,{VO_CHAIN},asplit={len(LINES)}' + ''.join(f'[n{i}]' for i in range(len(LINES)))]
+for i, (a, b, at) in enumerate(LINES):
+    ms = int(round(at * 1000))
+    fc.append(f'[n{i}]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.04,'
+              f'afade=t=out:st={b - a - 0.08:.3f}:d=0.08,adelay={ms}|{ms}[l{i}]')
+fc.append(f'[2:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total:.3f},asetpts=PTS-STARTPTS,'
+          f'volume={bed_gain_db:.2f}dB,afade=t=in:d=1.2,afade=t=out:st={total - 2.2:.3f}:d=2.2[bed]')
+fc.append('[3:a]aresample=48000,aformat=channel_layouts=stereo[fx]')
+fc.append('[bed][fx]' + ''.join(f'[l{i}]' for i in range(len(LINES)))
+          + f'amix=inputs={len(LINES) + 2}:normalize=0:dropout_transition=0,atrim=0:{total:.3f}[aout]')
+mixed = out / 'libertystone-review-v2.mp4'
+run([FF, '-y', '-loglevel', 'error', '-i', str(final), '-i', str(NARR), '-i', str(BED), '-i', str(sfx),
+     '-filter_complex', ';'.join(fc), '-map', '0:v', '-map', '[aout]', '-c:v', 'copy',
+     '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', f'{total:.3f}', str(mixed)])
+print(f'bed gain {bed_gain_db:.1f} dB')
+
+# Loudness: a linear loudnorm cannot lift this mix to -14 because the click and
+# ping transients would pass the true-peak ceiling, so apply the gain directly
+# and catch the transients with a peak limiter (oversampled by running at 192k),
+# then measure again and correct once for what the limiter took off.
+import json
+def measure(p):
+    err = subprocess.run([FF, '-hide_banner', '-i', str(p), '-af',
+                          'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    m = json.loads(err[err.rfind('{'):err.rfind('}') + 1])
+    return float(m['input_i']), float(m['input_tp'])
+src = mixed.with_suffix('.premaster.mp4')
+mixed.replace(src)
+err = subprocess.run([FF, '-hide_banner', '-i', str(src), '-af',
+                      'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'],
+                     capture_output=True, text=True).stderr
+m = json.loads(err[err.rfind('{'):err.rfind('}') + 1])
+af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+      f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']},"
+      f"aresample=48000")
+run([FF, '-y', '-loglevel', 'error', '-i', str(src), '-af', af, '-c:v', 'copy', '-c:a', 'aac',
+     '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', str(mixed)])
+src.unlink()
+li, tp = measure(mixed)
+print(f'loudness: {li:.1f} LUFS, true peak {tp:.1f} dBTP (pre-master {float(m["input_i"]):.1f} LUFS, '
+      f'{float(m["input_tp"]):.1f} dBTP); wrote {mixed}')

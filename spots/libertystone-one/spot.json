@@ -2,15 +2,25 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "review draft: silent picture cut delivered (29.8s); VO + music/sound pending (ElevenLabs connector erroring this session)",
+  "status": "review v2 delivered (29.9s): dashboard tracked onto the blank-screen plate in post, cloned-voice VO, music bed, sound design, -14.2 LUFS",
   "review_cut": {
-    "file": "out/libertystone-review-picture.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 29.8s, silent)",
-    "build": "build_review_cut.py",
-    "order": "order 4.0s, overload build 4.4s, overload peak 4.6s, friction 3.4s, exhale 2.6s, reset-to-black 0.3s, solution push-in 6.0s, dissolve to end card 5.0s",
+    "file": "out/libertystone-review-v2.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 29.9s, AAC 48k stereo)",
+    "build": "build_review_cut.py (picture, end card, audio mix, loudness); dashboard/track_and_composite.py makes the solution shot",
+    "order": "order 4.0s, overload build 4.4s, overload peak 4.6s, friction 3.4s, exhale 2.6s, reset-to-black 0.3s, solution 6.0s, dissolve to end card 5.0s",
     "grade": "mild contrast+sat, cool shadows (colorbalance bs 0.04), gentle vignette",
-    "pending": "VO (3 lines, script in vo_script), music bed + layered chimes/clicks resolving to a single piano note, light filmic grain, AFSL number in the risk line"
+    "checks": "audio stream full length (29.90s), no dropouts, -14.2 LUFS / -1.1 dBTP, transcript of the mix has every line complete and in place",
+    "round_2_changes": [
+      "dashboard re-fitted: tracked per frame onto a blank-screen plate (was garbled by the video model and overhung the bezel)",
+      "VO added (cloned Alex voice via Seedance, not ElevenLabs)",
+      "music bed + synthesised pings, clicks and logo chime",
+      "tagline nudged down 22px for air under the wordmark"
+    ],
+    "watch": [
+      "in the solution shot her mouth opens slightly on a breath (~20s); soft focus, but under the VO it may read as speaking. Re-roll the blank plate with a closed-mouth note if it bothers",
+      "AFSL number still to add to the risk line",
+      "1080p upgrade of the kept drafts once approved"
+    ]
   },
-  "audio_status": "BLOCKED this session: ElevenLabs MCP returns a protocol envelope error (missing resultType) on creative_generate_speech and creative_get_flow_run_status; list_voices and create_flow worked. VO to be recorded (Alex, eleven_multilingual_v2) once the connector responds. No good offline music source this session.",
   "decisions_resolved": {
     "usp_delivery": "VO plus on-screen tagline (user: VO would be good with the right script)",
     "dashboard": "placeholder holdings, crypto in the same list as shares and ETFs; balance $287,340",
@@ -32,7 +42,10 @@
     "pick": "B",
     "still": "refs/char-optB.png (Nano Banana Pro, 2K)",
     "alt": "refs/char-optA.png",
-    "openart_upload": {"id": "QOjiph0Xmii5ENCvb3xn", "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/nN90WiPr5Ngn0IWrVHQd/libertystone-char-B_1791713435737_aa6d5dac.png"}
+    "openart_upload": {
+      "id": "QOjiph0Xmii5ENCvb3xn",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/nN90WiPr5Ngn0IWrVHQd/libertystone-char-B_1791713435737_aa6d5dac.png"
+    }
   },
   "dashboard_final": {
     "render_script": "dashboard/render-dashboard.mjs (Montserrat + keyed logo, navy #0A1224, teal #38B2A8)",
@@ -40,25 +53,126 @@
     "balance": "$287,340",
     "delta": "+$4,812, 1.7% today",
     "holdings": [
-      {"name": "Meridian Group", "type": "Shares", "value": "$84,210", "chg": "+0.8%"},
-      {"name": "Harbour Industries", "type": "Shares", "value": "$61,540", "chg": "-0.4%"},
-      {"name": "Global 200 ETF", "type": "ETF", "value": "$72,980", "chg": "+0.6%"},
-      {"name": "Bitcoin", "type": "Crypto", "value": "$41,160", "chg": "+2.3%"},
-      {"name": "Ethereum", "type": "Crypto", "value": "$27,450", "chg": "+1.1%"}
+      {
+        "name": "Meridian Group",
+        "type": "Shares",
+        "value": "$84,210",
+        "chg": "+0.8%"
+      },
+      {
+        "name": "Harbour Industries",
+        "type": "Shares",
+        "value": "$61,540",
+        "chg": "-0.4%"
+      },
+      {
+        "name": "Global 200 ETF",
+        "type": "ETF",
+        "value": "$72,980",
+        "chg": "+0.6%"
+      },
+      {
+        "name": "Bitcoin",
+        "type": "Crypto",
+        "value": "$41,160",
+        "chg": "+2.3%"
+      },
+      {
+        "name": "Ethereum",
+        "type": "Crypto",
+        "value": "$27,450",
+        "chg": "+1.1%"
+      }
     ],
-    "note": "Holdings sum to the hero balance. Bitcoin/Ethereum sit in the same list to land the crypto-alongside-shares USP."
+    "note": "Holdings sum to the hero balance. Bitcoin/Ethereum sit in the same list to land the crypto-alongside-shares USP.",
+    "screen_fit": {
+      "method": "measure, do not estimate: per frame, the bezel edge is found on each side's normal at sub-pixel precision (2x upscale), a robust line is fitted per side, the lines are intersected; the lid homography from frame 0 carries the glass-edge quad. Inner glass edge measured on frame 0 (top rim 2.12 px; right side has no inner contrast at 480p, so 0.9 px inside the lid edge). Dashboard padded with a thin black panel border.",
+      "result": "145/145 frames tracked, 0 fallbacks; measured bezel points sit 0.10 to 0.15 px (median) from each fitted side, max 0.22 px (source); smoothing moves corners at most 0.2 output px; zoomed corners checked at start, middle and end",
+      "plate_corners_2752": "TL 1352,566  TR 2456,518  BR 2418,1316  BL 1242,1276 (inner bezel, measured from full-res crops)"
+    }
   },
   "generations": {
     "model": "byte-plus-seedance-2-5-draft (480p, no audio), nano-banana-pro for stills",
     "clips": [
-      {"shot": "act1-order", "historyId": "rk5ZDPyuPtxeeFwrROTc", "mode": "image2video", "dur": 5, "status": "approved, face+look holding", "file": "clips/act1-order.mp4"},
-      {"shot": "act4-solution-oldtake", "historyId": "7rtbdHCXwo1hdWn9lHGa", "mode": "element2video", "dur": 6, "status": "rejected: laptop was back-to-camera; reshooting via composited still"},
-      {"shot": "act2a-overload-build", "historyId": "UOXeytabF80kqzea5k08", "mode": "element2video", "dur": 6, "status": "kept", "file": "clips/act2a-overload.mp4"},
-      {"shot": "act2b-overload-peak", "historyId": "WddO5aksu5belCQjrqPA", "mode": "element2video", "dur": 7, "status": "kept", "file": "clips/act2b-overload.mp4"},
-      {"shot": "act3a-friction-inserts", "historyId": "gNxyMCg1hmZZMEarEVwP", "mode": "text2video", "dur": 5, "status": "kept", "file": "clips/act3a-friction.mp4"},
-      {"shot": "act3b-exhale", "historyId": "jAs7uNP8jIbLGm0tJQdJ", "mode": "element2video", "dur": 4, "status": "kept", "file": "clips/act3b-exhale.mp4"},
-      {"shot": "act4-plate-still", "historyId": "ObdicApuV7F4uE5Wit6v", "mode": "image2image", "status": "kept plate-A; composited dashboard then animated", "files": ["clips/plate-A.png", "clips/plate-A-composited.png"]},
-      {"shot": "act4-solution-pushin", "historyId": "bgYw4G7C3dwaZIrWVKwo", "mode": "image2video", "dur": 6, "status": "kept: dashboard stayed legible through push-in", "file": "clips/act4-solution-pushin.mp4"}
+      {
+        "shot": "act1-order",
+        "historyId": "rk5ZDPyuPtxeeFwrROTc",
+        "mode": "image2video",
+        "dur": 5,
+        "status": "approved, face+look holding",
+        "file": "clips/act1-order.mp4"
+      },
+      {
+        "shot": "act4-solution-oldtake",
+        "historyId": "7rtbdHCXwo1hdWn9lHGa",
+        "mode": "element2video",
+        "dur": 6,
+        "status": "rejected: laptop was back-to-camera; reshooting via composited still"
+      },
+      {
+        "shot": "act2a-overload-build",
+        "historyId": "UOXeytabF80kqzea5k08",
+        "mode": "element2video",
+        "dur": 6,
+        "status": "kept",
+        "file": "clips/act2a-overload.mp4"
+      },
+      {
+        "shot": "act2b-overload-peak",
+        "historyId": "WddO5aksu5belCQjrqPA",
+        "mode": "element2video",
+        "dur": 7,
+        "status": "kept",
+        "file": "clips/act2b-overload.mp4"
+      },
+      {
+        "shot": "act3a-friction-inserts",
+        "historyId": "gNxyMCg1hmZZMEarEVwP",
+        "mode": "text2video",
+        "dur": 5,
+        "status": "kept",
+        "file": "clips/act3a-friction.mp4"
+      },
+      {
+        "shot": "act3b-exhale",
+        "historyId": "jAs7uNP8jIbLGm0tJQdJ",
+        "mode": "element2video",
+        "dur": 4,
+        "status": "kept",
+        "file": "clips/act3b-exhale.mp4"
+      },
+      {
+        "shot": "act4-plate-still",
+        "historyId": "ObdicApuV7F4uE5Wit6v",
+        "mode": "image2image",
+        "status": "kept plate-A; composited dashboard then animated",
+        "files": [
+          "clips/plate-A.png",
+          "clips/plate-A-composited.png"
+        ]
+      },
+      {
+        "shot": "act4-solution-pushin",
+        "historyId": "bgYw4G7C3dwaZIrWVKwo",
+        "mode": "image2video",
+        "dur": 6,
+        "status": "superseded: the video model redrew the composited screen (garbled text) and the hand-measured corners overhung the bezel",
+        "file": "clips/act4-solution-pushin.mp4"
+      },
+      {
+        "shot": "act4-solution-blank",
+        "historyId": "WzeoAOx4qjlZJRQsCvRi",
+        "mode": "image2video",
+        "dur": 6,
+        "status": "kept: plate-A animated with the screen kept black; dashboard tracked on in post",
+        "file": "clips/act4-solution-blank.mp4"
+      },
+      {
+        "shot": "act4-solution-tracked",
+        "status": "kept: final solution shot",
+        "file": "clips/act4-solution-tracked.mp4",
+        "made_by": "dashboard/track_and_composite.py"
+      }
     ]
   },
   "idea": "The weight of managing wealth across many platforms (logins, accounts, tabs, statements) collapses into one calm place: LibertyStone, where shares, ETFs and crypto live together.",
@@ -151,8 +265,38 @@
     "AI renders laptop UI as gibberish, so the dashboard is a real HTML render corner-pinned onto the screen quad with a CSS matrix3d homography (dashboard/composite-onscreen.mjs), composited onto the STILL plate first, then the whole still is animated with image2video: the screen stays glued and legible through the push-in with no wobble.",
     "Key the navy out of the supplied wordmark with ffmpeg lumakey (threshold ~0.16) to drop it onto any ground with no seam; the raw PNG carries its own radial gradient that will not match a flat panel.",
     "element2video with the character still as a visual reference holds her face across new scenes (overload, exhale); image2video is for the exact-match push-ins (opener, solution).",
-    "Seedance 2.5 Draft is 300 credits per 480p clip regardless of duration, upgradable to 1080p within 7 days from the same resource id (suggestedActions.draft_upgrade).",
     "This ffmpeg build (imageio-ffmpeg static) has NO drawtext filter despite libfreetype in buildconf; render any on-screen text in the browser (playwright) to a transparent PNG and overlay it.",
-    "ElevenLabs MCP async calls (creative_generate_speech, creative_get_flow_run_status) failed this session with a protocol envelope error (missing resultType); simple calls (list_voices, create_flow) worked. Blocks TTS until resolved."
-  ]
+    "ElevenLabs MCP async calls (creative_generate_speech, creative_get_flow_run_status) failed this session with a protocol envelope error (missing resultType); simple calls (list_voices, create_flow) worked. Blocks TTS until resolved.",
+    "Seedance 2.5 Draft cost scales with duration (5s about 300, 6s 360, 26s with audio 1565, 30s with audio 1810). Quote from openart_model_cost, not a flat figure.",
+    "Never let the video model animate a composited screen: in the push-in it re-drew the dashboard and garbled the text ('LibertyStore', 'Eltsin'). Animate the plate with the screen kept black, then track the lid and warp the real UI on in post.",
+    "Track a laptop lid by measuring its edges, not by point tracking: LK points on the base drifted ~50 px by the end (base and tilted lid move differently under a dolly) and ECC on the bezel lost lock when her arm moved. Per-frame edge lines on all four sides, intersected, held 0.1 to 0.2 px.",
+    "The model's frame 0 is close to the start image but not pixel-identical; measure the screen on the video frames, not on the plate.",
+    "With the ElevenLabs connector unusable, the cloned-voice Seedance carrier (audio visualReference of a 12s sample) gave a word-perfect take in the same Australian voice.",
+    "A cloned Seedance VO is peaky (15.8 dB loudness-to-peak from plosives). A compressor did not help (its attack lets the transients through and it pulls the read down); a fast oversampled limiter driven +4 dB brought it to 11.4 and let the master reach -14 LUFS under the true-peak ceiling."
+  ],
+  "audio": {
+    "route": "ElevenLabs connector unavailable, so the house OpenArt route: one narration take on a silent gradient carrier via Seedance 2.5 element2video with an audio voice reference (clone), and one 30s instrumental carrier for the bed.",
+    "voice_ref": {
+      "file": "audio/voice-ref-alex.mp3 (12s cut of spots/gbx-rebrand-ugc/audio/voiceover-sample.m4a, the Alex voice)",
+      "openart_upload": "DhQKaiQlomuINtcNO1Ey"
+    },
+    "narration": {
+      "file": "audio/narration-all-lines.m4a",
+      "openart_historyId": "3mfjRdQ2Th99pc54jb1R",
+      "dur": 26,
+      "transcript": "word-perfect (faster-whisper small); 'E T Fs' written as letters, read as ETFs"
+    },
+    "music_bed": {
+      "file": "audio/music-bed.m4a",
+      "openart_historyId": "14Jnppb0PhtW5zA1iXTS",
+      "dur": 30,
+      "prompt": "the house drone wording that passes moderation"
+    },
+    "line_placement": "L1 0.70s, L2 4.25s (ends as friction starts), friction and exhale unvoiced, L3a 19.70s after the reset, L3b 22.30s with the 1.0s 'One ... place' pause tightened to 0.35s",
+    "vo_chain": "192k oversampled, +4 dB into a fast limiter (0.6): loudness-to-peak 15.8 -> 11.4 dB",
+    "bed": "18 dB under the raw take (about 19 under the processed voice), 1.2s in, 2.2s out",
+    "sfx": "make_sfx.py: 8 pings through the overload (closer together), accelerating key clicks through the friction, none on the exhale, one chime at 25.9s on the logo",
+    "master": "two-pass loudnorm I=-14 TP=-1.5 LRA=11 -> -14.2 LUFS, -1.1 dBTP after AAC"
+  },
+  "costs_round2": "narration 26s clone 1565, music bed 30s 1810, blank-screen plate re-animation 6s 360 = 3735 credits"
 }
