@@ -50,9 +50,9 @@ body{background:radial-gradient(130% 120% at 18% 12%, #0E1728 0%, #0A1224 55%, #
 .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:84px}
 .brand{height:120px;width:720px;display:flex;align-items:center;overflow:hidden}
 .brand img{height:300px;margin:-90px -70px;object-fit:contain}
-.who{display:flex;align-items:center;gap:22px;color:var(--mut);font-weight:500;font-size:30px;letter-spacing:.04em}
+.who{display:flex;align-items:center;gap:24px;color:#D3DCE8;font-weight:600;font-size:46px;letter-spacing:.03em}
 .who .av{width:58px;height:58px;border-radius:50%;background:linear-gradient(140deg,#1b3a44,#122236);border:1px solid var(--line)}
-.lead{color:var(--mut);font-weight:500;font-size:30px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:26px}
+.lead{color:#B4C0D2;font-weight:600;font-size:40px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px}
 .bal{display:flex;align-items:flex-end;gap:40px}
 .bal .big{font-weight:600;font-size:170px;line-height:.9;letter-spacing:-.02em}
 .bal .delta{font-weight:600;font-size:40px;color:var(--up);padding-bottom:22px}
@@ -76,9 +76,9 @@ body{background:radial-gradient(130% 120% at 18% 12%, #0E1728 0%, #0A1224 55%, #
 <div class="wrap">
   <div class="top">
     <div class="brand"><img src="${logo}"></div>
-    <div class="who"><span>Portfolio</span><span class="av"></span></div>
+    <div class="who"><span>SMSF portfolio</span><span class="av"></span></div>
   </div>
-  <div class="lead">Total portfolio value</div>
+  <div class="lead">Total fund value</div>
   <div class="bal"><div class="big">$287,340</div><div class="delta">+$4,812 &nbsp;1.7% today</div></div>
   <div class="spark">
     <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">

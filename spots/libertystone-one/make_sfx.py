@@ -3,7 +3,7 @@ of the cut: soft notification pings through the overload (getting closer
 together), key clicks accelerating through the friction, nothing on the
 exhale, one soft chime as the logo lands. Kept low; it sits with the bed,
 under the voice. Times are cut seconds.
-    python3 spots/libertystone-one/make_sfx.py <total_seconds> <out.wav>
+    python3 spots/libertystone-one/make_sfx.py <total_seconds> <out.wav> [chime_seconds]
 """
 import sys, wave
 import numpy as np
@@ -11,6 +11,7 @@ import numpy as np
 SR = 48000
 total = float(sys.argv[1])
 out = sys.argv[2]
+CHIME_AT = float(sys.argv[3]) if len(sys.argv) > 3 else 25.9
 mix = np.zeros(int(total * SR) + SR, np.float32)
 rng = np.random.default_rng(11)
 
@@ -52,7 +53,7 @@ while t < 16.3:
     t += gap
     gap = max(0.075, gap * 0.9)
 # logo: one soft chime as the mark settles
-place(chime(), 25.9, 0.20)
+place(chime(), CHIME_AT, 0.20)
 
 mix = mix[:int(total * SR)]
 st = np.stack([mix, mix], 1)
