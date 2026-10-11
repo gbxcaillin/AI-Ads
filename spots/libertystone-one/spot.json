@@ -2,7 +2,65 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "storyboard, awaiting decisions before any generation",
+  "status": "review draft: silent picture cut delivered (29.8s); VO + music/sound pending (ElevenLabs connector erroring this session)",
+  "review_cut": {
+    "file": "out/libertystone-review-picture.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 29.8s, silent)",
+    "build": "build_review_cut.py",
+    "order": "order 4.0s, overload build 4.4s, overload peak 4.6s, friction 3.4s, exhale 2.6s, reset-to-black 0.3s, solution push-in 6.0s, dissolve to end card 5.0s",
+    "grade": "mild contrast+sat, cool shadows (colorbalance bs 0.04), gentle vignette",
+    "pending": "VO (3 lines, script in vo_script), music bed + layered chimes/clicks resolving to a single piano note, light filmic grain, AFSL number in the risk line"
+  },
+  "audio_status": "BLOCKED this session: ElevenLabs MCP returns a protocol envelope error (missing resultType) on creative_generate_speech and creative_get_flow_run_status; list_voices and create_flow worked. VO to be recorded (Alex, eleven_multilingual_v2) once the connector responds. No good offline music source this session.",
+  "decisions_resolved": {
+    "usp_delivery": "VO plus on-screen tagline (user: VO would be good with the right script)",
+    "dashboard": "placeholder holdings, crypto in the same list as shares and ETFs; balance $287,340",
+    "brand": "match look from the supplied logo animation (no separate brand files yet)",
+    "compliance": "Australian; add a risk line on the end card (AFSL number still to come from client)"
+  },
+  "vo_script": {
+    "voice": "ElevenLabs Alex, calm premium Australian, unhurried",
+    "lines": [
+      "You worked hard for this.",
+      "But your money lives in a dozen places. Different logins, different accounts, statements you can barely keep up with. It shouldn't be this hard.",
+      "LibertyStone brings it all together. Your shares, your ETFs, and your crypto. One place."
+    ],
+    "tagline_on_screen": "Shares, ETFs and crypto. One place.",
+    "notes": "No names spoken, no financial advice, no em dashes. ~45 words, room to breathe over 30s."
+  },
+  "risk_line_draft": "General information only. It does not consider your objectives, financial situation or needs. Investing and crypto assets carry risk, including loss of capital. (+ AFSL number when supplied)",
+  "character_lock": {
+    "pick": "B",
+    "still": "refs/char-optB.png (Nano Banana Pro, 2K)",
+    "alt": "refs/char-optA.png",
+    "openart_upload": {"id": "QOjiph0Xmii5ENCvb3xn", "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/nN90WiPr5Ngn0IWrVHQd/libertystone-char-B_1791713435737_aa6d5dac.png"}
+  },
+  "dashboard_final": {
+    "render_script": "dashboard/render-dashboard.mjs (Montserrat + keyed logo, navy #0A1224, teal #38B2A8)",
+    "png": "dashboard/dashboard.png (2560x1600)",
+    "balance": "$287,340",
+    "delta": "+$4,812, 1.7% today",
+    "holdings": [
+      {"name": "Meridian Group", "type": "Shares", "value": "$84,210", "chg": "+0.8%"},
+      {"name": "Harbour Industries", "type": "Shares", "value": "$61,540", "chg": "-0.4%"},
+      {"name": "Global 200 ETF", "type": "ETF", "value": "$72,980", "chg": "+0.6%"},
+      {"name": "Bitcoin", "type": "Crypto", "value": "$41,160", "chg": "+2.3%"},
+      {"name": "Ethereum", "type": "Crypto", "value": "$27,450", "chg": "+1.1%"}
+    ],
+    "note": "Holdings sum to the hero balance. Bitcoin/Ethereum sit in the same list to land the crypto-alongside-shares USP."
+  },
+  "generations": {
+    "model": "byte-plus-seedance-2-5-draft (480p, no audio), nano-banana-pro for stills",
+    "clips": [
+      {"shot": "act1-order", "historyId": "rk5ZDPyuPtxeeFwrROTc", "mode": "image2video", "dur": 5, "status": "approved, face+look holding", "file": "clips/act1-order.mp4"},
+      {"shot": "act4-solution-oldtake", "historyId": "7rtbdHCXwo1hdWn9lHGa", "mode": "element2video", "dur": 6, "status": "rejected: laptop was back-to-camera; reshooting via composited still"},
+      {"shot": "act2a-overload-build", "historyId": "UOXeytabF80kqzea5k08", "mode": "element2video", "dur": 6, "status": "kept", "file": "clips/act2a-overload.mp4"},
+      {"shot": "act2b-overload-peak", "historyId": "WddO5aksu5belCQjrqPA", "mode": "element2video", "dur": 7, "status": "kept", "file": "clips/act2b-overload.mp4"},
+      {"shot": "act3a-friction-inserts", "historyId": "gNxyMCg1hmZZMEarEVwP", "mode": "text2video", "dur": 5, "status": "kept", "file": "clips/act3a-friction.mp4"},
+      {"shot": "act3b-exhale", "historyId": "jAs7uNP8jIbLGm0tJQdJ", "mode": "element2video", "dur": 4, "status": "kept", "file": "clips/act3b-exhale.mp4"},
+      {"shot": "act4-plate-still", "historyId": "ObdicApuV7F4uE5Wit6v", "mode": "image2image", "status": "kept plate-A; composited dashboard then animated", "files": ["clips/plate-A.png", "clips/plate-A-composited.png"]},
+      {"shot": "act4-solution-pushin", "historyId": "bgYw4G7C3dwaZIrWVKwo", "mode": "image2video", "dur": 6, "status": "kept: dashboard stayed legible through push-in", "file": "clips/act4-solution-pushin.mp4"}
+    ]
+  },
   "idea": "The weight of managing wealth across many platforms (logins, accounts, tabs, statements) collapses into one calm place: LibertyStone, where shares, ETFs and crypto live together.",
   "brand": {
     "name": "LibertyStone (one word, camel case)",
@@ -89,5 +147,12 @@
     "Brand: do you have a clean logo file, brand colours (exact hex) and the brand font? Otherwise I match from the animation.",
     "Compliance: is this Australian (AFSL needed)? What risk wording must appear (crypto and investing carry risk)?"
   ],
-  "lessons": []
+  "lessons": [
+    "AI renders laptop UI as gibberish, so the dashboard is a real HTML render corner-pinned onto the screen quad with a CSS matrix3d homography (dashboard/composite-onscreen.mjs), composited onto the STILL plate first, then the whole still is animated with image2video: the screen stays glued and legible through the push-in with no wobble.",
+    "Key the navy out of the supplied wordmark with ffmpeg lumakey (threshold ~0.16) to drop it onto any ground with no seam; the raw PNG carries its own radial gradient that will not match a flat panel.",
+    "element2video with the character still as a visual reference holds her face across new scenes (overload, exhale); image2video is for the exact-match push-ins (opener, solution).",
+    "Seedance 2.5 Draft is 300 credits per 480p clip regardless of duration, upgradable to 1080p within 7 days from the same resource id (suggestedActions.draft_upgrade).",
+    "This ffmpeg build (imageio-ffmpeg static) has NO drawtext filter despite libfreetype in buildconf; render any on-screen text in the browser (playwright) to a transparent PNG and overlay it.",
+    "ElevenLabs MCP async calls (creative_generate_speech, creative_get_flow_run_status) failed this session with a protocol envelope error (missing resultType); simple calls (list_voices, create_flow) worked. Blocks TTS until resolved."
+  ]
 }

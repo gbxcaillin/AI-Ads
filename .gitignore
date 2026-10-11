@@ -5,6 +5,7 @@ spots/*/out/
 spots/*/frames*/
 spots/*/logoframes/
 spots/*/_stitch_tmp/
+spots/*/_cut_tmp/
 *.loud.mp4
 check*.png
 strip*.png
