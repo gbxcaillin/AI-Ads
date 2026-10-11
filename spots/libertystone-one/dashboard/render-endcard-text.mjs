@@ -16,7 +16,7 @@ html,body{width:1280px;height:720px;background:transparent;overflow:hidden}
 .tag{position:absolute;left:0;right:0;top:492px;text-align:center;color:#E8ECF2;font-weight:600;font-size:34px;letter-spacing:.01em}
 .risk{position:absolute;left:0;right:0;top:632px;text-align:center;color:#8A97AD;font-weight:500;font-size:15px;line-height:1.5;letter-spacing:.02em;padding:0 120px}
 </style></head><body>
-<div class="tag">Shares, ETFs and crypto. One place.</div>
+<div class="tag">Your whole SMSF, in one place.</div>
 <div class="risk">General information only. It does not consider your objectives, financial situation or needs.<br>Investing and crypto assets carry risk, including loss of capital.</div>
 </body></html>`
 
