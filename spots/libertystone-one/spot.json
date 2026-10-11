@@ -2,16 +2,15 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "review v3 delivered (32.9s): SMSF script, built-for line, relabelled dashboard, featured sigh; -14.1 LUFS",
+  "status": "review v3.1 delivered (33.5s): closing line re-taken as 'S M, S F' (client pronunciation); -14.2 LUFS",
   "review_cut": {
-    "file": "out/libertystone-review-v3.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 32.9s, AAC 48k)",
+    "file": "out/libertystone-review-v3.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 33.5s)",
     "build": "build_review_cut.py; dashboard/track_and_composite.py for the solution shot",
     "timeline": "order 0-4.0 | overload 4.0-13.0 | friction 13.0-16.4 | SIGH 16.4-20.6 | black 20.6-20.9 | solution 20.9-27.8 (slowed to 7s) | end card 27.2-32.9",
     "vo_placement": "L1 0.6s, L2 4.3s, L3 20.75s on the reset, 'Shares, ETFs and crypto' 26.3s, 'Your whole SMSF, in one place' 29.5s with the caption",
     "sigh": "her own breath from the sigh clip (in-breath 16.6s, sigh peak 19.2s), hiss removed, gated, +6 dB; clicks cut dead at 16.4; bed ducked ~18 dB 16.15-21.2s. Measured: sigh -14.4 dB vs -47.7 dB silence before it vs VO -15.3 dB",
     "checks": "audio full length, no dropouts, -14.1 LUFS / -1.5 dBTP, transcript has every line",
     "watch": [
-      "listen once to 'S M S F' at ~30s: one transcriber heard an extra S, the waveform shows four letters",
       "AFSL number and SMSF-specific risk/PDS/TMD wording from compliance",
       "1080p upgrade once approved"
     ]
@@ -32,7 +31,7 @@
     ],
     "positioning": "an investment platform built for self-managed super funds ('built for' chosen over 'perfect for' for compliance)",
     "tagline_on_screen": "Your whole SMSF, in one place.",
-    "notes": "SMSF spoken as letters (written 'S M S F' in the prompt; envelope shows four syllables). No em dashes, no advice."
+    "notes": "SMSF is said as two pairs: 'S M', a quarter-beat pause, 'S F' (client). The closing line is a separate re-take spliced in; check_smsf.py verifies four letters with the longest gap after M."
   },
   "risk_line_draft": "General information only. It does not consider your objectives, financial situation or needs. Investing and crypto assets carry risk, including loss of capital. (+ AFSL number when supplied)",
   "character_lock": {
@@ -282,7 +281,8 @@
     "A cloned Seedance VO is peaky (15.8 dB loudness-to-peak from plosives). A compressor did not help (its attack lets the transients through and it pulls the read down); a fast oversampled limiter driven +4 dB brought it to 11.4 and let the master reach -14 LUFS under the true-peak ceiling.",
     "A prompted 'long, audible sigh' from Seedance comes back real but quiet: ~10 dB over a hissy floor. Denoise (afftdn), gate the room tone between the in-breath and the sigh, lift +6 dB, and duck the bed ~18 dB around it; cutting the clicks dead on the cut sells the release.",
     "Whisper is unreliable at spelling letters read aloud (SMSF came back as 'SMSSF' from one model, 'SMSF' from another). Count the syllable bursts in the waveform instead.",
-    "Dashboard labels under ~40px at 2560 wide vanish at 480p-upscaled; size the words that carry the message for the shot, not for the mockup."
+    "Dashboard labels under ~40px at 2560 wide vanish at 480p-upscaled; size the words that carry the message for the shot, not for the mockup.",
+    "To fix how one word is said, re-take only that line on a short carrier with the same voice reference and spell the delivery out ('S M', short pause, 'S F'); take 2 and pick the one whose pitch and brightness match the ORIGINAL reading of the same sentence, not the neighbouring line (the narrator lifts on a payoff line). Verify the delivery from the waveform (check_smsf.py), not a transcript."
   ],
   "audio": {
     "route": "ElevenLabs connector unavailable, so the house OpenArt route: one narration take on a silent gradient carrier via Seedance 2.5 element2video with an audio voice reference (clone), and one 30s instrumental carrier for the bed.",
@@ -306,8 +306,17 @@
     "vo_chain": "192k oversampled, +4 dB into a fast limiter (0.6): loudness-to-peak 15.8 -> 11.4 dB",
     "bed": "18 dB under the raw take (about 19 under the processed voice), 1.2s in, 2.2s out",
     "sfx": "make_sfx.py: 8 pings through the overload (closer together), accelerating key clicks through the friction, none on the exhale, one chime at 25.9s on the logo",
-    "master": "two-pass loudnorm I=-14 TP=-1.5 LRA=11 -> -14.2 LUFS, -1.1 dBTP after AAC"
+    "master": "two-pass loudnorm I=-14 TP=-1.5 LRA=11 -> -14.2 LUFS, -1.1 dBTP after AAC",
+    "close_take": {
+      "file": "audio/close-take-b.m4a",
+      "openart_historyId": "LYvq3VvCfSN5n6ici5iS (take B of 2)",
+      "in_out": "0.67-4.07s",
+      "gain_db": 2.4,
+      "why_b": "both takes passed the S M | S F check (gaps 140/410/140 ms); B matched the original reading of the same sentence (f0 176 vs 177 Hz, brightness 1314 vs 1290 Hz), A was flatter and lower (111 Hz)",
+      "in_mix": "gaps 90/330/120 ms; within 1 dB of the preceding line"
+    }
   },
   "costs_round2": "narration 26s clone 1565, music bed 30s 1810, blank-screen plate re-animation 6s 360 = 3735 credits",
-  "costs_round3": "narration 28s 1685 + sigh clip 6s with audio 360 = 2045 credits"
+  "costs_round3": "narration 28s 1685 + sigh clip 6s with audio 360 = 2045 credits",
+  "costs_round4": "close-line re-take, 2 x 5s with audio = 600 credits"
 }

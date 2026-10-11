@@ -38,7 +38,7 @@ SEGS = [
 SIGH_SEG = 4
 BLACK = 0.30
 XF = 0.6
-ENDCARD_HOLD = 0.6        # hold the settled logo after the 5 s animation
+ENDCARD_HOLD = 1.2        # hold the settled logo after the 5 s animation (room after the 3.4 s close)
 CAPTION_AT = 2.3          # end-card seconds; the wordmark lands at about 2.5
 GRADE = ("eq=contrast=1.05:saturation=1.06:brightness=-0.008,"
          "colorbalance=bs=0.04:bm=0.01:bh=-0.02,"
@@ -109,14 +109,21 @@ print(f'picture {total:.2f}s; sigh shot at {sigh_at:.2f}s; end card at {ec_start
 
 # 5) sound
 NARR, BED = AUDIO / 'narration-smsf.m4a', AUDIO / 'music-bed.m4a'
-# (source in, source out, cut time) from the word-level transcript and the
-# pauses; each line ends ~0.2 s into its pause.
+# The closing line is a separate short take: the main take read the
+# abbreviation as four even letters; the client wants "S M", a quarter-beat
+# pause, "S F". audio/close-take.json names the take and its in/out points,
+# chosen with check_smsf.py.
+_ct = json.loads((AUDIO / 'close-take.json').read_text())
+CLOSE_TAKE, CLOSE_IN, CLOSE_OUT = AUDIO / _ct['take'], _ct['in'], _ct['out']
+SRC_GAIN = {str(CLOSE_TAKE): _ct.get('gain_db', 0.0)}   # level-match the re-take to the main take
+# (source in, source out, cut time[, source file]) from the word-level
+# transcript and the pauses; each line ends ~0.2 s into its pause.
 LINES = [
     (0.58, 3.37, 0.60),               # You set up your own super fund to take control.
     (4.62, 13.90, 4.30),              # But now it's spread everywhere ... Statements for the auditor.
     (15.35, 20.50, sigh_at + 4.35),   # LibertyStone is the investment platform built for self-managed super funds.  (on the reset)
     (21.49, 24.20, ec_start - 0.90),  # Shares, ETFs and crypto.   (end of the solution, into the dissolve)
-    (24.97, 27.70, ec_start + 2.30),  # Your whole S M S F, in one place.  (with the caption)
+    (CLOSE_IN, CLOSE_OUT, ec_start + 2.25, CLOSE_TAKE),  # Your whole S M, S F, in one place.  (re-take, with the caption)
 ]
 sfx = TMP / 'sfx.wav'
 run(['python3', str(ROOT / 'make_sfx.py'), f'{total:.3f}', str(sfx), f'{ec_start + 1.2:.2f}'])
@@ -142,9 +149,16 @@ SIGH_CHAIN = ('highpass=f=90,afftdn=nr=18:nf=-38:tn=1,'
 d0, d1 = sigh_at - 0.25, sigh_at + SIGH_DUR + BLACK + 0.3
 duck = f"volume='1-0.88*min(1,max(0,(t-{d0:.2f})/0.3))*min(1,max(0,({d1 + 0.8:.2f}-t)/0.8))':eval=frame"
 
-fc = [f'[1:a]aresample=48000,aformat=channel_layouts=stereo,{VO_CHAIN},asplit={len(LINES)}'
-      + ''.join(f'[n{i}]' for i in range(len(LINES)))]
-for i, (a, b, at) in enumerate(LINES):
+# narration sources: the main take is input 1; any re-take is added after the sigh clip
+srcs = [NARR] + sorted({str(l[3]) for l in LINES if len(l) > 3 and str(l[3]) != str(NARR)})
+src_idx = {str(NARR): 1, **{s: 5 + k for k, s in enumerate(srcs[1:])}}
+users = {s: [i for i, l in enumerate(LINES) if str(l[3] if len(l) > 3 else NARR) == s] for s in map(str, srcs)}
+fc = []
+for s_, idxs in users.items():
+    fc.append(f'[{src_idx[s_]}:a]aresample=48000,aformat=channel_layouts=stereo,volume={SRC_GAIN.get(s_, 0.0)}dB,{VO_CHAIN},asplit={len(idxs)}'
+              + ''.join(f'[n{i}]' for i in idxs))
+for i, line in enumerate(LINES):
+    a, b, at = line[:3]
     ms = int(round(at * 1000))
     fc.append(f'[n{i}]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.04,'
               f'afade=t=out:st={b - a - 0.08:.3f}:d=0.08,adelay={ms}|{ms}[l{i}]')
@@ -161,7 +175,7 @@ fc.append('[bed][fx][sigh]' + ''.join(f'[l{i}]' for i in range(len(LINES)))
 mixed = OUT / 'libertystone-review-v3.mp4'
 pre = mixed.with_suffix('.premaster.mp4')
 run([FF, '-y', '-loglevel', 'error', '-i', str(picture), '-i', str(NARR), '-i', str(BED), '-i', str(sfx),
-     '-i', str(CLIPS / SEGS[SIGH_SEG][0]),
+     '-i', str(CLIPS / SEGS[SIGH_SEG][0]), *sum((['-i', s_] for s_ in srcs[1:]), []),
      '-filter_complex', ';'.join(fc), '-map', '0:v', '-map', '[aout]', '-c:v', 'copy',
      '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', f'{total:.3f}', str(pre)])
 print(f'bed gain {bed_gain_db:.1f} dB, tempo {bed_tempo:.3f}, ducked {d0:.2f}-{d1:.2f}s')
