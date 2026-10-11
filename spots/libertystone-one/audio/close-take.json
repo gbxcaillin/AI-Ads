@@ -1,1 +1,1 @@
-{"take": "close-take-b.m4a", "in": 0.67, "out": 4.07, "gain_db": 2.4}
+{"take": "close-take-b-tight.m4a", "in": 0.67, "out": 3.925, "gain_db": 2.4, "made_from": "close-take-b.m4a with 1.900-2.045 s of silence removed between 'S M' and 'S F' (5 ms crossfade), leaving 0.1 s between the end of M and the next S"}

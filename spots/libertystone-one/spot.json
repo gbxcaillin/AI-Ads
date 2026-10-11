@@ -2,7 +2,7 @@
   "spot": "libertystone-one",
   "client": "LibertyStone",
   "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
-  "status": "review v3.1 delivered (33.5s): closing line re-taken as 'S M, S F' (client pronunciation); -14.2 LUFS",
+  "status": "review v3.2 (33.5s): SMSF pair gap tightened to 0.1 s; -14.2 LUFS",
   "review_cut": {
     "file": "out/libertystone-review-v3.mp4 (gitignored draft; 1280x720, 24fps, yuv420p, 33.5s)",
     "build": "build_review_cut.py; dashboard/track_and_composite.py for the solution shot",
@@ -31,7 +31,7 @@
     ],
     "positioning": "an investment platform built for self-managed super funds ('built for' chosen over 'perfect for' for compliance)",
     "tagline_on_screen": "Your whole SMSF, in one place.",
-    "notes": "SMSF is said as two pairs: 'S M', a quarter-beat pause, 'S F' (client). The closing line is a separate re-take spliced in; check_smsf.py verifies four letters with the longest gap after M."
+    "notes": "SMSF is said as two pairs with a very short ~0.1 s gap: 'S M' . 'S F' (client). Closing line is a separate re-take, tightened by removing silence; check_smsf.py verifies four letters."
   },
   "risk_line_draft": "General information only. It does not consider your objectives, financial situation or needs. Investing and crypto assets carry risk, including loss of capital. (+ AFSL number when supplied)",
   "character_lock": {
@@ -308,12 +308,13 @@
     "sfx": "make_sfx.py: 8 pings through the overload (closer together), accelerating key clicks through the friction, none on the exhale, one chime at 25.9s on the logo",
     "master": "two-pass loudnorm I=-14 TP=-1.5 LRA=11 -> -14.2 LUFS, -1.1 dBTP after AAC",
     "close_take": {
-      "file": "audio/close-take-b.m4a",
+      "file": "audio/close-take-b-tight.m4a",
       "openart_historyId": "LYvq3VvCfSN5n6ici5iS (take B of 2)",
-      "in_out": "0.67-4.07s",
+      "in_out": "0.67-3.925s",
       "gain_db": 2.4,
       "why_b": "both takes passed the S M | S F check (gaps 140/410/140 ms); B matched the original reading of the same sentence (f0 176 vs 177 Hz, brightness 1314 vs 1290 Hz), A was flatter and lower (111 Hz)",
-      "in_mix": "gaps 90/330/120 ms; within 1 dB of the preceding line"
+      "in_mix": "0.1 s of silence after M; burst gaps 90/180/120 ms; 4 letters",
+      "made_from": "close-take-b.m4a with 145 ms of silence removed between 'S M' and 'S F' (client: just a ~0.1 s gap)"
     }
   },
   "costs_round2": "narration 26s clone 1565, music bed 30s 1810, blank-screen plate re-animation 6s 360 = 3735 credits",
