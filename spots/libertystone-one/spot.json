@@ -1,0 +1,93 @@
+{
+  "spot": "libertystone-one",
+  "client": "LibertyStone",
+  "format": "16:9 cinematic commercial, 30 s, 24 fps, anamorphic look; deliver web (-14 LUFS) and broadcast (-24 LKFS) masters",
+  "status": "storyboard, awaiting decisions before any generation",
+  "idea": "The weight of managing wealth across many platforms (logins, accounts, tabs, statements) collapses into one calm place: LibertyStone, where shares, ETFs and crypto live together.",
+  "brand": {
+    "name": "LibertyStone (one word, camel case)",
+    "logo_still": "brand/logo-wordmark-16x9.png (extracted from the supplied animation)",
+    "logo_animation_16x9": "brand/logo-animation-16x9-5s.mp4 (supplied; the end card)",
+    "logo_animation_9x16": "brand/logo-animation-9x16-15s.mp4 (supplied; for a social cut)",
+    "palette_from_logo": "near-black navy ground about #0D1524, soft off-white about #E8ECF2; brief calls for a muted teal accent (confirm exact hex)",
+    "font": "geometric sans in the wordmark (confirm the brand typeface for the dashboard and any on-screen line)"
+  },
+  "issues_in_prior_attempt": [
+    "Screens are AI-generated and render as gibberish (monitors, the 'libertystone ONE' card, the dashboard). AI cannot draw real UI.",
+    "The hero balance '$59.00' is meaningless and the dashboard does not show the actual product.",
+    "The whole selling point (shares, ETFs and crypto in ONE place) never lands: no clear product, no words, no text.",
+    "With no VO and no on-screen text, a viewer cannot tell what LibertyStone is or that crypto sits beside shares and ETFs."
+  ],
+  "fixes": [
+    "Frustration shots keep every screen blurred, angled or partial so nothing reads as gibberish; the overload comes from quantity and her reaction, not legible screens.",
+    "The solution shot uses a REAL designed dashboard mockup (built in HTML, captured, composited onto the laptop screen), not a generation. It shows one balance and a single holdings list that mixes Shares, ETFs and Crypto, so the USP is visible.",
+    "Replace '$59.00' with a realistic portfolio balance and a short holdings breakdown.",
+    "Lock the woman's face with a character reference image so she holds across clips.",
+    "End on the supplied LibertyStone logo animation plus one short line that states the USP, and a small risk line.",
+    "Recommend at least an on-screen tagline (and optionally one calm VO line); pure silence will not convey the crypto-alongside-shares message."
+  ],
+  "shots": [
+    {
+      "act": 1,
+      "t": "0-5s",
+      "name": "order",
+      "mode": "generate (Seedance 2.5, 16:9)",
+      "on_screen": "none",
+      "desc": "Confident Australian woman, late 50s, at a home study desk at dusk, one printed portfolio summary, a pen, composed and decisive. Slow push-in, warm lamp, faint skyline. Establish premium and calm."
+    },
+    {
+      "act": 2,
+      "t": "5-18s",
+      "name": "overload",
+      "mode": "generate (orbit), screens blurred/angled",
+      "on_screen": "none",
+      "desc": "The desk multiplies around her: a second laptop, a phone lighting up, stacked folders, a second monitor, a printed spreadsheet, an accountant's letter. Camera slowly orbits as it clutters; posture tightens; sound busies. All screens turned away or out of focus, no readable text."
+    },
+    {
+      "act": 3,
+      "t": "18-22s",
+      "name": "friction",
+      "mode": "generate, 2-3 fast match-cut inserts",
+      "on_screen": "none",
+      "desc": "Close on her hands switching phone, laptop, paper. Abstracted login field, password dots, a loading spinner, a 2FA code, a crowded inbox, getting faster and colder. Hold on her face, a quiet exhale. Clean dark negative space on the left third."
+    },
+    {
+      "act": 4,
+      "t": "22-28s",
+      "name": "one-place",
+      "mode": "generate the plate + composite the real dashboard mockup",
+      "on_screen": "the LibertyStone dashboard (designed, not generated)",
+      "desc": "Hard reset to black; clutter dissolves. One sleek laptop on a clean dark desk, screen showing the LibertyStone dark dashboard: one clear portfolio balance and a calm holdings list visibly mixing Shares, ETFs and Crypto. Slow dolly in, warm light returns, she leans back. Sound resolves to a single piano note."
+    },
+    {
+      "act": 5,
+      "t": "28-30s",
+      "name": "logo",
+      "mode": "supplied logo animation + line",
+      "on_screen": "LibertyStone mark and wordmark; one tagline line; small risk line",
+      "desc": "Black frame resolves into the LibertyStone logo animation. One soft chime. Tagline states the USP (for example: 'Shares, ETFs and crypto. One place.'). Small compliance line beneath."
+    }
+  ],
+  "dashboard_mockup": {
+    "why": "The product must be shown for real; a generated UI is gibberish. I build it in HTML in the brand's dark navy and white with the teal accent, render it at the laptop screen's pixel size, and corner-pin it onto the generated laptop plate.",
+    "content": "Header: LibertyStone mark + 'Portfolio'. One large total balance. A single holdings list with a type tag on each row: Shares, ETF, Crypto (tasteful placeholder names, no real tickers), each with a small value and a calm up/down figure. A quiet sparkline. Dark mode, lots of negative space.",
+    "confirm": "the balance figure, that crypto should sit in the same list as shares and ETFs (the whole point), and placeholder holdings rather than real company names."
+  },
+  "sound": "Quiet solo piano and room tone, layered with notification chimes and keyboard clicks through the overload, resolving to a single held piano note and one soft chime on the logo. VO optional.",
+  "build_plan": [
+    "1. Character reference image of the woman (nano-banana-pro, 16:9 still) to lock her face.",
+    "2. Generate the frustration clips at 480p drafts (Seedance 2.5): order, overload orbit, 2-3 friction inserts, and the clean solution plate (laptop screen off).",
+    "3. Design the LibertyStone dashboard in HTML, render it, composite onto the laptop screen in the solution shot.",
+    "4. End card from the supplied logo animation; add the tagline and risk line.",
+    "5. Sound design (piano bed, layered chimes/clicks, resolve); optional VO.",
+    "6. Stitch, grade to the cinematic navy look, verify (strip, loudness, yuv420p), send a review cut; 1080p finals once approved."
+  ],
+  "cost_estimate": "Character image about 36 credits; 6 to 8 draft clips at 480p about 1800 to 2400 list credits; dashboard and end card are free; exact price quoted before the batch.",
+  "decisions_needed": [
+    "USP delivery: on-screen tagline only, or add one short calm VO line? (Recommend at least the tagline; the message needs words.)",
+    "Dashboard: confirm crypto shows in the same list as shares and ETFs, the balance figure, and placeholder holdings (no real tickers).",
+    "Brand: do you have a clean logo file, brand colours (exact hex) and the brand font? Otherwise I match from the animation.",
+    "Compliance: is this Australian (AFSL needed)? What risk wording must appear (crypto and investing carry risk)?"
+  ],
+  "lessons": []
+}

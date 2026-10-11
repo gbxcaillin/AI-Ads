@@ -1,0 +1,1 @@
+Reference clips supplied by the client (prior attempt and logo animations) are not committed here; the logo animations are saved under brand/. The 30s prior attempt established the cinematic mood but its on-screen UIs are AI-generated gibberish, which this spot fixes with a real designed dashboard.
