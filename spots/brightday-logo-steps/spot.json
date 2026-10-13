@@ -1,8 +1,8 @@
 {
   "spot": "brightday-logo-steps",
   "client": "Brightday",
-  "format": "16:9 logo animation, 1920x1080, 24 fps, about 9 s, no audio yet",
-  "status": "round 1 generated: two OpenArt runs reviewed; previews sent",
+  "format": "16:9 logo animation, 1920x1080, 24 fps, 9.5 s, silent",
+  "status": "round 2: code-built version (option 2) rendered and sent for review",
   "brief": "The 7 parts of the logo break apart and form 7 steps on the navy; the b jumps up the 7 steps; the steps swirl around the b and reform the logo; the b lands next to it and the word brightday stretches out from behind the b to the final 16:9 frame. High-contrast cinematic lighting with deep shadows, consistent palette, smooth fluid motion.",
   "brand": {
     "navy_bg": "#13355A (sampled from the supplied logo; the client's 'space cadet blue')",
@@ -60,6 +60,34 @@
       "credits": 315,
       "verdict": "native 1080p and an exact end frame, but the petals flatten into thin bars as steps, the b fades out instead of landing, and the word wipes in from the left rather than out from behind the b.",
       "preview": "out/brightday-steps-kling-preview.mp4"
-    }
-  }
+    },
+    "client_feedback": "Seedance is better, but there need to be 7 steps and the b should jump onto the first step from off screen, not appear from nowhere. Go with option 2 (build it in code)."
+  },
+  "round2": {
+    "approach": "built in code from the real assets, following the Seedance staging. No OpenArt credits.",
+    "scripts": {
+      "extract_petals.py": "splits brand/brightday-mark.webp into its 7 petals (watershed on the pink, each petal takes the garnet overlaps it touches); coverage 1 = pink and coverage 2 = garnet rebuild the mark to within 0.3 % (edge pixels). Writes brand/petals.npz.",
+      "render_steps.py": "renders the film: petal sprites warped per frame, overlap colour from coverage, flat steps with an extruded edge and long down-right shadows, the b with hops and squash, the word stretched out from behind the b. Same key light and vignette as frames/end-frame.png. 3 subframes of motion blur. --strip for a key-frame check."
+    },
+    "timeline": [
+      "0.0-0.8 the mark alone, slow turn and a small inhale",
+      "0.8-1.6 the 7 petals unlock into a ring",
+      "1.6-2.6 they fly in one by one to a staircase of 7 flat steps rising left to right, long diagonal shadows",
+      "2.6-3.05 the b jumps in from off screen left and lands on step 1",
+      "3.05-5.15 six hops, one per 0.35 s, to step 7; each step gives under the landing",
+      "5.15-5.75 the b leaps from step 7; the steps lift, top step first",
+      "5.3-6.7 the steps swirl round the b in a tightening spiral while the b flips, then lock into the mark",
+      "6.45-6.87 the b drops and lands beside the mark",
+      "7.0-7.9 the rest of the word stretches out from behind the b; the b eases left and the y pushes the mark into its corner",
+      "8.0-8.4 crossfade to the supplied logo (frames/end-frame.png); 8.45-9.3 light sweep; hold to 9.5"
+    ],
+    "render": "out/brightday-steps-code-v1.mp4 (not committed)",
+    "checks": "9.5 s, 1920x1080, 24 fps, yuv420p; exactly 7 steps; the b is off frame until 2.6 s and enters from the left; the b stays inside the frame (highest top 42 px); last frame vs end-frame.png mean difference 2.2/255 (codec only). Silent, so no loudness or silence checks yet.",
+    "credits": 0
+  },
+  "lessons": [
+    "Generated video could not hold an exact count (Seedance gave 5 steps) or keep a letter on screen through a long move; when the brief counts things or tracks a brand letter, build it in code from the real assets.",
+    "The petals rebuild the mark exactly by coverage (1 = pink, 2 or more = garnet), so the same renderer draws the opening mark, the moving petals and the reformed mark with no separate overlap art.",
+    "In OpenCV image coordinates, getRotationMatrix2D with a positive angle turns anticlockwise on screen; the petals step clockwise, so their rotation is -k * 360/7."
+  ]
 }
