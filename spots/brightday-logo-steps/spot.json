@@ -2,7 +2,7 @@
   "spot": "brightday-logo-steps",
   "client": "Brightday",
   "format": "16:9 logo animation, 1920x1080, 24 fps, about 9 s, no audio yet",
-  "status": "storyboard sent, awaiting go-ahead before any generation",
+  "status": "round 1 generated: two OpenArt runs reviewed; previews sent",
   "brief": "The 7 parts of the logo break apart and form 7 steps on the navy; the b jumps up the 7 steps; the steps swirl around the b and reform the logo; the b lands next to it and the word brightday stretches out from behind the b to the final 16:9 frame. High-contrast cinematic lighting with deep shadows, consistent palette, smooth fluid motion.",
   "brand": {
     "navy_bg": "#13355A (sampled from the supplied logo; the client's 'space cadet blue')",
@@ -37,5 +37,29 @@
     "openart": "image2video with an exact start frame (the mark) and an exact end frame (the final logo), the storyboard as the prompt; Kling 3.0 pro 9 s (315 credits) and Seedance 2.5 Draft 9 s (540 credits) in parallel to compare",
     "lock": "the last second is the real logo, crossfaded in, so the brand frame is always exact",
     "fallback": "a code-built motion-graphics version from the real assets if the generated choreography fumbles the petals, the steps or the letterforms"
+  },
+  "frames": {
+    "start": "frames/start-frame.png (mark centred, lit)",
+    "end": "frames/end-frame.png (supplied logo exactly, same light)",
+    "openart_uploads": {
+      "start": "t9M3K9cnXrraoKGkUlS4",
+      "end": "UizYTrTvsKBdlUzg94o1"
+    }
+  },
+  "round1": {
+    "seedance": {
+      "historyId": "fmu2Ri66KLTZiZwzcxYG",
+      "model": "byte-plus-seedance-2-5-draft image2video, 9 s, 480p",
+      "credits": 540,
+      "verdict": "follows the storyboard closely: real petal shapes break apart into a ring, a staircase with long cinematic shadows, the b hops up, petals swirl round the b, mark reforms with the b beside it, the word pushes the mark into its corner. Misses: only FIVE steps, and the steps are pink discs with a pinwheel pattern rather than single petals. 480p (1080p upgrade 2885 credits).",
+      "preview": "out/brightday-steps-seedance-preview.mp4 (upscaled, last 0.6 s crossfades to the exact logo)"
+    },
+    "kling": {
+      "historyId": "uqPE9fqTU4UjYm623UXH",
+      "model": "kling-v3 image2video pro, 9 s, 1080p",
+      "credits": 315,
+      "verdict": "native 1080p and an exact end frame, but the petals flatten into thin bars as steps, the b fades out instead of landing, and the word wipes in from the left rather than out from behind the b.",
+      "preview": "out/brightday-steps-kling-preview.mp4"
+    }
   }
 }
