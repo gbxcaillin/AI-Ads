@@ -1,0 +1,36 @@
+{
+  "spot": "brightday-logo-steps",
+  "client": "Brightday",
+  "format": "16:9 logo animation, 1920x1080, 24 fps, about 9 s, no audio yet",
+  "status": "storyboard sent, awaiting go-ahead before any generation",
+  "brief": "The 7 parts of the logo break apart and form 7 steps on the navy; the b jumps up the 7 steps; the steps swirl around the b and reform the logo; the b lands next to it and the word brightday stretches out from behind the b to the final 16:9 frame. High-contrast cinematic lighting with deep shadows, consistent palette, smooth fluid motion.",
+  "brand": {
+    "navy_bg": "#13355A (sampled from the supplied logo; the client's 'space cadet blue')",
+    "pink": "#F00870",
+    "petal_overlap": "#980848",
+    "wordmark": "white, Ubuntu-style",
+    "assets": [
+      "brand/brightday-logo-on-navy-2000x1000.jpg (final frame, client supplied)",
+      "brand/brightday-mark.webp (mark, transparent, client supplied)",
+      "brand/b-white.png and brand/wordmark-white.png (keyed from the supplied logo)"
+    ]
+  },
+  "storyboard": {
+    "file": "storyboard.png (storyboard.mjs)",
+    "beats": [
+      "0.0-1.0 the mark alone, key light from above, deep edge shadow",
+      "1.0-1.8 the seven petals unlock and drift outward, turning",
+      "1.8-2.6 they fly into a staircase of seven steps rising left to right",
+      "2.6-4.6 the white b drops in and hops up the steps one per beat, squash on landing",
+      "4.6-5.6 from the top step the b leaps; the steps lift and swirl around it in a tightening spiral",
+      "5.6-6.4 the spiral locks back into the mark; the b lands right beside it",
+      "6.4-7.4 brightday slides out from behind the b; the b eases left and the y nudges the mark into its corner",
+      "7.4-9.0 the finished logo exactly as supplied, slow light sweep, hold"
+    ]
+  },
+  "plan": {
+    "openart": "image2video with an exact start frame (the mark) and an exact end frame (the final logo), the storyboard as the prompt; Kling 3.0 pro 9 s (315 credits) and Seedance 2.5 Draft 9 s (540 credits) in parallel to compare",
+    "lock": "the last second is the real logo, crossfaded in, so the brand frame is always exact",
+    "fallback": "a code-built motion-graphics version from the real assets if the generated choreography fumbles the petals, the steps or the letterforms"
+  }
+}
