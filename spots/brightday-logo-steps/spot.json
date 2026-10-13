@@ -13,7 +13,12 @@
       "brand/brightday-logo-on-navy-2000x1000.jpg (final frame, client supplied)",
       "brand/brightday-mark.webp (mark, transparent, client supplied)",
       "brand/b-white.png and brand/wordmark-white.png (keyed from the supplied logo)"
-    ]
+    ],
+    "named_palette": {
+      "space_cadet": "background. Logo file navy is #13355A; the standard Space Cadet swatch is #1D2951 (a little more violet). Default: the logo file value, so the final frame matches the supplied logo exactly; switchable.",
+      "vivid_raspberry": "the petals, #F00870 in the logo file (standard swatch about #FF006C)",
+      "rose_garnet": "the darker overlaps between petals, #980848 in the logo file (standard swatch about #960145)"
+    }
   },
   "storyboard": {
     "file": "storyboard.png (storyboard.mjs)",
