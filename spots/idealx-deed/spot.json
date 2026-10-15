@@ -1,0 +1,88 @@
+{
+  "spot": "idealx-deed",
+  "client": "IDEALX",
+  "campaign": "IDEALX SMSF campaign, concept 1 of 6 (spots/idealx-smsf/copy.md)",
+  "format": "30 s hero, 16:9 master composed for a 9:16 crop, web loudness target (-14 LUFS, -1 dBTP)",
+  "status": "storyboard sent for review; nothing generated yet",
+  "storyboard": "storyboard.png (storyboard.mjs)",
+  "brand": "spots/idealx-smsf/brand/ (BRAND.md, lockups). Fonts in fonts/ (Inter 300 to 600, Instrument Serif 400, from Google Fonts).",
+  "platforms": "Meta and TikTok (crypto version). YouTube version swaps 'crypto' for 'ETFs' in shot 3 and drops digital assets from the VO.",
+  "shared_style": "Cinematic live-action comedy shot like a solemn will reading, 35mm, shallow depth of field, slight film grain, deep shadows. Office scenes: a wood-panelled lawyer's office at dusk, warm tungsten from one green banker's lamp, rain-blue window light. Payoff scene: soft natural daylight in a calm, modern kitchen. Australian people, natural performances, nobody looks at the camera. Framed for widescreen and a tall portrait crop: the subject and every action sit in the centre third. One continuous shot, no cuts. Absolutely no readable text, letters, words or numbers anywhere, no logos.",
+  "voice": {
+    "narrator_direction": "A calm, warm Australian voice in the late 40s, unhurried and plain, like a sensible friend explaining a form; never salesy. Says the name as 'ideal ex'.",
+    "lawyer_direction": "A dry, measured Australian man in his late 50s, formal and deadpan, reading slowly with long pauses.",
+    "trustee_direction": "An Australian woman in her mid 40s, polite and hopeful, a small rise on the question.",
+    "plan": "Dialogue generated with its shot so the lips match, each speaker locked with a short audio reference; narrator payoff and risk line as one take on a plain carrier."
+  },
+  "script": [
+    {
+      "shot": 1,
+      "time": "0.0-4.5",
+      "name": "The reading",
+      "source": "generated, dialogue",
+      "line": "LAWYER: The trust deed. Nineteen ninety-eight."
+    },
+    {
+      "shot": 2,
+      "time": "4.5-9.5",
+      "name": "Shares, property and cash",
+      "source": "generated, dialogue",
+      "line": "LAWYER: The trustees may invest in shares... property... and cash."
+    },
+    {
+      "shot": 3,
+      "time": "9.5-12.0",
+      "name": "And the crypto?",
+      "source": "generated, dialogue",
+      "line": "TRUSTEE: And the crypto?"
+    },
+    {
+      "shot": 4,
+      "time": "12.0-14.5",
+      "name": "The page turn",
+      "source": "generated (one take with shot 5)",
+      "line": ""
+    },
+    {
+      "shot": 5,
+      "time": "14.5-17.0",
+      "name": "Up to the light",
+      "source": "generated + designed super",
+      "line": "",
+      "super": "RULE 01 / TRUSTEE RULE. Your deed has to allow it."
+    },
+    {
+      "shot": 6,
+      "time": "17.0-21.0",
+      "name": "Updated",
+      "source": "generated, picture only",
+      "line": "VO: When your deed covers it, IDEALX keeps shares, ETFs and digital assets side by side."
+    },
+    {
+      "shot": 7,
+      "time": "21.0-24.0",
+      "name": "Side by side",
+      "source": "designed Portal screen; IDEALX to supply real screens",
+      "line": ""
+    },
+    {
+      "shot": 8,
+      "time": "24.0-30.0",
+      "name": "End card",
+      "source": "designed, real lockup",
+      "line": "VO: Digital assets are high risk. General information only. Consider your fund's deed and strategy.",
+      "super": "Read the deed first. Risk super and licence line held at least 5 s."
+    }
+  ],
+  "risk_super_draft": "Digital assets are high risk and you could lose all of your investment. General information only, not advice. Consider your circumstances and your fund's deed and strategy. IDEALX is a brand of Idealx Platform Pty Ltd (ABN 83 694 912 126), a Corporate Authorised Representative of Idealx Securities Limited (AFSL 531729). Digital asset services by Idealx Digital Assets Pty Ltd, registered with AUSTRAC.",
+  "costs": {
+    "quoted_on": "2026-10-15",
+    "seedance_2_5_text2video_7s_480p": 420,
+    "note": "same price with or without audio at 7 s; balance 6812 at quote time",
+    "round1_estimate": "character stills about 110, five 7 s draft clips 2100 (shots 1, 2, 3, 4+5, 6); narrator and music after picture approval"
+  },
+  "open_items": [
+    "Legal: does 'your deed has to allow it' read as information, not advice; exact risk wording; PDS/TMD line if needed",
+    "IDEALX: real Portal screens for shot 7; how the name is said"
+  ]
+}
