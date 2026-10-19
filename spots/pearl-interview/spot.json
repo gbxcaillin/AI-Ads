@@ -2,7 +2,7 @@
   "spot": "pearl-interview",
   "client": "Pearl (Brightday partner), for the Pearl website",
   "format": "founder interview cut, 30 s or less, 1920x1080, 25 fps, web loudness -14 LUFS / -1 dBTP",
-  "status": "waiting on footage: Drive reopened at 17:21 UTC for one 1 MB probe, then refused again after six piece requests. Asked the client for three short exported clips.",
+  "status": "mic windows A, B, C in hand (via Composio signed-in Drive download, transcripts match); picture waiting on three short exports from the client",
   "source": {
     "drive_folder": "Brightday Video Files / BD Pearl Interview (1gidbFKx9m6vo0z1ZVPQAaR7nVUw7cTz0)",
     "recorded": "9 October 2026, Pivotal Studio Sol, Melbourne; Andrew Ludekens with an off-camera interviewer",
@@ -59,6 +59,7 @@
   "lessons": [
     "Drive's anonymous download links take byte ranges, but after a few dozen requests from one session Drive answers 'Quota exceeded' (a 2040-byte page) for every file, then allows only smaller and smaller ranges. A fresh copy of the file does not help: the limit is on the session, not the file. Pull narrow windows once, through a cache, and never probe repeatedly.",
     "ffmpeg cannot reach Drive through the session proxy; drive_relay.py serves the file on localhost and fetches the pieces with curl.",
-    "Once throttled, Drive's anonymous budget is only a handful of requests per few hours, so a 90 MB pull cannot finish in one window. Ask for short exports of the needed timecodes instead."
+    "Once throttled, Drive's anonymous budget is only a handful of requests per few hours, so a 90 MB pull cannot finish in one window. Ask for short exports of the needed timecodes instead.",
+    "Composio's GOOGLEDRIVE_DOWNLOAD_FILE (signed in) staged the 311 MB mic WAV in 19 s, but times out (HTTP 504 after 240 s) on the 3.9 GB video; its proxy returns no binary, so signed-in byte ranges are not available that way."
   ]
 }
