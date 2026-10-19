@@ -3,10 +3,10 @@ aligned 4 MB chunks from Drive via curl (which knows the session proxy) only whe
 Each chunk is fetched once, to stay inside Drive's anonymous download quota."""
 import http.server, socketserver, subprocess, sys, re, time, os, threading
 from concurrent.futures import ThreadPoolExecutor
-POOL = ThreadPoolExecutor(2)
+POOL = ThreadPoolExecutor(1)
 U = 'https://drive.usercontent.google.com/download?export=download&confirm=t&id='
 CACHE = sys.argv[2]; os.makedirs(CACHE, exist_ok=True)
-CH = 4 * 1024 * 1024                  # one request per 4 MB piece, each fetched once into the cache
+CH = 1024 * 1024                      # 1 MB pieces: Drive refuses larger anonymous ranges once throttled
 SIZES = {  # bytes, from Drive metadata
 '16cUKxEfhmHfjwMnMkoGk0Vua9yARSxZ1': 3266769084, '1KM5iucB5wbTGWCC3DDYGlwUaXsi4SjS7': 3126960316,
          '1yZgHVlulT88qSVTklsz-E6dQYJJQnAH8': 3943237940, '1aNlVECq42vY_F9XUuMJeThcaDqXc5eER': 311198600,
@@ -53,7 +53,7 @@ class H(http.server.BaseHTTPRequestHandler):
             while pos <= b:
                 i = pos // CH
                 last = b // CH
-                ahead = [get(fid, j) for j in range(i, min(i + 2, last + 1))]   # prefetch the next pieces
+                ahead = [get(fid, j) for j in range(i, min(i + 1, last + 1))]   # prefetch the next pieces
                 data = ahead[0].result()
                 off = pos - i * CH; part = data[off: off + (b - pos + 1)]
                 self.wfile.write(part); self.wfile.flush(); pos += len(part)
