@@ -2,7 +2,7 @@
   "spot": "pearl-interview",
   "client": "Pearl (Brightday partner), for the Pearl website",
   "format": "founder interview cut, 30 s or less, 1920x1080, 25 fps, web loudness -14 LUFS / -1 dBTP",
-  "status": "paper edit and build pipeline ready; footage pull blocked by Drive's anonymous download quota (2026-10-19)",
+  "status": "cutaways generated and sent; footage pull still blocked by Drive quota (probe 13:13 UTC returned the quota page)",
   "source": {
     "drive_folder": "Brightday Video Files / BD Pearl Interview (1gidbFKx9m6vo0z1ZVPQAaR7nVUw7cTz0)",
     "recorded": "9 October 2026, Pivotal Studio Sol, Melbourne; Andrew Ludekens with an off-camera interviewer",
@@ -44,14 +44,16 @@
       "historyId": "vJCY0ksaRKoJyeQOfPkS",
       "model": "byte-plus-seedance-2-5 text2video 5 s 480p, picture only",
       "credits": 300,
-      "use": "over answer 2 from 2.45 s for 3.75 s, covering the internal edit; back to Andrew for 'perfectly imperfect'"
+      "use": "over answer 2 from 2.45 s for 3.75 s, covering the internal edit; back to Andrew for 'perfectly imperfect'",
+      "status": "generated 2026-10-19; checked: no text, no hands, on palette; the pearl came out perfectly round, not irregular"
     },
     {
       "name": "cutaway-pearl-strand-480p",
       "historyId": "Du62TiUzezBkuYH8SfDk",
       "model": "byte-plus-seedance-2-5 text2video 5 s 480p, picture only",
       "credits": 300,
-      "use": "over answer 3 from 2.85 s for 3.45 s; back to Andrew for 'very valuable'"
+      "use": "over answer 3 from 2.85 s for 3.45 s; back to Andrew for 'very valuable'",
+      "status": "generated 2026-10-19; checked: no text, no hands, on palette"
     }
   ],
   "lessons": [
