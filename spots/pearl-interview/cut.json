@@ -1,0 +1,31 @@
+{
+  "note": "Times are on Pivotal's SWITCHED edit (the word-timing file's clock). CAM1/CAM2 = switched + 51.17 s; MIC Track 1 = switched + 50.66 s (cross-correlated 2026-10-19; refine per window by correlation at build time).",
+  "cards": [
+    {"eyebrow": "The founder", "question": "You work in surgery and in finance. How do they fit?"},
+    {"eyebrow": "The name", "question": "Why call it Pearl?"},
+    {"eyebrow": "The philosophy", "question": "How should people think about investing?"}
+  ],
+  "name_super": {"name": "Andrew Ludekens", "role": "Founder, Pearl"},
+  "end_card": {
+    "url": "pearlwealth.com.au",
+    "line": "Empowering prosperity through innovative wealth solutions.",
+    "general_advice": "General information only. It does not take into account your objectives, financial situation or needs."
+  },
+  "timeline": [
+    {"kind": "card", "card": "card-q1", "dur": 1.4, "label": "Q1 card"},
+    {"kind": "answer", "label": "Surgery and finance", "name_super": true, "framing": "wide, punch-in, wide",
+     "says": "I work in surgery as a surgical assistant ... and also in finance. ... I really do see helping a client a lot like helping a patient.",
+     "parts": [[530.40, 532.66, "wide"], [534.20, 535.62, "punch-in"], [540.00, 544.40, "wide"]]},
+    {"kind": "card", "card": "card-q2", "dur": 1.4, "label": "Q2 card"},
+    {"kind": "answer", "label": "Why Pearl", "framing": "wide, punch-in",
+     "says": "I love the idea of the pearl being somewhat organic. ... It grows over time. It's not perfect, but it's sort of perfectly imperfect.",
+     "broll": "a single pearl turning slowly in soft light",
+     "parts": [[1100.85, 1103.45, "wide"], [1105.65, 1111.00, "punch-in"]]},
+    {"kind": "card", "card": "card-q3", "dur": 1.4, "label": "Q3 card"},
+    {"kind": "answer", "label": "A string of pearls", "framing": "wide, punch-in, wide",
+     "says": "I often think about investing as being a string of pearls. ... After a few years, you can look back at that string of pearls, and it's something that's very valuable.",
+     "broll": "a string of pearls drawn slowly across dark velvet",
+     "parts": [[948.10, 948.95, "wide"], [950.35, 952.50, "punch-in"], [959.80, 964.10, "wide"]]},
+    {"kind": "end", "dur": 2.3, "label": "End card"}
+  ]
+}

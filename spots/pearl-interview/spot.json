@@ -1,0 +1,41 @@
+{
+  "spot": "pearl-interview",
+  "client": "Pearl (Brightday partner), for the Pearl website",
+  "format": "founder interview cut, 30 s or less, 1920x1080, 25 fps, web loudness -14 LUFS / -1 dBTP",
+  "status": "paper edit and build pipeline ready; footage pull blocked by Drive's anonymous download quota (2026-10-19)",
+  "source": {
+    "drive_folder": "Brightday Video Files / BD Pearl Interview (1gidbFKx9m6vo0z1ZVPQAaR7nVUw7cTz0)",
+    "recorded": "9 October 2026, Pivotal Studio Sol, Melbourne; Andrew Ludekens with an off-camera interviewer",
+    "files": {
+      "switched": "1yZgHVlulT88qSVTklsz-E6dQYJJQnAH8",
+      "cam1": "16cUKxEfhmHfjwMnMkoGk0Vua9yARSxZ1",
+      "cam2": "1KM5iucB5wbTGWCC3DDYGlwUaXsi4SjS7",
+      "mic": "1aNlVECq42vY_F9XUuMJeThcaDqXc5eER",
+      "desk_mix": "1Dz-Wf1PATRof-zafw7JmSJKgJcLJm3oV",
+      "word_timings": "1SdcbrDIr1gs6X2Uk-uA8gcSTj9rIgPBO"
+    },
+    "sync": "cameras = switched + 51.17 s; mic = switched + 50.66 s (envelope cross-correlation, 0.75 on the mic); the switched edit's sound is the desk mix",
+    "readme_cautions": "Licensee sign-off (Banyan Securities, AFSL 484139) for any performance, safety or better-than claims (03:47, 05:12, 10:28, 12:32, 13:27, 22:44); unreleased product at 05:43; team names at 10:28; leave out studio chat. None of these are in the cut."
+  },
+  "brand": {
+    "logo": "brand/pearl_logo_pws_400.png (1507x493, from brightday.com.au/invest), brand/pearl-logo-on-dark.png (wordmark recoloured white), brand/pearl-logo-site.png (pearlwealth.com.au header)",
+    "colours": "aubergine about #281347 (wordmark), blush about #D2B8AE (ring mark)",
+    "type": "Jost (geometric, close to the wordmark); the site's own Typekit face is unknown",
+    "site_line": "Empowering prosperity through innovative wealth solutions. (pearlwealth.com.au hero)"
+  },
+  "edit": "cut.json is the cut list; design.mjs renders cards/ and paper-edit.png; fetch_sources.sh pulls the windows; build_cut.py builds out/pearl-interview-vN.mp4",
+  "direction": "Questions on screen as Pearl-branded cards, written to frame each answer well but never to make an answer claim more than Andrew said; internal edits hidden by alternating wide and punch-in framing.",
+  "openart_options": {
+    "cutaways": "a single pearl turning in soft light (answer 2); a string of pearls drawn across dark velvet (answer 3)",
+    "price_quoted_2026-10-19": {
+      "seedance_2_5_5s_480p": 300,
+      "seedance_2_5_5s_1080p": 1605
+    },
+    "balance": 116000
+  },
+  "open_items": [
+    "Pearl's own licence line for the end card",
+    "Andrew to approve the question wording",
+    "music bed: none yet (optional)"
+  ]
+}

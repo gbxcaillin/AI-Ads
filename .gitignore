@@ -17,3 +17,4 @@ __pycache__/
 .venv/
 .DS_Store
 spots/*/audio/*.mp4
+spots/pearl-interview/src/
