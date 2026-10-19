@@ -100,6 +100,18 @@ for si, seg in enumerate(cut['timeline']):
              '-filter_complex', '[1:v]format=rgba,fade=t=in:st=0.4:d=0.3:alpha=1,fade=t=out:st=3.6:d=0.3:alpha=1[s];[0:v][s]overlay=shortest=1,format=yuv420p',
              '-map', '0:a', *venc, '-c:a', 'copy', sup])
         joined = sup
+    if seg.get('cutaway'):
+        # OpenArt cutaway over the answer: picture only, Andrew's voice continues under it.
+        # It starts just before an internal edit so the join is never seen; 0.3 s dissolves.
+        c = seg['cutaway']; st, du = c['at'], c['dur']
+        cw = f'{tmp}/{si:02d}-answer-cut.mov'
+        run([FF, '-y', '-i', joined, '-i', f'{D}/{c["file"]}', '-filter_complex',
+             f'[1:v]trim=start={c.get("from", 0)}:duration={du},setpts=PTS-STARTPTS,scale={W}:{H}:flags=lanczos,'
+             f'unsharp=5:5:0.6,noise=alls=6:allf=t,fps={FPS},format=yuva420p,'
+             f'fade=t=in:st=0:d=0.3:alpha=1,fade=t=out:st={du - 0.3:.3f}:d=0.3:alpha=1,setpts=PTS+{st}/TB[b];'
+             f'[0:v][b]overlay=eof_action=pass,format=yuv420p',
+             '-map', '0:a', *venc, '-c:a', 'copy', cw])
+        joined = cw
     pieces.append(joined)
 
 lst = f'{tmp}/all.txt'

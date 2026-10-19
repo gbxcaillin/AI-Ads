@@ -1,10 +1,12 @@
 """Local HTTP relay with an on-disk chunk cache: serves /<driveId> with Range support, fetching
-aligned 8 MB chunks from Drive via curl (which knows the session proxy) only when ffmpeg reads them.
+aligned 4 MB chunks from Drive via curl (which knows the session proxy) only when ffmpeg reads them.
 Each chunk is fetched once, to stay inside Drive's anonymous download quota."""
 import http.server, socketserver, subprocess, sys, re, time, os, threading
+from concurrent.futures import ThreadPoolExecutor
+POOL = ThreadPoolExecutor(2)
 U = 'https://drive.usercontent.google.com/download?export=download&confirm=t&id='
 CACHE = sys.argv[2]; os.makedirs(CACHE, exist_ok=True)
-CH = 8 * 1024 * 1024
+CH = 4 * 1024 * 1024                  # one request per 4 MB piece, each fetched once into the cache
 SIZES = {  # bytes, from Drive metadata
 '16cUKxEfhmHfjwMnMkoGk0Vua9yARSxZ1': 3266769084, '1KM5iucB5wbTGWCC3DDYGlwUaXsi4SjS7': 3126960316,
          '1yZgHVlulT88qSVTklsz-E6dQYJJQnAH8': 3943237940, '1aNlVECq42vY_F9XUuMJeThcaDqXc5eER': 311198600,
@@ -22,6 +24,13 @@ def chunk(fid, i):
         LOG.write(f'{time.time():.0f} bad {fid} {i} got {len(data)}\n'); LOG.flush()
         time.sleep(2 + 2 * attempt)
     raise ConnectionResetError('drive refused ' + fid)
+FUT = {}
+def get(fid, j):
+    with LOCK:                                  # one fetch per piece, however many readers ask
+        f = FUT.get((fid, j))
+        if f is None or (f.done() and f.exception()):
+            f = FUT[(fid, j)] = POOL.submit(chunk, fid, j)
+        return f
 class H(http.server.BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'
     def log_message(self, *a): pass
@@ -42,7 +51,10 @@ class H(http.server.BaseHTTPRequestHandler):
         pos = a
         try:
             while pos <= b:
-                i = pos // CH; data = chunk(fid, i)
+                i = pos // CH
+                last = b // CH
+                ahead = [get(fid, j) for j in range(i, min(i + 2, last + 1))]   # prefetch the next pieces
+                data = ahead[0].result()
                 off = pos - i * CH; part = data[off: off + (b - pos + 1)]
                 self.wfile.write(part); self.wfile.flush(); pos += len(part)
         except (BrokenPipeError, ConnectionResetError):

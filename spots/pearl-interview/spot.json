@@ -37,5 +37,25 @@
     "Pearl's own licence line for the end card",
     "Andrew to approve the question wording",
     "music bed: none yet (optional)"
+  ],
+  "openart_cutaways": [
+    {
+      "name": "cutaway-pearl-oyster-480p",
+      "historyId": "vJCY0ksaRKoJyeQOfPkS",
+      "model": "byte-plus-seedance-2-5 text2video 5 s 480p, picture only",
+      "credits": 300,
+      "use": "over answer 2 from 2.45 s for 3.75 s, covering the internal edit; back to Andrew for 'perfectly imperfect'"
+    },
+    {
+      "name": "cutaway-pearl-strand-480p",
+      "historyId": "Du62TiUzezBkuYH8SfDk",
+      "model": "byte-plus-seedance-2-5 text2video 5 s 480p, picture only",
+      "credits": 300,
+      "use": "over answer 3 from 2.85 s for 3.45 s; back to Andrew for 'very valuable'"
+    }
+  ],
+  "lessons": [
+    "Drive's anonymous download links take byte ranges, but after a few dozen requests from one session Drive answers 'Quota exceeded' (a 2040-byte page) for every file, then allows only smaller and smaller ranges. A fresh copy of the file does not help: the limit is on the session, not the file. Pull narrow windows once, through a cache, and never probe repeatedly.",
+    "ffmpeg cannot reach Drive through the session proxy; drive_relay.py serves the file on localhost and fetches the pieces with curl."
   ]
 }
