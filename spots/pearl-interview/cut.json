@@ -27,7 +27,7 @@
     {
       "kind": "card",
       "card": "card-q1",
-      "dur": 1.4,
+      "dur": 1.3,
       "label": "Q1 card"
     },
     {
@@ -57,7 +57,7 @@
     {
       "kind": "card",
       "card": "card-q2",
-      "dur": 1.4,
+      "dur": 1.3,
       "label": "Q2 card"
     },
     {
@@ -88,7 +88,7 @@
     {
       "kind": "card",
       "card": "card-q3",
-      "dur": 1.4,
+      "dur": 1.3,
       "label": "Q3 card"
     },
     {
@@ -100,7 +100,7 @@
       "parts": [
         [
           948.1,
-          948.95,
+          949.35,
           "wide"
         ],
         [
@@ -116,7 +116,7 @@
       ],
       "cutaway": {
         "file": "clips/cutaway-pearl-strand-480p.mp4",
-        "at": 2.85,
+        "at": 3.25,
         "dur": 3.45,
         "from": 0.4
       }

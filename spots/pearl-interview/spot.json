@@ -2,7 +2,7 @@
   "spot": "pearl-interview",
   "client": "Pearl (Brightday partner), for the Pearl website",
   "format": "founder interview cut, 30 s or less, 1920x1080, 25 fps, web loudness -14 LUFS / -1 dBTP",
-  "status": "mic windows A, B, C in hand (via Composio signed-in Drive download, transcripts match); picture waiting on three short exports from the client",
+  "status": "v2 cut sent for review 2026-10-20: 30.0 s, -14.1 LUFS, -1.4 dBTP, yuv420p, 1080p25, 20 MB",
   "source": {
     "drive_folder": "Brightday Video Files / BD Pearl Interview (1gidbFKx9m6vo0z1ZVPQAaR7nVUw7cTz0)",
     "recorded": "9 October 2026, Pivotal Studio Sol, Melbourne; Andrew Ludekens with an off-camera interviewer",
@@ -15,7 +15,21 @@
       "word_timings": "1SdcbrDIr1gs6X2Uk-uA8gcSTj9rIgPBO"
     },
     "sync": "cameras = switched + 51.17 s; mic = switched + 50.66 s (envelope cross-correlation, 0.75 on the mic); the switched edit's sound is the desk mix",
-    "readme_cautions": "Licensee sign-off (Banyan Securities, AFSL 484139) for any performance, safety or better-than claims (03:47, 05:12, 10:28, 12:32, 13:27, 22:44); unreleased product at 05:43; team names at 10:28; leave out studio chat. None of these are in the cut."
+    "readme_cautions": "Licensee sign-off (Banyan Securities, AFSL 484139) for any performance, safety or better-than claims (03:47, 05:12, 10:28, 12:32, 13:27, 22:44); unreleased product at 05:43; team names at 10:28; leave out studio chat. None of these are in the cut.",
+    "exports": {
+      "how": "client cut A, B, C from the switched edit with ffmpeg -c copy and put them in the Drive folder; pulled through Composio (signed-in Drive) because anonymous Drive links stayed blocked",
+      "drive_ids": {
+        "A": "1zsx_Aceu3Gxew9qceoFZhSeLXtKA0yIk",
+        "B": "1kcW2RKCCEGOVutEbUe9VB9PN4gp7rjDy",
+        "C": "1zg4g5wuDTb1QPfA7Hee5CvI_SGDGbt_C"
+      },
+      "aligned_start_switched_s": {
+        "A": 529.858,
+        "B": 947.599,
+        "C": 1100.399
+      },
+      "mic": "padded mic windows cut in the Composio sandbox from the staged MIC Track 1, aligned by cross-correlation (0.67 to 0.74)"
+    }
   },
   "brand": {
     "logo": "brand/pearl_logo_pws_400.png (1507x493, from brightday.com.au/invest), brand/pearl-logo-on-dark.png (wordmark recoloured white), brand/pearl-logo-site.png (pearlwealth.com.au header)",
@@ -61,5 +75,15 @@
     "ffmpeg cannot reach Drive through the session proxy; drive_relay.py serves the file on localhost and fetches the pieces with curl.",
     "Once throttled, Drive's anonymous budget is only a handful of requests per few hours, so a 90 MB pull cannot finish in one window. Ask for short exports of the needed timecodes instead.",
     "Composio's GOOGLEDRIVE_DOWNLOAD_FILE (signed in) staged the 311 MB mic WAV in 19 s, but times out (HTTP 504 after 240 s) on the 3.9 GB video; its proxy returns no binary, so signed-in byte ranges are not available that way."
+  ],
+  "rounds": [
+    {
+      "v": 1,
+      "note": "first build; 'I often think about' clipped to 'think ab' at the edit"
+    },
+    {
+      "v": 2,
+      "note": "edit moved to the pause after 'about'; question cards 1.3 s; web encode CRF 20 capped 12 Mb/s; 30.0 s; transcript matches the paper edit word for word"
+    }
   ]
 }

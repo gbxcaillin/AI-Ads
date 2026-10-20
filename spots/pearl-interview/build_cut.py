@@ -126,7 +126,7 @@ os.makedirs(f'{D}/out', exist_ok=True)
 out = f'{D}/out/pearl-interview-v{VER}.mp4'
 ln = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={js['input_i']}:measured_TP={js['input_tp']}:"
       f"measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}:offset={js['target_offset']}:linear=true")
-run([FF, '-y', '-i', raw, '-af', f'{ln},aresample={SR}', '-c:v', 'libx264', '-preset', 'slow', '-crf', '17',
+run([FF, '-y', '-i', raw, '-af', f'{ln},aresample={SR}', '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-maxrate', '12M', '-bufsize', '24M',
      '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '256k', '-movflags', '+faststart', out])
 m2 = run([FF, '-i', out, '-af', 'loudnorm=I=-14:TP=-1.5:print_format=json', '-f', 'null', '-'])
 j2 = json.loads(m2[m2.rindex('{'):m2.rindex('}') + 1])
