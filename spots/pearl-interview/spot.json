@@ -2,7 +2,7 @@
   "spot": "pearl-interview",
   "client": "Pearl (Brightday partner), for the Pearl website",
   "format": "founder interview cut, 30 s or less, 1920x1080, 25 fps, web loudness -14 LUFS / -1 dBTP",
-  "status": "v3 sent 2026-10-20: cutaways removed at client request; 30.0 s, -14.1 LUFS, -1.4 dBTP, 1080p25",
+  "status": "v4 sent 2026-10-20: 29.9 s, -14.1 LUFS, -1.4 dBTP, 1080p25",
   "source": {
     "drive_folder": "Brightday Video Files / BD Pearl Interview (1gidbFKx9m6vo0z1ZVPQAaR7nVUw7cTz0)",
     "recorded": "9 October 2026, Pivotal Studio Sol, Melbourne; Andrew Ludekens with an off-camera interviewer",
@@ -75,7 +75,8 @@
     "ffmpeg cannot reach Drive through the session proxy; drive_relay.py serves the file on localhost and fetches the pieces with curl.",
     "Once throttled, Drive's anonymous budget is only a handful of requests per few hours, so a 90 MB pull cannot finish in one window. Ask for short exports of the needed timecodes instead.",
     "Composio's GOOGLEDRIVE_DOWNLOAD_FILE (signed in) staged the 311 MB mic WAV in 19 s, but times out (HTTP 504 after 240 s) on the 3.9 GB video; its proxy returns no binary, so signed-in byte ranges are not available that way.",
-    "Client rejected generated cutaways in a real founder interview (they read as AI next to real footage). For interview pieces, cover edits with framing changes or real B-roll only."
+    "Client rejected generated cutaways in a real founder interview (they read as AI next to real footage). For interview pieces, cover edits with framing changes or real B-roll only.",
+    "Pivotal's and Whisper's word end times run early; set an out point from the audio envelope (the dip before the next word), not from the word timings."
   ],
   "rounds": [
     {
@@ -89,6 +90,10 @@
     {
       "v": 3,
       "note": "client: the AI pearl cutaways look bad, remove them. Removed; internal edits hidden by the wide/punch-in alternation only."
+    },
+    {
+      "v": 4,
+      "note": "client: 'organic' cut off a half beat early. Edit moved from 1103.45 to 1103.57 (the gap before 'It's' at 1103.60, read off the mic envelope) and 0.24 s of natural pause kept before 'It grows'; end card 2.0 s."
     }
   ]
 }
