@@ -65,7 +65,6 @@
       "label": "Why Pearl",
       "framing": "wide, punch-in",
       "says": "I love the idea of the pearl being somewhat organic. ... It grows over time. It's not perfect, but it's sort of perfectly imperfect.",
-      "broll": "a single pearl turning slowly in soft light",
       "parts": [
         [
           1100.85,
@@ -77,13 +76,7 @@
           1111.0,
           "punch-in"
         ]
-      ],
-      "cutaway": {
-        "file": "clips/cutaway-pearl-oyster-480p.mp4",
-        "at": 2.45,
-        "dur": 3.75,
-        "from": 0.4
-      }
+      ]
     },
     {
       "kind": "card",
@@ -96,7 +89,6 @@
       "label": "A string of pearls",
       "framing": "wide, punch-in, wide",
       "says": "I often think about investing as being a string of pearls. ... After a few years, you can look back at that string of pearls, and it's something that's very valuable.",
-      "broll": "a string of pearls drawn slowly across dark velvet",
       "parts": [
         [
           948.1,
@@ -113,13 +105,7 @@
           964.1,
           "wide"
         ]
-      ],
-      "cutaway": {
-        "file": "clips/cutaway-pearl-strand-480p.mp4",
-        "at": 3.25,
-        "dur": 3.45,
-        "from": 0.4
-      }
+      ]
     },
     {
       "kind": "end",
